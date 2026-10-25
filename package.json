@@ -8,7 +8,7 @@
   "scripts": {
     "build:render": "vite build --config vite.render.config.mjs && node render/build.mjs",
     "start:render": "node render/server.mjs",
-    "test": "node scripts/order-flow-test.mjs && node scripts/wash-chat-test.mjs"
+    "test": "node scripts/order-flow-test.mjs && node scripts/wash-chat-test.mjs && node scripts/render-config-test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -24,6 +24,7 @@
     "lucide-react": "^1.31.0",
     "next": "16.3.4",
     "next-themes": "^0.4.6",
+    "pg": "^8.23.1",
     "radix-ui": "^1.6.7",
     "react": "19.2.6",
     "react-day-picker": "^10.0.1",
@@ -39,6 +40,7 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.37.1",
     "@cloudflare/workers-types": "4.20260515.1",
+    "@electric-sql/pglite": "^0.5.11",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",

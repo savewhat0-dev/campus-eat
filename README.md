@@ -1,39 +1,42 @@
-# Campus Eats upload guide
+# Campus Eats final Render upload package
 
-Upload every file and folder in this directory to the ROOT of your GitHub repository. Preserve folders; do not flatten files into one directory. Upload the extracted contents, not the ZIP. package.json and render.yaml must appear immediately on the repository homepage.
+This replaces the previous SQLite upload package. Start with DEPLOY-RENDER.md for the exact steps and environment settings. Upload every extracted file and folder to your GitHub repository ROOT, preserving the folder structure. Do not upload the ZIP itself. This package contains no credentials or customer records.
 
-This folder contains only the standalone Render application. The Chef assistant is included. No account credentials or database records are included. The current render.yaml uses a PAID Starter instance and persistent disk. A free external database is not connected yet.
-
-| File / folder | Purpose |
+| Path | Purpose |
 | --- | --- |
+| package.json | Dependencies, build, start and test commands |
+| package-lock.json | Locked dependencies for npm ci |
 | index.html | Browser entry page |
-| package.json | Dependencies and build/start/test commands |
-| package-lock.json | Exact dependency versions; required for npm ci |
-| vite.render.config.mjs | Frontend production build configuration |
-| postcss.config.mjs | CSS processing |
-| render.yaml | Render hosting, environment and persistent disk configuration |
-| app/page.tsx | Customer home, menus, login, cart and orders |
-| app/globals.css | All website layout and styling |
-| components/retailer-workspace.tsx | Retailer orders and accept/deny controls |
-| components/wash-chat.tsx | Chef assistant interface; historical filename retained |
-| lib/api.ts | Server authentication, OTP and order APIs |
-| lib/catalog.ts | Outlet catalogue and menu prices |
-| lib/order-flow.ts | Validation and allowed order status changes |
-| lib/wash-chat.ts | Chef food matching logic |
-| render/client.tsx | Starts React in the browser |
-| render/build.mjs | Builds the standalone backend |
-| render/env.mjs | Connects environment variables to the backend |
-| render/database.mjs | SQLite adapter and automatic migrations |
-| render/server.mjs | Node HTTP server, API and static file hosting |
-| drizzle/*.sql | Required database table migrations |
-| public/favicon.svg | Browser tab icon |
-| public/assets/* | Images used by the website and supplied menu references |
-| scripts/provision-retailers.mjs | Generates the five retailer password hashes |
-| scripts/order-flow-test.mjs | Authentication and order lifecycle tests |
-| scripts/wash-chat-test.mjs | Chef food search tests |
-| DEPLOY-RENDER.md | Hosting and secure environment setup instructions |
-| .gitignore | Prevents local dependencies, secrets and database files being committed |
-| FILES.csv | Exact upload inventory with byte sizes |
-| README.md | This guide |
+| vite.render.config.mjs | React frontend build |
+| postcss.config.mjs | CSS processor configuration |
+| render.yaml | Free Render web service; no disk; DATABASE_URL supplied as secret |
+| app/page.tsx | Customer menus, authentication, cart and orders |
+| app/globals.css | Website styles |
+| components/retailer-workspace.tsx | Outlet-scoped retailer orders and status actions |
+| components/wash-chat.tsx | Chef food assistant UI (historical filename) |
+| lib/catalog.ts | Menus, prices and outlets |
+| lib/order-flow.ts | Customer validation and order transitions |
+| lib/wash-chat.ts | Chef catalogue matching |
+| lib/api.ts | OTP, sessions, profile, order and retailer APIs |
+| render/client.tsx | Mounts the React application |
+| render/build.mjs | Bundles the backend API |
+| render/env.mjs | Supplies backend environment bindings |
+| render/server.mjs | Starts Node server and PostgreSQL initialization |
+| render/postgres.mjs | Parameterized queries, connection pool and transactional migrations |
+| render/migrations/0001_initial.sql | PostgreSQL schema for all app tables |
+| render/README.md | Backend and verification notes |
+| drizzle/*.sql | Original SQLite schema, retained for regression tests only |
+| scripts/provision-retailers.mjs | Generates salted hashes for five retailer accounts |
+| scripts/order-flow-test.mjs | Full authentication and order lifecycle tests |
+| scripts/postgres-test-db.mjs | Embedded PostgreSQL test fixture |
+| scripts/wash-chat-test.mjs | Food search tests |
+| public/favicon.svg | Browser icon |
+| public/assets/* | Website images and reference menu photos |
+| DEPLOY-RENDER.md | Step-by-step deployment, secrets and verification |
+| .gitignore | Excludes secrets, local database files and generated output |
+| FILES.csv | Upload inventory and file sizes |
+| README.md | This file guide |
 
-GitHub upload: repository > Add file > Upload files. Drag all the files AND folders from this directory into the upload area, then Commit changes. If you already uploaded part of the old package, use a new empty repository for this clean package so old conflicting configuration is not retained.
+Render Free Postgres expires after 30 days. This package removes the paid disk requirement but does not remove hosting provider limits. Existing ChatGPT-site orders are not transferred automatically. Real email delivery still requires your verified sender secrets.
+
+New files: render/config.mjs automatically selects and validates the Render URL; scripts/setup-retailers.ps1 privately prompts for retailer passwords and copies hashes; scripts/render-config-test.mjs verifies automatic URL and custom-domain settings. Follow DEPLOY-RENDER.md for the complete field-by-field setup, including Datadog, project, PostgreSQL version and environment variables.

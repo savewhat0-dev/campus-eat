@@ -2,7 +2,7 @@ services:
   - type: web
     name: campus-eats-bmu
     runtime: node
-    plan: starter
+    plan: free
     region: singapore
     buildCommand: npm ci --include=dev && npm run build:render
     startCommand: npm run start:render
@@ -12,9 +12,7 @@ services:
         value: 24.21.0
       - key: NODE_ENV
         value: production
-      - key: DATABASE_PATH
-        value: /var/data/campus.sqlite
-      - key: PUBLIC_ORIGIN
+      - key: DATABASE_URL
         sync: false
       - key: RESEND_API_KEY
         sync: false
@@ -22,7 +20,3 @@ services:
         sync: false
       - key: RETAILER_ACCOUNTS
         sync: false
-    disk:
-      name: campus-orders
-      mountPath: /var/data
-      sizeGB: 1
