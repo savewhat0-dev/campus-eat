@@ -5,9 +5,13 @@ import { pbkdf2Sync,createHash } from 'node:crypto';
 import { build } from 'esbuild';
 import { validUniversityEmail,nextOrderStatus,validateCustomerDetails } from '../lib/order-flow.ts';
 import { menu } from '../lib/catalog.ts';
-const sqlite=new DatabaseSync(':memory:');
-for(const f of ['0000_thin_earthquake.sql','0001_thick_saracen.sql'])sqlite.exec(readFileSync(new URL('../drizzle/'+f,import.meta.url),'utf8').replaceAll('--> statement-breakpoint',''));
-const database={prepare(sql){let args=[];return {bind(...values){args=values;return this;},async first(){return sqlite.prepare(sql).get(...args)||null;},async all(){return {results:sqlite.prepare(sql).all(...args)};},async run(){return sqlite.prepare(sql).run(...args);}};}};
+let sqlite,database;
+if(process.env.TEST_POSTGRES==='1')({sqlite,db:database}=await (await import('./postgres-test-db.mjs')).testDatabase());
+else{
+ sqlite=new DatabaseSync(':memory:');
+ for(const f of ['0000_thin_earthquake.sql','0001_thick_saracen.sql'])sqlite.exec(readFileSync(new URL('../drizzle/'+f,import.meta.url),'utf8').replaceAll('--> statement-breakpoint',''));
+ database={prepare(sql){let args=[];return {bind(...values){args=values;return this;},async first(){return sqlite.prepare(sql).get(...args)||null;},async all(){return {results:sqlite.prepare(sql).all(...args)};},async run(){return sqlite.prepare(sql).run(...args);}};}};
+}
 const ids=['kathi','greenox','cafe','burger','dominos'];const password='Test-only-password-2026';
 const accounts=ids.map(outlet=>({username:'test-'+outlet,outlet,salt:'test-salt-'+outlet,hash:pbkdf2Sync(password,'test-salt-'+outlet,100000,32,'sha256').toString('hex')}));
 globalThis.__testEnv={DB:database,RESEND_API_KEY:'test-only-provider-stub',EMAIL_FROM:'test@verified.example',RETAILER_ACCOUNTS:JSON.stringify(accounts)};
@@ -24,7 +28,7 @@ try{
  const dotted='rishabh.rishabh.kaktan.25bb@bmu.edu.in';
  assert.equal((await call('auth/send','POST',{email:'person@gmail.com'})).status,400);
  let r=await call('auth/send','POST',{email:dotted});assert.equal(r.status,200);assert.equal(delivered.length,1);assert.deepEqual(delivered[0].to,[dotted]);const otp=delivered[0].text.match(/code is (\d{6})/)[1];
- const challenge=sqlite.prepare('SELECT hash FROM challenges WHERE email=?').get(dotted);assert.ok(!challenge.hash.includes(otp));
+ const challenge=await sqlite.prepare('SELECT hash FROM challenges WHERE email=?').get(dotted);assert.ok(!challenge.hash.includes(otp));
  assert.equal((await call('auth/send','POST',{email:dotted})).status,429);
  assert.equal((await call('auth/verify','POST',{email:dotted,code:otp==='000000'?'111111':'000000'})).status,400);
  r=await call('auth/verify','POST',{email:dotted,code:otp});assert.equal(r.status,200);const customer=r.cookie;assert.ok(customer);assert.equal((await call('auth/verify','POST',{email:dotted,code:otp})).status,400);
@@ -46,7 +50,7 @@ try{
  const customerOrders=(await call('orders','GET',undefined,customer)).data.orders;assert.equal(customerOrders.find(o=>o.id===second.id).decisionNote,'Paneer rolls sold out');assert.equal(customerOrders.find(o=>o.id===second.id).status,'Denied');
  assert.equal((await call('orders','GET',undefined,otherRetailer)).data.orders.length,0);
  // Expired codes cannot be used.
- await call('auth/send','POST',{email:'expiry.test@bmu.edu.in'});const expCode=delivered.at(-1).text.match(/code is (\d{6})/)[1];sqlite.prepare('UPDATE challenges SET expires=0 WHERE email=?').run('expiry.test@bmu.edu.in');assert.equal((await call('auth/verify','POST',{email:'expiry.test@bmu.edu.in',code:expCode})).status,400);
+ await call('auth/send','POST',{email:'expiry.test@bmu.edu.in'});const expCode=delivered.at(-1).text.match(/code is (\d{6})/)[1];await sqlite.prepare('UPDATE challenges SET expires=0 WHERE email=?').run('expiry.test@bmu.edu.in');assert.equal((await call('auth/verify','POST',{email:'expiry.test@bmu.edu.in',code:expCode})).status,400);
  delete globalThis.__testEnv.RESEND_API_KEY;assert.equal((await call('auth/send','POST',{email:'missing.sender@bmu.edu.in'})).status,503);
  console.log('PASS: dotted email send/verify using a stub provider, wrong/expired/reused OTP rejection, five retailer logins, customer details, server-priced idempotent orders, outlet isolation, accept/deny reasons, customer-visible updates, and complete pickup lifecycle. No real emails sent.');
-}finally{globalThis.fetch=actualFetch;sqlite.close();}
+}finally{globalThis.fetch=actualFetch;await sqlite.close();}

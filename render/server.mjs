@@ -1,17 +1,17 @@
 import {createServer} from 'node:http';
 import {readFile,stat} from 'node:fs/promises';
 import {resolve,extname,sep} from 'node:path';
-import {openDatabase} from './database.mjs';
-if(process.env.RENDER&&!process.env.PUBLIC_ORIGIN)throw Error('Set PUBLIC_ORIGIN to your HTTPS Render URL');
-if(process.env.RENDER&&!process.env.DATABASE_PATH?.startsWith('/var/data/'))throw Error('Persistent DATABASE_PATH under /var/data is required');
-const db=openDatabase(process.env.DATABASE_PATH||'storage/campus.sqlite');
+import {openPostgres} from './postgres.mjs';
+import {publicOrigin} from './config.mjs';
+const origin=publicOrigin();
+
+const db=await openPostgres(process.env.DATABASE_URL);
 globalThis.__campusRuntime={DB:db,RESEND_API_KEY:process.env.RESEND_API_KEY,EMAIL_FROM:process.env.EMAIL_FROM,RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS};
 const {handle}=await import('../dist-render/api.mjs');
 const root=resolve('dist-render/public');
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.ico':'image/x-icon','.woff2':'font/woff2'};
 const server=createServer(async(req,res)=>{
  try{
-  const origin=process.env.PUBLIC_ORIGIN||`http://localhost:${process.env.PORT||3000}`;
   const url=new URL(req.url,origin);
   if(url.pathname==='/healthz'){await db.prepare('SELECT 1').first();res.writeHead(200,{'Content-Type':'application/json'});res.end('{"ok":true}');return;}
   if(url.pathname.startsWith('/api/campus/')){
@@ -28,5 +28,5 @@ const server=createServer(async(req,res)=>{
  }catch{res.writeHead(500,{'Content-Type':'application/json'});res.end('{"error":"Request could not be processed."}');}
 });
 server.requestTimeout=15000;server.headersTimeout=10000;
-server.listen(Number(process.env.PORT||3000),'0.0.0.0',()=>console.log('Campus Eats server ready'));
-for(const signal of ['SIGTERM','SIGINT'])process.on(signal,()=>server.close(()=>{db.close();process.exit(0);}));
+server.listen(Number(process.env.PORT||3000),'0.0.0.0',()=>console.log('Campus Eats PostgreSQL server ready (postgres-v2)'));
+for(const signal of ['SIGTERM','SIGINT'])process.on(signal,()=>server.close(async()=>{await db.close();process.exit(0);}));
