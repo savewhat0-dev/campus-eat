@@ -28,5 +28,5 @@ const server=createServer(async(req,res)=>{
  }catch{res.writeHead(500,{'Content-Type':'application/json'});res.end('{"error":"Request could not be processed."}');}
 });
 server.requestTimeout=15000;server.headersTimeout=10000;
-server.listen(Number(process.env.PORT||3000),'0.0.0.0',()=>console.log('Campus Eats server ready'));
+server.listen(Number(process.env.PORT||3000),'0.0.0.0',()=>console.log('Campus Eats PostgreSQL server ready (postgres-v2)'));
 for(const signal of ['SIGTERM','SIGINT'])process.on(signal,()=>server.close(async()=>{await db.close();process.exit(0);}));
