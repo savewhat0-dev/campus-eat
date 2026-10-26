@@ -1,3 +1,4 @@
+param([switch]$SaveToFile)
 $ErrorActionPreference = 'Stop'
 if(-not(Get-Command node -ErrorAction SilentlyContinue)){throw 'Install Node.js 24 first, then reopen PowerShell.'}
 $accounts=@()
@@ -48,5 +49,17 @@ try{
  Set-Clipboard -Value ([string]$result)
  Write-Host 'Usernames for this setup (save the passwords you entered separately):'
  foreach($account in $accounts){Write-Host ('{0}: {1}' -f $account.outlet,$account.username)}
- Write-Host 'Hashed configuration copied to your clipboard. Paste it into Render RETAILER_ACCOUNTS, save, then clear your clipboard. Passwords were not written to a file or displayed.'
+ if($SaveToFile){
+  $configDirectory=Join-Path $env:LOCALAPPDATA 'CampusEats'
+  [void][IO.Directory]::CreateDirectory($configDirectory)
+  $configPath=Join-Path $configDirectory 'retailer-accounts.private.json'
+  [IO.File]::WriteAllText($configPath,[string]$result,[Text.UTF8Encoding]::new($false))
+  Write-Host ('Your Render configuration is saved at: '+$configPath)
+  Write-Host 'Notepad will open it. Press Ctrl+A, then Ctrl+C. Paste the complete text into the RETAILER_ACCOUNTS value in Render.'
+  Write-Host 'This file contains password hashes. Keep it private and do not upload it to GitHub.'
+  Start-Process -FilePath 'notepad.exe' -ArgumentList ('"{0}"' -f $configPath)
+ }else{
+  Write-Host 'Hashed configuration copied to your clipboard. Paste it into Render RETAILER_ACCOUNTS, save, then clear your clipboard. Passwords were not written to a file or displayed.'
+  Write-Host 'To open the generated configuration in Notepad instead, run this script with -SaveToFile.'
+ }
 }finally{if($process){$process.Dispose()};$accounts=$null;$json=$null;$result=$null;$errorCode=$null;$safeError=$null}
