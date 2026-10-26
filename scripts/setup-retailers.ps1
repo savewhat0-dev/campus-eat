@@ -46,5 +46,7 @@ try{
  }
  $null=$result | ConvertFrom-Json
  Set-Clipboard -Value ([string]$result)
+ Write-Host 'Usernames for this setup (save the passwords you entered separately):'
+ foreach($account in $accounts){Write-Host ('{0}: {1}' -f $account.outlet,$account.username)}
  Write-Host 'Hashed configuration copied to your clipboard. Paste it into Render RETAILER_ACCOUNTS, save, then clear your clipboard. Passwords were not written to a file or displayed.'
 }finally{if($process){$process.Dispose()};$accounts=$null;$json=$null;$result=$null;$errorCode=$null;$safeError=$null}

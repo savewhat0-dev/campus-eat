@@ -14,6 +14,7 @@ This replaces the previous SQLite upload package. Start with DEPLOY-RENDER.md fo
 | app/globals.css | Website styles |
 | components/retailer-workspace.tsx | Outlet-scoped retailer orders and status actions |
 | components/wash-chat.tsx | Chef food assistant UI (historical filename) |
+| components/menu-food.tsx | Food-specific image selection shared by menus and Chef results |
 | lib/catalog.ts | Menus, prices and outlets |
 | lib/order-flow.ts | Customer validation and order transitions |
 | lib/wash-chat.ts | Chef catalogue matching |

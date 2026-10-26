@@ -31,3 +31,31 @@
 
 .menu-food-photo{position:absolute;inset:0;display:block;border-radius:9px;background-repeat:no-repeat;background-size:400% 400%;background-color:#f4f0e7}.auth-config-note{margin-top:12px}
 
+/* Keep the complete sign-in dialog reachable on short and mobile screens. */
+.overlay{overflow-y:auto;overscroll-behavior:contain}
+.auth-modal{min-height:0;max-height:calc(100dvh - 32px)}
+.auth-form{min-height:0;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c5d4b8 transparent}
+@media(max-width:760px){
+ .overlay:not(.drawer-overlay){align-items:flex-start;justify-content:center;overflow-y:auto;padding:12px 12px max(18px,env(safe-area-inset-bottom))}
+ .auth-modal{display:block;width:min(430px,100%);max-height:calc(100dvh - 24px);min-height:0;overflow:hidden}
+ .auth-form{max-height:calc(100dvh - 24px);overflow-y:auto;padding:30px 24px max(24px,env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch}
+}
+
+/* Chef results show a matching menu photo beside the item and its outlet. */
+.wash-result{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;padding:11px}
+.wash-result-visual{position:relative;width:64px;height:64px;overflow:hidden;border:1px solid #e7eadf;border-radius:8px;background:#f4f0e7}
+.wash-result-visual>.menu-food-photo{border-radius:7px}
+.wash-result-visual>.diet{position:absolute;right:5px;top:5px;width:12px;height:12px;background:#fffdf2e8;z-index:1}
+.wash-result-info{min-width:0}
+.wash-result-top{display:flex;gap:7px;align-items:flex-start}
+.wash-result-top h4{flex:1;min-width:0}
+.wash-result-info .wash-outlet{justify-content:space-between;align-items:flex-end;gap:5px;margin-top:8px}
+.wash-outlet>span:first-child{display:grid;gap:2px}
+.wash-outlet>span:first-child small{font-size:7px;letter-spacing:.9px;color:#a1aa94}
+.wash-outlet>span:first-child b{font-size:10px;color:#426b38;font-weight:700}
+.wash-result-actions{grid-column:1/-1;margin-top:0}
+.outlet-cover{isolation:isolate}
+.outlet-cover:after{content:"";position:absolute;inset:35% 0 0;z-index:0;background:linear-gradient(0deg,#101d17c9,transparent);pointer-events:none}
+.outlet-label{z-index:1;font-size:9px;letter-spacing:1.1px;text-shadow:0 1px 5px #0008}
+@media(max-width:760px){.wash-result{grid-template-columns:54px minmax(0,1fr);gap:8px}.wash-result-visual{width:54px;height:54px}.wash-result-actions{grid-column:1/-1}.outlet-label{font-size:7px;letter-spacing:.8px}}
+
