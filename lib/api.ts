@@ -14,10 +14,11 @@ function clientAddress(req:Request){return (req.headers.get('cf-connecting-ip')|
 async function takeRateLimit(key:string,limit:number,windowMs:number){const now=Date.now();await db().prepare("DELETE FROM challenges WHERE email LIKE 'rl:%' AND expires<=?").bind(now).run();const row=await db().prepare('INSERT INTO challenges (email,hash,expires,sent,attempts) VALUES (?,\'\',?,?,1) ON CONFLICT(email) DO UPDATE SET attempts=CASE WHEN challenges.expires<=? THEN 1 ELSE challenges.attempts+1 END,expires=CASE WHEN challenges.expires<=? THEN excluded.expires ELSE challenges.expires END,sent=excluded.sent RETURNING attempts').bind(key,now+windowMs,now,now,now).first<any>();return Number(row?.attempts||0)<=limit;}
 function senderAddress(value:string){const match=value.match(/<([^<>]+)>/);return (match?.[1]||value).trim().toLowerCase();}
 function emailConfigurationReady(){const from=String(env.EMAIL_FROM||'').trim(),address=senderAddress(from),port=Number(env.SMTP_PORT||587);return !!(from&&!/[\r\n]/.test(from)&&/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(address)&&env.SMTP_HOST&&Number.isInteger(port)&&port>0&&port<65536&&env.SMTP_USER&&env.SMTP_PASS&&typeof env.sendEmail==='function');}
-async function sendVerificationEmail(to:string,code:string){
+async function sendSignInLink(to:string,link:string){
  if(typeof env.sendEmail!=='function')throw Object.assign(new Error('SMTP transport is not configured'),{emailCode:'smtp_not_configured'});
- const body=`Your Campus Eats verification code is ${code}. It expires in 10 minutes. Never share this code. If you did not request it, ignore this email.`;
- await env.sendEmail({from:String(env.EMAIL_FROM).trim(),to,subject:'Your Campus Eats verification code',text:body});
+ const body=`Sign in to Campus Eats by opening this one-time link:\n\n${link}\n\nThis link expires in 15 minutes and can be used once. If you did not request it, you can ignore this email.`;
+ const html=`<div style="font-family:Arial,sans-serif;max-width:560px;margin:auto;color:#18372a"><h1>Sign in to Campus Eats</h1><p>Click below to verify your university email and sign in.</p><p><a href="${link}" style="display:inline-block;background:#176446;color:#fff;padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:bold">Verify email and sign in</a></p><p>This one-time link expires in 15 minutes.</p><p>If the button does not work, copy this link into your browser:<br><a href="${link}">${link}</a></p><small>If you did not request this link, ignore this email.</small></div>`;
+ await env.sendEmail({from:String(env.EMAIL_FROM).trim(),to,subject:'Your Campus Eats sign-in link',text:body,html});
 }
 async function session(req:Request){const token=req.headers.get('cookie')?.match(/(?:^|; )campus_session=([^;]+)/)?.[1];if(!token)return null;return await db().prepare('SELECT * FROM sessions WHERE token=? AND expires>?').bind(await hash(token),Date.now()).first<any>();}
 async function getProfile(subject:string){const p=await db().prepare('SELECT details FROM profiles WHERE email=?').bind(subject).first<any>();return p?JSON.parse(p.details):null;}
@@ -33,19 +34,19 @@ export async function handle(req:Request,path:string[]){try{
  if(route==='auth/send'&&method==='POST'){
   const {email:raw}=await req.json() as any;const email=String(raw||'').toLowerCase().trim();if(!emailValid(email))return json({error:'Use your university email ending in @bmu.edu.in.'},400);
   if(!emailConfigurationReady())return json({error:'Email sign-in is not configured. Add SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS and EMAIL_FROM to the Render service environment.'},503);
-  const ipKey=`rl:send:ip:${await hash(clientAddress(req))}`;const emailKey=`rl:send:email:${await hash(email)}`;if(!await takeRateLimit(ipKey,30,3600000)||!await takeRateLimit(emailKey,6,3600000))return json({error:'Too many code requests. Try again later.'},429);
-  const old=await db().prepare('SELECT sent FROM challenges WHERE email=?').bind(email).first<any>();if(old&&Date.now()-old.sent<60000)return json({error:'Please wait 60 seconds before requesting another code.'},429);
-  const salt=randomToken();const values=new Uint32Array(1);let n;do{crypto.getRandomValues(values);n=values[0];}while(n>=4294000000);const code=String(n%1000000).padStart(6,'0');
-  await db().prepare('INSERT INTO challenges (email,hash,expires,sent,attempts) VALUES (?,?,?,?,0) ON CONFLICT(email) DO UPDATE SET hash=excluded.hash,expires=excluded.expires,sent=excluded.sent,attempts=0').bind(email,salt+':'+await hash(salt+code),Date.now()+600000,Date.now()).run();
-  try{await sendVerificationEmail(email,code);return json({sent:true});}
-  catch(error:any){await db().prepare('DELETE FROM challenges WHERE email=?').bind(email).run();const code=typeof error?.code==='string'?error.code:typeof error?.emailCode==='string'?error.emailCode:error instanceof Error?error.name:'unknown';console.error('[auth/send] SMTP delivery failed',{code,responseCode:Number.isInteger(error?.responseCode)?error.responseCode:undefined});return json({error:`Could not deliver the verification email (${code}). Check SMTP host, port, credentials and Render network rules.`},502);}
+  const ipKey=`rl:send:ip:${await hash(clientAddress(req))}`;const emailKey=`rl:send:email:${await hash(email)}`;if(!await takeRateLimit(ipKey,30,3600000)||!await takeRateLimit(emailKey,6,3600000))return json({error:'Too many sign-in link requests. Try again later.'},429);
+  const old=await db().prepare('SELECT sent FROM challenges WHERE email=?').bind(email).first<any>();if(old&&Date.now()-old.sent<60000)return json({error:'Please wait 60 seconds before requesting another link.'},429);
+  const token=randomToken();
+  await db().prepare('INSERT INTO challenges (email,hash,expires,sent,attempts) VALUES (?,?,?,?,0) ON CONFLICT(email) DO UPDATE SET hash=excluded.hash,expires=excluded.expires,sent=excluded.sent,attempts=0').bind(email,await hash(token),Date.now()+900000,Date.now()).run();
+  const link=`${new URL(req.url).origin}/#verify=${encodeURIComponent(token)}`;
+  try{await sendSignInLink(email,link);return json({sent:true});}
+  catch(error:any){await db().prepare('DELETE FROM challenges WHERE email=?').bind(email).run();const code=typeof error?.code==='string'?error.code:typeof error?.emailCode==='string'?error.emailCode:error instanceof Error?error.name:'unknown';console.error('[auth/send] email delivery failed',{code,responseCode:Number.isInteger(error?.responseCode)?error.responseCode:undefined});return json({error:`Could not deliver the sign-in link (${code}). Check the email sender, credentials and Render network rules.`},502);}
  }
- if(route==='auth/verify'&&method==='POST'){
-  const b=await req.json() as any;const email=String(b.email||'').toLowerCase().trim();if(!emailValid(email)||!/^\d{6}$/.test(b.code))return json({error:'Enter your university email and six-digit code.'},400);
-  if(!await takeRateLimit(`rl:verify:ip:${await hash(clientAddress(req))}`,20,3600000))return json({error:'Too many verification attempts. Try again later.'},429);
-  const c=await db().prepare('SELECT * FROM challenges WHERE email=?').bind(email).first<any>();if(!c||c.expires<Date.now()||c.attempts>=5)return json({error:'Code expired or too many attempts. Request a new code.'},400);
-  const [salt,digest]=c.hash.split(':');const used=await db().prepare('UPDATE challenges SET attempts=attempts+1 WHERE email=? AND hash=? AND attempts<5 RETURNING attempts').bind(email,c.hash).first();if(!used||!equal(await hash(salt+b.code),digest))return json({error:'Incorrect code. Please try again.'},400);
-  const consumed=await db().prepare('DELETE FROM challenges WHERE email=? AND hash=? RETURNING email').bind(email,c.hash).first();if(!consumed)return json({error:'This code has already been used.'},400);return makeSession(email,'customer',null,req);
+ if(route==='auth/verify-link'&&method==='POST'){
+  const b=await req.json() as any;const token=String(b.token||'');if(!/^[\da-f-]{64,80}$/i.test(token))return json({error:'This sign-in link is invalid. Request a new one.'},400);
+  if(!await takeRateLimit(`rl:verify:ip:${await hash(clientAddress(req))}`,20,3600000))return json({error:'Too many sign-in attempts. Try again later.'},429);
+  const tokenHash=await hash(token);const row=await db().prepare('SELECT email FROM challenges WHERE hash=? AND expires>? AND email NOT LIKE ?').bind(tokenHash,Date.now(),'rl:%').first<any>();if(!row||!emailValid(row.email))return json({error:'This sign-in link has expired or was already used. Request a new one.'},400);
+  const consumed=await db().prepare('DELETE FROM challenges WHERE hash=? AND expires>? RETURNING email').bind(tokenHash,Date.now()).first<any>();if(!consumed)return json({error:'This sign-in link has expired or was already used. Request a new one.'},400);return makeSession(consumed.email,'customer',null,req);
  }
  if(route==='auth/retailer'&&method==='POST'){
   if(!retailerConfigurationReady())return json({error:'Retailer sign-in is not configured correctly. Recreate the five hashed accounts and save the full JSON in Render RETAILER_ACCOUNTS.'},503);

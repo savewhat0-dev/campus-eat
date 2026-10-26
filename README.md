@@ -18,7 +18,7 @@ This replaces the previous SQLite upload package. Start with DEPLOY-RENDER.md fo
 | lib/catalog.ts | Menus, prices and outlets |
 | lib/order-flow.ts | Customer validation and order transitions |
 | lib/wash-chat.ts | Chef catalogue matching |
-| lib/api.ts | OTP, sessions, profile, order and retailer APIs |
+| lib/api.ts | Email-link sign-in, sessions, profile, order and retailer APIs |
 | render/client.tsx | Mounts the React application |
 | render/build.mjs | Bundles the backend API |
 | render/env.mjs | Supplies backend environment bindings |
@@ -38,6 +38,6 @@ This replaces the previous SQLite upload package. Start with DEPLOY-RENDER.md fo
 | FILES.csv | Upload inventory and file sizes |
 | README.md | This file guide |
 
-Render Free Postgres expires after 30 days. This package removes the paid disk requirement but does not remove hosting provider limits. Existing ChatGPT-site orders are not transferred automatically. The app generates and validates one-time codes itself; email delivery uses standard SMTP settings (no Google OAuth or Gmail API). See DEPLOY-RENDER.md for setup and Render SMTP port limits.
+Render Free Postgres expires after 30 days. This package removes the paid disk requirement but does not remove hosting provider limits. Existing ChatGPT-site orders are not transferred automatically. The app generates and validates one-time sign-in links itself; email delivery uses standard SMTP settings (no Google OAuth or Gmail API). See DEPLOY-RENDER.md for setup and Render SMTP port limits.
 
 New files: render/config.mjs automatically selects and validates the Render URL; scripts/setup-retailers.ps1 privately prompts for retailer passwords and copies hashes; scripts/render-config-test.mjs verifies automatic URL and custom-domain settings. Follow DEPLOY-RENDER.md for the complete field-by-field setup, including Datadog, project, PostgreSQL version and environment variables.

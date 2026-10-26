@@ -26,11 +26,11 @@ try{
  assert.equal(nextOrderStatus('retailer','Pending','Accepted'),'Accepted');assert.equal(nextOrderStatus('retailer','Pending','Denied'),'Denied');assert.equal(nextOrderStatus('customer','Pending','Accepted'),null);
  const dotted='rishabh.rishabh.kaktan.25bb@bmu.edu.in';
  assert.equal((await call('auth/send','POST',{email:'person@gmail.com'})).status,400);
- let r=await call('auth/send','POST',{email:dotted});assert.equal(r.status,200);assert.equal(delivered.length,1);assert.deepEqual(delivered[0].to,[dotted]);const otp=delivered[0].text.match(/code is (\d{6})/)[1];
- const challenge=await sqlite.prepare('SELECT hash FROM challenges WHERE email=?').get(dotted);assert.ok(!challenge.hash.includes(otp));
+ let r=await call('auth/send','POST',{email:dotted});assert.equal(r.status,200);assert.equal(delivered.length,1);assert.deepEqual(delivered[0].to,[dotted]);const link=delivered[0].text.match(/https:\/\/campus\.test\/#verify=[\da-f-]{64,80}/i)[0];const token=new URLSearchParams(new URL(link).hash.slice(1)).get('verify');
+ const challenge=await sqlite.prepare('SELECT hash FROM challenges WHERE email=?').get(dotted);assert.equal(challenge.hash,createHash('sha256').update(token).digest('hex'));assert.ok(!challenge.hash.includes(token));
  assert.equal((await call('auth/send','POST',{email:dotted})).status,429);
- assert.equal((await call('auth/verify','POST',{email:dotted,code:otp==='000000'?'111111':'000000'})).status,400);
- r=await call('auth/verify','POST',{email:dotted,code:otp});assert.equal(r.status,200);const customer=r.cookie;assert.ok(customer);assert.equal((await call('auth/verify','POST',{email:dotted,code:otp})).status,400);
+ assert.equal((await call('auth/verify-link','POST',{token:token+'a'})).status,400);
+ r=await call('auth/verify-link','POST',{token});assert.equal(r.status,200);const customer=r.cookie;assert.ok(customer);assert.equal((await call('auth/verify-link','POST',{token})).status,400);
  assert.equal((await call('orders')).status,401);assert.equal((await call('orders','POST',{},customer,'https://other.example')).status,403);
  assert.equal((await call('auth/retailer','POST',{username:'test-kathi',password:'wrong'})).status,401);
  r=await call('auth/retailer','POST',{username:'test-kathi',password});assert.equal(r.status,200);const retailer=r.cookie;
@@ -48,8 +48,8 @@ try{
  assert.equal((await call('orders/'+second.id,'PATCH',{status:'Denied',reason:'Paneer rolls sold out'},retailer)).status,200);
  const customerOrders=(await call('orders','GET',undefined,customer)).data.orders;assert.equal(customerOrders.find(o=>o.id===second.id).decisionNote,'Paneer rolls sold out');assert.equal(customerOrders.find(o=>o.id===second.id).status,'Denied');
  assert.equal((await call('orders','GET',undefined,otherRetailer)).data.orders.length,0);
- // Expired codes cannot be used.
- await call('auth/send','POST',{email:'expiry.test@bmu.edu.in'});const expCode=delivered.at(-1).text.match(/code is (\d{6})/)[1];await sqlite.prepare('UPDATE challenges SET expires=0 WHERE email=?').run('expiry.test@bmu.edu.in');assert.equal((await call('auth/verify','POST',{email:'expiry.test@bmu.edu.in',code:expCode})).status,400);
+ // Expired sign-in links cannot be used.
+ await call('auth/send','POST',{email:'expiry.test@bmu.edu.in'});const expLink=delivered.at(-1).text.match(/https:\/\/campus\.test\/#verify=[\da-f-]{64,80}/i)[0];const expToken=new URLSearchParams(new URL(expLink).hash.slice(1)).get('verify');await sqlite.prepare('UPDATE challenges SET expires=0 WHERE email=?').run('expiry.test@bmu.edu.in');assert.equal((await call('auth/verify-link','POST',{token:expToken})).status,400);
  delete globalThis.__testEnv.SMTP_PASS;assert.equal((await call('auth/send','POST',{email:'missing.sender@bmu.edu.in'})).status,503);
- console.log('PASS: dotted email send/verify using a stub SMTP transport, wrong/expired/reused OTP rejection, five retailer logins, customer details, server-priced idempotent orders, outlet isolation, accept/deny reasons, customer-visible updates, and complete pickup lifecycle. No real emails sent.');
+ console.log('PASS: dotted email magic-link sign-in using a stub SMTP transport, invalid/expired/reused link rejection, five retailer logins, customer details, server-priced idempotent orders, outlet isolation, accept/deny reasons, customer-visible updates, and complete pickup lifecycle. No real emails sent.');
 }finally{await sqlite.close();}

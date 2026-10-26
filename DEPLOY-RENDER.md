@@ -93,7 +93,7 @@ If your machine's script policy prevents running this helper, do not weaken a ma
 
 ## F. Email setup
 
-The verification logic is first-party: the server generates a random six-digit code, stores only its hash with a ten-minute expiry, limits attempts, and consumes it after a successful check. SMTP only delivers the email; no Google Cloud project, Gmail API, OAuth client, or refresh token is used.
+Customer verification uses a first-party magic link: the server generates a random, single-use token, stores only its SHA-256 hash, and expires it after 15 minutes. Clicking the link verifies the @bmu.edu.in address and starts the session. The link can only be used once. SMTP delivers the email; no Google Cloud project, Gmail API, OAuth client, or refresh token is used.
 
 For a Gmail sender, configure `SMTP_HOST=smtp.gmail.com`, `SMTP_PORT=587`, `SMTP_SECURE=false`, and `SMTP_USER` as the full sender address. `SMTP_PASS` must be an app password created for that mailbox (not the normal account password); Google requires 2-Step Verification, and school/work administrators can disable app passwords. Keep that secret in Render only. Google documents these SMTP settings [here](https://support.google.com/a/answer/176600) and app-password requirements [here](https://support.google.com/accounts/answer/185833).
 
@@ -104,7 +104,7 @@ Render's Free web services block outbound SMTP ports 25, 465, and 587. Therefore
 Save settings and select Deploy / Deploy latest commit. The service automatically creates and migrates tables in your new PostgreSQL database. No manual SQL console commands are required. Startup ends with Campus Eats server ready. Open the actual assigned onrender.com URL. Visit /healthz: expect {"ok":true}.
 
 Then test:
-1. Request an actual OTP to your university email, verify it, and complete name/ID/phone profile.
+1. Request a sign-in link to your university email, click it, and complete name/ID/phone profile.
 2. Sign in to each retailer; verify each sees only its own outlet's orders.
 3. Place an order and accept/deny it; verify the student sees the update/reason.
 4. Progress an accepted order through Preparing, Ready, Collected.

@@ -30,6 +30,17 @@
 
 /* Color, spacing and image-fit polish for outlet, order and retailer views. */
 .food-crop>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.outlet-logo-mark{display:inline-flex;align-items:center;justify-content:center;flex:none;overflow:hidden;border-radius:50%;background:#fff;box-shadow:0 2px 9px #10261a30}
+.outlet-logo-mark>img{display:block;width:100%;height:100%;object-fit:contain}
+.outlet-logo-cafe{border-radius:12px;background:transparent;box-shadow:none;padding:2px}
+.outlet-cover-logo{position:absolute;z-index:2;left:12px;top:12px;width:48px;height:48px;padding:2px}
+.menu-brand-logo{width:68px;height:68px;padding:3px;border-radius:17px}
+.order-brand-mark{width:100%;height:100%;padding:2px;border-radius:50%;box-shadow:none}
+.retailer-banner-title{display:flex;align-items:center;gap:11px}
+.retailer-banner-logo{width:43px;height:43px;padding:2px;box-shadow:0 2px 8px #0003}
+.retailer-banner-logo.outlet-logo-cafe{padding:2px}
+.mini-logo:has(.outlet-logo-mark){background:#fff;padding:2px;border-radius:50%}
+.mini-logo:has(.outlet-logo-cafe){background:transparent;border-radius:8px}
 .outlet-cover{overflow:hidden}
 .outlet-cover .cover-shade{display:block;z-index:1;background:linear-gradient(90deg,#071b15a8 0%,#071b1540 48%,transparent 82%),linear-gradient(0deg,#071b1570,transparent 55%)}
 .outlet-label{left:14px;bottom:13px;max-width:62%;text-align:left}
@@ -92,6 +103,9 @@
 .status-badge{font-weight:700}
 @media(max-width:760px){
  .outlet-label{left:9px;bottom:9px;max-width:60%;font-size:7px}
+ .outlet-cover-logo{left:7px;top:7px;width:38px;height:38px}
+ .menu-brand-logo{width:49px;height:49px;padding:2px;border-radius:13px}
+ .retailer-banner-logo{width:36px;height:36px}
  .outlet-cover .wait{right:6px;bottom:6px;padding:5px 6px;font-size:8px}
  .food-type-tag{font-size:8px;padding:3px 6px}
  .item-outlet-caption{font-size:8px}
@@ -108,6 +122,16 @@
  .order-items{padding:8px 9px}
 }
 @media(max-width:380px){.retailer-banner{align-items:flex-start;flex-direction:column;justify-content:flex-end;gap:9px}.retailer-banner-chip{display:flex;align-items:center;justify-content:space-between;width:100%}}
+.retailer-logout-overlay{z-index:160;align-items:center;justify-content:center;padding:20px;background:#13231bb8;backdrop-filter:blur(8px)}
+.retailer-logout-dialog{position:relative;width:min(430px,100%);padding:32px;border:1px solid #e8ebdf;border-radius:18px;background:#fffef9;box-shadow:0 24px 75px #09160e55;color:#26342b}
+.retailer-logout-close{position:absolute;top:14px;right:14px}
+.retailer-logout-icon{display:grid;width:48px;height:48px;place-items:center;margin:0 0 18px;border-radius:15px;background:#f9eee4;color:#a45a3e}
+.retailer-logout-dialog>.eyebrow{font-size:9px;letter-spacing:1.2px;color:#75856e}
+.retailer-logout-dialog h2{margin:8px 0;font-size:22px;letter-spacing:-.5px}
+.retailer-logout-dialog p{margin:0;color:#778174;font-size:13px;line-height:1.7}
+.retailer-logout-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}
+.retailer-logout-actions>button{min-height:42px;padding:0 15px}
+@media(max-width:760px){.retailer-logout-overlay{padding:16px}.retailer-logout-dialog{padding:26px 21px 21px;border-radius:15px}.retailer-logout-dialog h2{font-size:20px}.retailer-logout-dialog p{font-size:12px}.retailer-logout-actions{gap:8px;margin-top:20px}.retailer-logout-actions>button{flex:1;justify-content:center;padding:0 8px;font-size:11px}}
 @media(max-width:380px){.outlet-title h3{font-size:11px}.outlet-detail{padding:9px}.outlet-detail>p{font-size:9px;min-height:32px}.outlet-card .favorite{top:4px;right:4px;width:23px;height:23px;min-width:23px}.outlet-card .favorite svg{width:12px;height:12px}.wash-header p{font-size:8px}.wash-mark{width:29px;height:29px}.wash-header{gap:7px}.wash-panel{right:9px;width:calc(100vw - 18px)}.wash-launcher{padding:0 11px;font-size:10px}.wash-result-actions>button{font-size:9px}.wash-outlet{flex-wrap:wrap}.demo-controls{font-size:7px;padding:5px 7px;gap:5px}.demo-controls button{font-size:8px}}
 
 .menu-food-photo{position:absolute;inset:0;display:block;border-radius:9px;background-repeat:no-repeat;background-size:400% 400%;background-color:#f4f0e7}.auth-config-note{margin-top:12px}
