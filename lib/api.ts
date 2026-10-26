@@ -6,6 +6,7 @@ const json=(data:unknown,status=200,headers:Record<string,string>={})=>Response.
 async function hash(s:string){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',enc.encode(s)))).map(x=>x.toString(16).padStart(2,'0')).join('');}
 function randomToken(){return crypto.randomUUID()+crypto.randomUUID();}
 const emailValid=validUniversityEmail;
+function retailerConfigurationReady(){try{const accounts=JSON.parse(env.RETAILER_ACCOUNTS||'null');const ids=outlets.map(o=>o.id);return Array.isArray(accounts)&&accounts.length===5&&new Set(accounts.map((a:any)=>String(a.username||'').trim().toLowerCase())).size===5&&new Set(accounts.map((a:any)=>a.outlet)).size===5&&ids.every(id=>accounts.filter((a:any)=>a.outlet===id).length===1)&&accounts.every((a:any)=>typeof a.username==='string'&&a.username.trim().length>0&&typeof a.salt==='string'&&/^[\da-f]{48}$/i.test(a.salt)&&typeof a.hash==='string'&&/^[\da-f]{64}$/i.test(a.hash));}catch{return false;}}
 async function passwordHash(p:string,salt:string){const key=await crypto.subtle.importKey('raw',enc.encode(p),'PBKDF2',false,['deriveBits']);return Array.from(new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:enc.encode(salt),iterations:100000},key,256))).map(x=>x.toString(16).padStart(2,'0')).join('');}
 function equal(a:string,b:string){let d=a.length^b.length;for(let i=0;i<Math.max(a.length,b.length);i++)d|=(a.charCodeAt(i)||0)^(b.charCodeAt(i)||0);return d===0;}
 const db=()=>{if(!env.DB)throw Error('Database unavailable');return env.DB;};
@@ -17,17 +18,17 @@ async function allSettings(){const r=await db().prepare('SELECT * FROM settings'
 export async function handle(req:Request,path:string[]){try{
  const route=path.join('/');const method=req.method;
  if(method!=='GET'){const origin=req.headers.get('origin');if(origin&&origin!==new URL(req.url).origin)return json({error:'Invalid request origin.'},403);if(!req.headers.get('content-type')?.includes('application/json'))return json({error:'JSON required'},415);}
- if(route==='config')return json({emailReady:!!(env.RESEND_API_KEY&&env.EMAIL_FROM),retailReady:!!env.RETAILER_ACCOUNTS,paymentsReady:false,payAtPickup:true});
+ if(route==='config')return json({emailReady:!!(env.RESEND_API_KEY&&env.EMAIL_FROM),retailReady:retailerConfigurationReady(),paymentsReady:false,payAtPickup:true});
  if(route==='outlets'&&method==='GET')return json({settings:await allSettings()});
  if(route==='me'&&method==='GET'){const s=await session(req);return json({user:s?{subject:s.subject,role:s.role,outlet:s.outlet}:null,profile:s?.role==='customer'?await getProfile(s.subject):null});}
  if(route==='auth/send'&&method==='POST'){
   const {email:raw}=await req.json() as any;const email=String(raw||'').toLowerCase().trim();if(!emailValid(email))return json({error:'Use your university email ending in @bmu.edu.in.'},400);
-  if(!env.RESEND_API_KEY||!env.EMAIL_FROM)return json({error:'University email delivery is awaiting setup. No code has been sent. You can explore the preview meanwhile.'},503);
+  if(!env.RESEND_API_KEY||!env.EMAIL_FROM)return json({error:'Student email sign-in is not configured. Add RESEND_API_KEY and verified EMAIL_FROM in the Render service environment, then redeploy.'},503);
   const old=await db().prepare('SELECT sent FROM challenges WHERE email=?').bind(email).first<any>();if(old&&Date.now()-old.sent<60000)return json({error:'Please wait 60 seconds before requesting another code.'},429);
   const salt=randomToken();const values=new Uint32Array(1);let n;do{crypto.getRandomValues(values);n=values[0];}while(n>=4294000000);const code=String(n%1000000).padStart(6,'0');
   await db().prepare('INSERT INTO challenges (email,hash,expires,sent,attempts) VALUES (?,?,?,?,0) ON CONFLICT(email) DO UPDATE SET hash=excluded.hash,expires=excluded.expires,sent=excluded.sent,attempts=0').bind(email,salt+':'+await hash(salt+code),Date.now()+600000,Date.now()).run();
   const sent=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:`Bearer ${env.RESEND_API_KEY}`,'Content-Type':'application/json'},body:JSON.stringify({from:env.EMAIL_FROM,to:[email],subject:'Your Campus Eats verification code',text:`Your Campus Eats code is ${code}. It expires in 10 minutes. Never share this code. If you did not request it, ignore this email.`})});
-  if(!sent.ok){await db().prepare('DELETE FROM challenges WHERE email=?').bind(email).run();return json({error:'Email could not be delivered. Please try again later.'},502);}return json({sent:true});
+  if(!sent.ok){await db().prepare('DELETE FROM challenges WHERE email=?').bind(email).run();return json({error:'Resend could not deliver the code. Check the active RESEND_API_KEY, verified EMAIL_FROM sender, and Resend delivery log.'},502);}return json({sent:true});
  }
  if(route==='auth/verify'&&method==='POST'){
   const b=await req.json() as any;const email=String(b.email||'').toLowerCase().trim();if(!emailValid(email)||!/^\d{6}$/.test(b.code))return json({error:'Enter your university email and six-digit code.'},400);
@@ -36,12 +37,12 @@ export async function handle(req:Request,path:string[]){try{
   const consumed=await db().prepare('DELETE FROM challenges WHERE email=? AND hash=? RETURNING email').bind(email,c.hash).first();if(!consumed)return json({error:'This code has already been used.'},400);return makeSession(email,'customer',null,req);
  }
  if(route==='auth/retailer'&&method==='POST'){
-  if(!env.RETAILER_ACCOUNTS)return json({error:'The five retailer accounts have not been provisioned yet.'},503);
+  if(!retailerConfigurationReady())return json({error:'Retailer sign-in is not configured correctly. Recreate the five hashed accounts and save the full JSON in Render RETAILER_ACCOUNTS.'},503);
   const b=await req.json() as any;const username=String(b.username||'').trim();const password=String(b.password||'');if(username.length>100||password.length>256)return json({error:'Invalid credentials.'},400);
   const key='retailer:'+username;const rate=await db().prepare('SELECT * FROM challenges WHERE email=?').bind(key).first<any>();if(rate&&rate.expires>Date.now()&&rate.attempts>=5)return json({error:'Too many attempts. Try again in 15 minutes.'},429);
   await db().prepare('INSERT INTO challenges (email,hash,expires,sent,attempts) VALUES (?, ?, ?, ?,1) ON CONFLICT(email) DO UPDATE SET attempts=CASE WHEN challenges.expires<? THEN 1 ELSE challenges.attempts+1 END,expires=CASE WHEN challenges.expires<? THEN excluded.expires ELSE challenges.expires END').bind(key,'',Date.now()+900000,Date.now(),Date.now(),Date.now()).run();
-  const accounts=JSON.parse(env.RETAILER_ACCOUNTS);if(!Array.isArray(accounts)||accounts.length!==5||new Set(accounts.map((a:any)=>a.outlet)).size!==5||!accounts.every((a:any)=>outlets.some(o=>o.id===a.outlet)))throw Error('Invalid retailer setup');
-  const a=accounts.find((a:any)=>a.username===username);const digest=await passwordHash(password,a?.salt||'unknown-account');if(!a||!equal(digest,a.hash))return json({error:'Username or password is incorrect.'},401);
+  const accounts=JSON.parse(env.RETAILER_ACCOUNTS);
+  const a=accounts.find((a:any)=>String(a.username).trim().toLowerCase()===username.toLowerCase());const digest=await passwordHash(password,a?.salt||'unknown-account');if(!a||!equal(digest,a.hash))return json({error:'Username or password is incorrect.'},401);
   await db().prepare('DELETE FROM challenges WHERE email=?').bind(key).run();return makeSession(username,'retailer',a.outlet,req);
  }
  if(route==='auth/logout'&&method==='POST'){const s=await session(req);if(s)await db().prepare('DELETE FROM sessions WHERE token=?').bind(s.token).run();return json({ok:true},200,{'Set-Cookie':'campus_session=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0'});}
