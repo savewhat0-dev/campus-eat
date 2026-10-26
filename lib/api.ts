@@ -1,4 +1,5 @@
 import { env } from 'cloudflare:workers';
+import { Buffer } from 'node:buffer';
 import { menu, outlets } from './catalog';
 import { validUniversityEmail,validateCustomerDetails,nextOrderStatus } from './order-flow';
 const enc=new TextEncoder();
@@ -10,6 +11,18 @@ function retailerConfigurationReady(){try{const accounts=JSON.parse(env.RETAILER
 async function passwordHash(p:string,salt:string){const key=await crypto.subtle.importKey('raw',enc.encode(p),'PBKDF2',false,['deriveBits']);return Array.from(new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:enc.encode(salt),iterations:100000},key,256))).map(x=>x.toString(16).padStart(2,'0')).join('');}
 function equal(a:string,b:string){let d=a.length^b.length;for(let i=0;i<Math.max(a.length,b.length);i++)d|=(a.charCodeAt(i)||0)^(b.charCodeAt(i)||0);return d===0;}
 const db=()=>{if(!env.DB)throw Error('Database unavailable');return env.DB;};
+function senderAddress(value:string){const match=value.match(/<([^<>]+)>/);return (match?.[1]||value).trim().toLowerCase();}
+function emailConfigurationReady(){const user=String(env.GMAIL_USER||'').trim().toLowerCase();const from=String(env.EMAIL_FROM||'').trim();return !!(user&&emailValid(user)&&from&&!/[\r\n]/.test(from)&&senderAddress(from)===user&&env.GOOGLE_OAUTH_CLIENT_ID&&env.GOOGLE_OAUTH_CLIENT_SECRET&&env.GOOGLE_OAUTH_REFRESH_TOKEN);}
+async function sendVerificationEmail(to:string,code:string){
+ const tokenResponse=await fetch('https://oauth2.googleapis.com/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({client_id:String(env.GOOGLE_OAUTH_CLIENT_ID),client_secret:String(env.GOOGLE_OAUTH_CLIENT_SECRET),refresh_token:String(env.GOOGLE_OAUTH_REFRESH_TOKEN),grant_type:'refresh_token'})});
+ const tokenData=await tokenResponse.json().catch(()=>null) as any;
+ if(!tokenResponse.ok||typeof tokenData?.access_token!=='string')throw Object.assign(new Error('Google OAuth token request failed'),{emailCode:typeof tokenData?.error==='string'?tokenData.error:`oauth_http_${tokenResponse.status}`,emailStatus:tokenResponse.status});
+ const body=`Your Campus Eats verification code is ${code}. It expires in 10 minutes. Never share this code. If you did not request it, ignore this email.`;
+ const mime=[`From: ${String(env.EMAIL_FROM).trim()}`,`To: ${to}`,'Subject: Your Campus Eats verification code','MIME-Version: 1.0','Content-Type: text/plain; charset=UTF-8','Content-Transfer-Encoding: base64','',Buffer.from(body,'utf8').toString('base64').replace(/.{1,76}/g,'$&\r\n')].join('\r\n');
+ const sendResponse=await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send',{method:'POST',headers:{Authorization:`Bearer ${tokenData.access_token}`,'Content-Type':'application/json'},body:JSON.stringify({raw:Buffer.from(mime,'utf8').toString('base64url')})});
+ const sendData=await sendResponse.json().catch(()=>null) as any;
+ if(!sendResponse.ok)throw Object.assign(new Error('Gmail API rejected the message'),{emailCode:typeof sendData?.error?.status==='string'?sendData.error.status:`gmail_http_${sendResponse.status}`,emailStatus:sendResponse.status});
+}
 async function session(req:Request){const token=req.headers.get('cookie')?.match(/(?:^|; )campus_session=([^;]+)/)?.[1];if(!token)return null;return await db().prepare('SELECT * FROM sessions WHERE token=? AND expires>?').bind(await hash(token),Date.now()).first<any>();}
 async function getProfile(subject:string){const p=await db().prepare('SELECT details FROM profiles WHERE email=?').bind(subject).first<any>();return p?JSON.parse(p.details):null;}
 async function makeSession(subject:string,role:string,outlet:string|null,req:Request){const token=randomToken();await db().prepare('INSERT INTO sessions (token,subject,role,outlet,expires) VALUES (?,?,?,?,?)').bind(await hash(token),subject,role,outlet,Date.now()+86400000).run();return json({user:{subject,role,outlet},profile:role==='customer'?await getProfile(subject):null},200,{'Set-Cookie':`campus_session=${token}; HttpOnly; SameSite=Strict; Path=/; Max-Age=86400${new URL(req.url).protocol==='https:'?'; Secure':''}`});}
@@ -18,17 +31,17 @@ async function allSettings(){const r=await db().prepare('SELECT * FROM settings'
 export async function handle(req:Request,path:string[]){try{
  const route=path.join('/');const method=req.method;
  if(method!=='GET'){const origin=req.headers.get('origin');if(origin&&origin!==new URL(req.url).origin)return json({error:'Invalid request origin.'},403);if(!req.headers.get('content-type')?.includes('application/json'))return json({error:'JSON required'},415);}
- if(route==='config')return json({emailReady:!!(env.RESEND_API_KEY&&env.EMAIL_FROM),retailReady:retailerConfigurationReady(),paymentsReady:false,payAtPickup:true});
+ if(route==='config')return json({emailReady:emailConfigurationReady(),retailReady:retailerConfigurationReady(),paymentsReady:false,payAtPickup:true});
  if(route==='outlets'&&method==='GET')return json({settings:await allSettings()});
  if(route==='me'&&method==='GET'){const s=await session(req);return json({user:s?{subject:s.subject,role:s.role,outlet:s.outlet}:null,profile:s?.role==='customer'?await getProfile(s.subject):null});}
  if(route==='auth/send'&&method==='POST'){
   const {email:raw}=await req.json() as any;const email=String(raw||'').toLowerCase().trim();if(!emailValid(email))return json({error:'Use your university email ending in @bmu.edu.in.'},400);
-  if(!env.RESEND_API_KEY||!env.EMAIL_FROM)return json({error:'Student email sign-in is not configured. Add RESEND_API_KEY and verified EMAIL_FROM in the Render service environment, then redeploy.'},503);
+  if(!emailConfigurationReady())return json({error:'BMU email sending is not configured. Set GMAIL_USER, EMAIL_FROM, GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET and GOOGLE_OAUTH_REFRESH_TOKEN in the Render service environment.'},503);
   const old=await db().prepare('SELECT sent FROM challenges WHERE email=?').bind(email).first<any>();if(old&&Date.now()-old.sent<60000)return json({error:'Please wait 60 seconds before requesting another code.'},429);
   const salt=randomToken();const values=new Uint32Array(1);let n;do{crypto.getRandomValues(values);n=values[0];}while(n>=4294000000);const code=String(n%1000000).padStart(6,'0');
   await db().prepare('INSERT INTO challenges (email,hash,expires,sent,attempts) VALUES (?,?,?,?,0) ON CONFLICT(email) DO UPDATE SET hash=excluded.hash,expires=excluded.expires,sent=excluded.sent,attempts=0').bind(email,salt+':'+await hash(salt+code),Date.now()+600000,Date.now()).run();
-  const sent=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:`Bearer ${env.RESEND_API_KEY}`,'Content-Type':'application/json'},body:JSON.stringify({from:env.EMAIL_FROM,to:[email],subject:'Your Campus Eats verification code',text:`Your Campus Eats code is ${code}. It expires in 10 minutes. Never share this code. If you did not request it, ignore this email.`})});
-  if(!sent.ok){await db().prepare('DELETE FROM challenges WHERE email=?').bind(email).run();return json({error:'Resend could not deliver the code. Check the active RESEND_API_KEY, verified EMAIL_FROM sender, and Resend delivery log.'},502);}return json({sent:true});
+  try{await sendVerificationEmail(email,code);return json({sent:true});}
+  catch(error:any){await db().prepare('DELETE FROM challenges WHERE email=?').bind(email).run();const code=typeof error?.emailCode==='string'?error.emailCode:error instanceof Error?error.name:'unknown';const status=Number.isInteger(error?.emailStatus)?error.emailStatus:0;console.error('[auth/send] Gmail API send failed',{status,code});const message=code==='admin_policy_enforced'?'BMU Google Workspace is blocking this app. Ask the BMU administrator to allow Gmail API sending for the authorized account.':code==='invalid_grant'?'Google authorization expired or was revoked. Reauthorize the Gmail sender and update GOOGLE_OAUTH_REFRESH_TOKEN in Render.':code==='invalid_client'?'Google rejected the OAuth client. Check GOOGLE_OAUTH_CLIENT_ID and GOOGLE_OAUTH_CLIENT_SECRET in Render.':`Gmail API could not send the verification code (HTTP ${status||'network'}, ${code}). Check OAuth permission gmail.send and the latest Render service log.`;return json({error:message},502);}
  }
  if(route==='auth/verify'&&method==='POST'){
   const b=await req.json() as any;const email=String(b.email||'').toLowerCase().trim();if(!emailValid(email)||!/^\d{6}$/.test(b.code))return json({error:'Enter your university email and six-digit code.'},400);

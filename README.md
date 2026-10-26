@@ -37,6 +37,6 @@ This replaces the previous SQLite upload package. Start with DEPLOY-RENDER.md fo
 | FILES.csv | Upload inventory and file sizes |
 | README.md | This file guide |
 
-Render Free Postgres expires after 30 days. This package removes the paid disk requirement but does not remove hosting provider limits. Existing ChatGPT-site orders are not transferred automatically. Real email delivery still requires your verified sender secrets.
+Render Free Postgres expires after 30 days. This package removes the paid disk requirement but does not remove hosting provider limits. Existing ChatGPT-site orders are not transferred automatically. Real email delivery requires Gmail API OAuth credentials for the configured BMU sender account; see DEPLOY-RENDER.md.
 
 New files: render/config.mjs automatically selects and validates the Render URL; scripts/setup-retailers.ps1 privately prompts for retailer passwords and copies hashes; scripts/render-config-test.mjs verifies automatic URL and custom-domain settings. Follow DEPLOY-RENDER.md for the complete field-by-field setup, including Datadog, project, PostgreSQL version and environment variables.

@@ -67,15 +67,18 @@ Choose Web Service, NOT Static Site. The login and orders API requires a running
 | NODE_VERSION | 24.21.0 |
 | NODE_ENV | production |
 | DATABASE_URL | Paste the entire INTERNAL Database URL copied from the database Connect menu |
-| RESEND_API_KEY | Your actual secret API key from Resend |
-| EMAIL_FROM | Approved sender, e.g. Campus Eats <orders@YOUR-VERIFIED-DOMAIN> |
+| GMAIL_USER | `rishabh.kaktan.25bb@bmu.edu.in` |
+| EMAIL_FROM | `Campus Eats <rishabh.kaktan.25bb@bmu.edu.in>` |
+| GOOGLE_OAUTH_CLIENT_ID | OAuth client ID from the Google Cloud project with Gmail API enabled |
+| GOOGLE_OAUTH_CLIENT_SECRET | OAuth client secret; store only in Render |
+| GOOGLE_OAUTH_REFRESH_TOKEN | Refresh token authorized for the BMU sender and `gmail.send` scope; store only in Render |
 | RETAILER_ACCOUNTS | Five-account salted-hash JSON generated as below |
 
 Do NOT add DATABASE_PATH, SQLite paths, Datadog keys, frontend VITE_ secrets, or placeholder credentials. Do not manually set PORT; Render supplies it.
 
 PUBLIC_ORIGIN is now OPTIONAL for the default onrender.com URL. The app automatically reads RENDER_EXTERNAL_URL supplied by Render, avoiding the need to guess the website's final address. Remove an old incorrect PUBLIC_ORIGIN setting if present. Only set PUBLIC_ORIGIN later for a custom domain; use the full canonical HTTPS origin with no path. A trailing slash is normalized.
 
-For a first visual preview, RESEND_API_KEY, EMAIL_FROM and RETAILER_ACCOUNTS may remain unset. The website will honestly show login is awaiting configuration. All three must be configured for actual customer and retailer use. The database URL is mandatory. Never paste example text as a real secret.
+For a first visual preview, the Gmail OAuth fields, EMAIL_FROM and RETAILER_ACCOUNTS may remain unset. The website will show that login is awaiting configuration. All Gmail OAuth fields must be configured for customer sign-in. The database URL is mandatory. Never paste secrets into chat or source control.
 
 ## E. Generate the five retailer accounts on Windows
 
@@ -89,7 +92,15 @@ If your machine's script policy prevents running this helper, do not weaken a ma
 
 ## F. Email setup
 
-In Resend, verify a sender domain you control and add the DNS records it supplies. The receiving university address does not make you the owner of bmu.edu.in: do not configure that domain as your sender unless you are authorized to manage it. Create your Resend API key and put it in RESEND_API_KEY. Set EMAIL_FROM to a sender approved on YOUR verified domain. Customers use @bmu.edu.in emails with OTP and no password. Dots in the email username are accepted. This app sends through the Resend HTTPS API; no SMTP fields or SMTP password are needed.
+This package sends through the Gmail API over HTTPS using the BMU mailbox configured above. It does not use Resend or SMTP. Google requires OAuth authorization for the `gmail.send` scope, and a BMU Google Workspace administrator may need to allow the OAuth app. See [Gmail API authorization](https://developers.google.com/workspace/gmail/api/auth/web-server) and [Gmail API scopes](https://developers.google.com/workspace/gmail/api/auth/scopes).
+
+Setup:
+1. In Google Cloud Console, create a project, enable the Gmail API, and configure its OAuth consent screen. Use the BMU account as the sender. If BMU manages this account, follow its administrator's rules for third-party OAuth apps.
+2. Create an OAuth client and authorize the exact scope `https://www.googleapis.com/auth/gmail.send` for `rishabh.kaktan.25bb@bmu.edu.in`.
+3. Obtain the client ID, client secret and refresh token through Google's OAuth flow. Do not use a Gmail password or App Password in these fields.
+4. Add the five Gmail variables from the table to the Render web service environment, save, and redeploy.
+
+Google may expire refresh tokens for OAuth apps left in external Testing mode, and BMU may block the authorization. If the app reports `admin_policy_enforced`, only BMU's Google Workspace administrator can allow it. The app logs the HTTP status and error code, never OAuth secrets.
 
 ## G. Deploy and verify
 
@@ -113,8 +124,8 @@ The build, embedded PostgreSQL authentication/order flow, original SQLite regres
 | Missing DATABASE_URL | Add it to the WEB SERVICE environment and redeploy |
 | Database connection timeout | Database must be Available, same region; use full correct Internal URL |
 | Invalid request origin | Remove incorrect PUBLIC_ORIGIN for onrender.com; custom domain must match its exact HTTPS origin |
-| Login awaiting setup | Configure actual Resend sender/key and five retailer hashes |
-| Email delivery failed | Check Resend verified sender/domain and provider delivery logs; never share API keys |
+| Login awaiting setup | Configure Gmail OAuth fields, EMAIL_FROM and five retailer hashes |
+| Email delivery failed | Check Google OAuth credentials, `gmail.send` consent, BMU Workspace policy and Render logs; never share OAuth secrets |
 | First load is slow | Free Render web services sleep after 15 minutes idle and take about a minute to wake |
 | Free Postgres expired | Restore/migrate from your export to a valid database, then update DATABASE_URL |
 
