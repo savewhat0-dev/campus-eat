@@ -13,7 +13,7 @@ else{
  database={prepare(sql){let args=[];return {bind(...values){args=values;return this;},async first(){return sqlite.prepare(sql).get(...args)||null;},async all(){return {results:sqlite.prepare(sql).all(...args)};},async run(){return sqlite.prepare(sql).run(...args);}};}};
 }
 const ids=['kathi','greenox','cafe','burger','dominos'];const password='Test-only-password-2026';
-const accounts=ids.map(outlet=>({username:'test-'+outlet,outlet,salt:'test-salt-'+outlet,hash:pbkdf2Sync(password,'test-salt-'+outlet,100000,32,'sha256').toString('hex')}));
+const accounts=ids.map(outlet=>{const salt=createHash('sha256').update('test-salt-'+outlet).digest('hex').slice(0,48);return {username:'test-'+outlet,outlet,salt,hash:pbkdf2Sync(password,salt,100000,32,'sha256').toString('hex')};});
 globalThis.__testEnv={DB:database,GMAIL_USER:'test@bmu.edu.in',EMAIL_FROM:'Campus Eats <test@bmu.edu.in>',GOOGLE_OAUTH_CLIENT_ID:'test-client-id',GOOGLE_OAUTH_CLIENT_SECRET:'test-client-secret',GOOGLE_OAUTH_REFRESH_TOKEN:'test-refresh-token',RETAILER_ACCOUNTS:JSON.stringify(accounts)};
 await build({entryPoints:['lib/api.ts'],bundle:true,platform:'node',format:'esm',outfile:'outputs/api-under-test.mjs',plugins:[{name:'cloudflare-env-stub',setup(b){b.onResolve({filter:/^cloudflare:workers$/},()=>({path:'env',namespace:'fixture'}));b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:'export const env=globalThis.__testEnv;'}));}}]});
 let delivered=[];const actualFetch=globalThis.fetch;
