@@ -179,3 +179,16 @@
  .auth-form{height:100%;max-height:none;overflow-y:scroll;padding:30px 24px max(24px,env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch}
 }
 
+
+/* Crisp outlet logo lockups on image covers: transparent brand mark plus vector wordmark. */
+.outlet-brand-name{display:none}
+.outlet-cover-logo{display:flex;align-items:center;justify-content:flex-start;gap:8px;width:auto;height:auto;min-height:48px;max-width:68%;padding:6px 10px;border:1px solid #ffffffb8;border-radius:14px;background:#fff;box-shadow:0 4px 14px #10261a35;overflow:hidden}
+.outlet-cover-logo .outlet-logo-symbol{display:block;flex:none;width:34px;height:34px;object-fit:contain}
+.outlet-cover-logo .outlet-brand-name{display:block;color:#29382f;font-family:'Manrope',sans-serif;font-size:11px;font-weight:800;line-height:1.15;letter-spacing:-.25px;white-space:normal;max-width:110px;text-align:left}
+.outlet-cover-logo.outlet-logo-kathi .outlet-brand-name{color:#a6501b}
+.outlet-cover-logo.outlet-logo-greenox .outlet-brand-name{color:#176d3d}
+.outlet-cover-logo.outlet-logo-cafe{border-radius:14px;background:#fff;box-shadow:0 4px 14px #10261a35;padding:6px 10px}
+.outlet-cover-logo.outlet-logo-cafe .outlet-brand-name{color:#be202e}
+.outlet-cover-logo.outlet-logo-burger .outlet-brand-name{color:#2a2421}
+.outlet-cover-logo.outlet-logo-dominos .outlet-brand-name{color:#1477a7}
+@media(max-width:700px){.outlet-cover-logo{left:7px;top:7px;min-height:40px;max-width:70%;padding:4px 7px;gap:6px}.outlet-cover-logo .outlet-logo-symbol{width:28px;height:28px}.outlet-cover-logo .outlet-brand-name{font-size:9px;max-width:86px}}
