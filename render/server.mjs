@@ -1,16 +1,16 @@
 import {createServer} from 'node:http';
 import {readFile,stat} from 'node:fs/promises';
 import {resolve,extname,sep} from 'node:path';
-import nodemailer from 'nodemailer';
 import {openPostgres} from './postgres.mjs';
 import {publicOrigin} from './config.mjs';
+import {createGmailSender} from './gmail.mjs';
 const origin=publicOrigin();
 
 const db=await openPostgres(process.env.DATABASE_URL);
-const smtpPort=Number(process.env.SMTP_PORT||587);
-const smtpSecure=process.env.SMTP_SECURE==='true'||smtpPort===465;
-const mailer=process.env.SMTP_HOST&&process.env.SMTP_USER&&process.env.SMTP_PASS?nodemailer.createTransport({host:process.env.SMTP_HOST,port:smtpPort,secure:smtpSecure,requireTLS:!smtpSecure,auth:{user:process.env.SMTP_USER,pass:process.env.SMTP_PASS},connectionTimeout:15000,greetingTimeout:10000,socketTimeout:20000}):null;
-globalThis.__campusRuntime={DB:db,SMTP_HOST:process.env.SMTP_HOST,SMTP_PORT:smtpPort,SMTP_USER:process.env.SMTP_USER,SMTP_PASS:process.env.SMTP_PASS,EMAIL_FROM:process.env.EMAIL_FROM,sendEmail:mailer?message=>mailer.sendMail(message):null,RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS};
+const googleMailConfig={clientId:process.env.GOOGLE_CLIENT_ID,clientSecret:process.env.GOOGLE_CLIENT_SECRET,refreshToken:process.env.GOOGLE_OAUTH_REFRESH_TOKEN};
+const gmailConfigured=Object.values(googleMailConfig).every(value=>typeof value==='string'&&value.trim());
+const gmailSender=gmailConfigured?createGmailSender(googleMailConfig):null;
+globalThis.__campusRuntime={DB:db,...googleMailConfig,EMAIL_FROM:process.env.EMAIL_FROM,sendEmail:gmailSender,RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS};
 const {handle}=await import('../dist-render/api.mjs');
 const root=resolve('dist-render/public');
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.ico':'image/x-icon','.woff2':'font/woff2'};
