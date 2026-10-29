@@ -7,11 +7,11 @@ const groups:[RegExp,string[]][]=[
  [/\b(pizza|pizzas|piza|pizaa)\b|पिज़्ज़ा|पिज्जा/,['pizza']],
  [/\b(burger|burgers|burgur)\b|बर्गर/,['burger']],
  [/\b(fries|french fry|french fries|fryes)\b|फ्राइज|फ्राइज़/,['fries']],
- [/\b(rolls?|kathi|wraps?)\b|रोल|रैप/,['roll','wrap']],
+ [/\b(rolls?|wraps?)\b|रोल|रैप/,['roll','wrap']],
  [/\b(coffee|cappuccino|latte|espresso|frappe)\b|कॉफी|काफी/,['coffee','cappuccino','latte','espresso','frappe','mocha']],
  [/\b(chai|tea)\b|चाय/,['chai','tea']],
  [/\b(maggi|noodles?)\b|मैगी|नूडल/,['maggi']],
- [/\b(salads?|healthy|healthier)\b|सलाद|हेल्दी/,['salad']],
+ [/\b(salads?)\b|सलाद/,['salad']],
  [/\b(sandwich|sandwiches|subs?)\b|सैंडविच/,['sandwich','sub']],
  [/\b(momos?|dumplings?)\b|मोमोज|मोमो/,['momo']],
  [/\b(pasta|pazzta)\b|पास्ता/,['pasta','pazzta']],
@@ -22,31 +22,21 @@ const groups:[RegExp,string[]][]=[
  [/\b(soups?)\b|सूप/,['soup']],
  [/\b(tacos?)\b|टाको/,['taco']],
 ];
-const blocked=/\b(code|coding|python|javascript|html|css|program|programming|politics|president|election|cricket|football|weather|stocks?|crypto|investment|bitcoin|homework|calculus|algebra|poem|essay|story|joke|translate|translation|laptop|mobile phone|movie|song|password|otp|ignore|instructions|system prompt|hack|bypass|suicide|medicine|medical|diagnos\w*|treat\w*|cure)\b|राजनीति|मौसम|क्रिकेट|कविता|कोड|पासवर्ड|बीमारी|दवा/;
 const missingFood=/\b(sushi|ramen|dosa|idli|biryani|samosa|pani puri|chole bhature|jalebi|waffles?|pancakes?|lasagna|lasagne|falafel platter|shawarma|steak tartare|lobster|dragonfruit|donuts?|doughnuts?)\b|डोसा|इडली|बिरयानी|समोसा|सुशी/;
-const foodGrammar=new Set(normal('i me my we you your can could would please want need good nice tasty delicious love like some tell about regarding craving cravings near nearby nearest location locations buy purchase searching search choices choice getting give best fast faster quickest looking find show get have order ordering buy eat eating food foods dish dishes meal meals snack snacks lunch dinner breakfast hungry campus university bmu bml munjal outlet outlets store stores restaurant restaurants menu menus available availability where what which when how much does do is are at in on from for to of the a an and or with without only options option something anything recommend suggest suggestions recommendation best cheaper cheapest cheap affordable price prices cost costs rupee rupees rs under below less than within budget around up maximum max minimum min minutes minute mins time timing timings preparation prepared ready pickup pick vegetarian veg non nonveg vegan chicken paneer cheese aloo potato mushroom egg eggs mutton fruit corn spicy spice double regular small large medium grilled classic hot cold no not also instead any there it that this all hai hain h chahiye chahie mujhe muje mil milega milta kaha kahan se ka ki ke mein me kya batao dikhao aur ya sasta sasti rupaye tak kam wala wale wali sab jaldi kitne kitna samay veg nonveg').split(' '));
-const hindiGrammar=/^(मुझे|चाहिए|चाहिये|कहाँ|कहां|मिलेगा|मिलता|मिलेंगे|है|हैं|क्या|कौन|से|का|की|के|में|और|या|तक|कम|सस्ता|सस्ती|रुपये|रुपए|सिर्फ|केवल|बताओ|दिखाओ|जल्दी|कितने|मिनट|समय|बिना|शाकाहारी|मांसाहारी)$/;
-const menuWords=new Set(menu.flatMap(m=>normal(m.name+' '+m.category+' '+(m.variant||'')).split(' ')));
-const outletWords=new Set(outlets.flatMap(o=>normal(o.name).split(' ')));
 const followup=/^(?:and |aur |और )?(?:under|below|within|cheaper|cheapest|veg only|only veg|non veg|nonveg|without chicken|under ₹?\d|in \d|within \d|₹|\d)/;
-export function findCampusFood(message:string,states:Record<string,OutletState>={},context:FoodContext={}):FoodAnswer|null{
- let q=normal(message.replace(/पनीर/g,'paneer').replace(/चिकन/g,'chicken').replace(/बर्गर/g,'burger').replace(/फ्राइज|फ्राइज़/g,'fries').replace(/पिज्जा|पिज़्ज़ा/g,'pizza').replace(/कॉफी/g,'coffee'));if(!q||q.length>400||blocked.test(q))return null;
+export function findCampusFood(message:string,states:Record<string,OutletState>={},context:FoodContext={}):FoodAnswer{
+ let q=normal(message.replace(/पनीर/g,'paneer').replace(/चिकन/g,'chicken').replace(/बर्गर/g,'burger').replace(/फ्राइज|फ्राइज़/g,'fries').replace(/पिज्जा|पिज़्ज़ा/g,'pizza').replace(/कॉफी/g,'coffee'));const timingNote='Preparation times are estimates from the reference menu, not live queue times. Opening hours need outlet confirmation.';const askProduct:FoodAnswer={kind:'not-found',text:'Please specify the particular product name.',items:[],outletIds:[],total:0,timingNote};if(!q||q.length>400)return askProduct;
  const previous=context.query?normal(context.query):'';const isFollowup=!!previous&&followup.test(q);
  if(isFollowup)q=previous+' '+q;
  const groupMatches=groups.filter(([re])=>re.test(q));
  const outletMatches=outlets.filter(o=>normal(o.name).split(' ').some(t=>t.length>3&&q.split(' ').includes(t))||(o.id==='dominos'&&/domino/.test(q))||(o.id==='greenox'&&/greenox|green ops|green nox/.test(q))||(o.id==='cafe'&&/\bccd\b/.test(q)));
- const generic=/\b(food|foods|hungry|eat|menu|meal|snack|lunch|dinner|breakfast|recommend|something to eat)\b|खाना|भूख|नाश्ता/.test(q);
  const unknownFood=missingFood.test(q);
  const named=menu.filter(m=>!['french fries','tea','cappuccino'].includes(normal(m.name))&&q.includes(normal(m.name))).map(m=>m.id);
  const ingredient=/\b(paneer|chicken|cheese|mutton|mushroom|aloo|potato|corn|egg)\b|पनीर|चिकन/.test(q);
- if(!groupMatches.length&&!outletMatches.length&&!generic&&!unknownFood&&!named.length&&!ingredient)return null;
- // Conservative scope: unrecognised instructions or subjects never reach a reply generator.
- const allowedExtras=new Set(['french','pizzas','burgers','burgur','piza','pizaa','fries','fry','fryes','coffee','coffees','tea','chai','maggi','salads','salad','healthy','healthier','momos','momo','noodles','dumplings','wraps','rolls','sandwiches','subs','icecream','drinks','beverages','milkshakes','desserts','breads','soups','tacos','ccd','ops','nox','open','opening','hours','closed','close','today','now','tomorrow','morning','evening','am','pm','between','before','after','less','fast','fastest','quick','quickest','allergic','allergy','allergies','gluten','nuts','nut','peanut','peanuts','dairy','free','sugar','protein','high','low','calorie','calories','nutrition','nutritional','ingredients','ingredient','vegan','safe','suitable','prepare','takes','take','serve','serves','serving','sushi','ramen','dosa','idli','biryani','samosa','pani','puri','chole','bhature','jalebi','waffle','waffles','pancakes','lasagna','lasagne','shawarma','lobster','dragonfruit','donut','donuts','doughnut','doughnuts']);
- const residual=q.split(' ').filter(t=>!/^₹?\d+(?:am|pm)?$/.test(t)&&!foodGrammar.has(t)&&!menuWords.has(t)&&!outletWords.has(t)&&!allowedExtras.has(t)&&!hindiGrammar.test(t)&&!/[\u0900-\u097F]/.test(t));
- if(residual.length)return null;
- const timingNote='Preparation times are estimates from the reference menu, not live queue times. Opening hours need outlet confirmation.';
- if(/\b(allerg\w*|gluten|peanuts?|nuts?|dairy free|vegan|calories|calorie|nutrition|nutritional|ingredients|protein)\b/.test(q))return {kind:'not-found',text:'Verified allergen, ingredient and nutrition information is not available in this menu. Please confirm directly with the outlet before ordering.',items:[],outletIds:[],total:0,timingNote};
- if(unknownFood&&!named.length)return {kind:'not-found',text:'यह food campus menu में नहीं मिला। I couldn’t find it in the listed campus outlets.',items:[],outletIds:[],total:0,timingNote};
+  if(!groupMatches.length&&!unknownFood&&!named.length&&!ingredient)return askProduct;
+ // Match only menu products/categories; outlet names alone never count as a product request.
+ 
+  if(unknownFood&&!groupMatches.length&&!named.length&&!ingredient)return {kind:'not-found',text:'That product is not listed in the campus menus.',items:[],outletIds:[],total:0,timingNote};
  const priceQuery=q.replace(/(?:within|in|under|less than)\s*\d+\s*(?:minutes?|mins?|मिनट)/g,'');
  const budgetMatches=[...priceQuery.matchAll(/(?:under|below|within|budget(?: of)?|less than|max(?:imum)?|up to)\s*(?:rs\s*|₹\s*)?(\d+)/g)];
  const hindiBudget=q.match(/(\d+)\s*(?:रुपये|रुपए|rupaye|rupees|rs)?\s*(?:से कम|तक|tak|se kam)/);
@@ -73,5 +63,7 @@ export function findCampusFood(message:string,states:Record<string,OutletState>=
  const first=outletIds.map(id=>found.find(m=>m.outlet===id)!);const items=[...first,...found.filter(m=>!first.some(i=>i.id===m.id))].slice(0,8);
  if(!items.length)return {kind:'not-found',text:'इन preferences के लिए अभी कोई available campus-menu match नहीं मिला। Try another food, budget or preparation time.',items:[],outletIds:[],total:0,timingNote};
  const hours=/\b(open|opening|hours|closed|close|today|now|tomorrow)\b/.test(q);
- return {kind:'results',text:hours?'These outlets list matching food. Opening hours are not verified, so please confirm with the outlet.':`मिले ${total} matching menu options across ${outletIds.length} campus outlet${outletIds.length===1?'':'s'}. Here’s the list:`,items,outletIds,total,timingNote};
+ return {kind:'results',text:hours?'These menu items are listed. Opening hours are not verified, so please confirm with the outlet.':`Here are ${total} matching menu item${total===1?'':'s'}.`,items,outletIds,total,timingNote};
 }
+
+

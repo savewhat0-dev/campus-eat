@@ -13,11 +13,10 @@ else{
  database={prepare(sql){let args=[];return {bind(...values){args=values;return this;},async first(){return sqlite.prepare(sql).get(...args)||null;},async all(){return {results:sqlite.prepare(sql).all(...args)};},async run(){return sqlite.prepare(sql).run(...args);}};}};
 }
 const ids=['kathi','greenox','cafe','burger','dominos'];const password='Test-only-password-2026';
-const accounts=ids.map(outlet=>({username:'test-'+outlet,outlet,salt:'test-salt-'+outlet,hash:pbkdf2Sync(password,'test-salt-'+outlet,100000,32,'sha256').toString('hex')}));
-globalThis.__testEnv={DB:database,RESEND_API_KEY:'test-only-provider-stub',EMAIL_FROM:'test@verified.example',RETAILER_ACCOUNTS:JSON.stringify(accounts)};
+const accounts=ids.map(outlet=>{const salt=createHash('sha256').update('test-salt-'+outlet).digest('hex').slice(0,48);return {username:'test-'+outlet,outlet,salt,hash:pbkdf2Sync(password,salt,100000,32,'sha256').toString('hex')};});
+globalThis.__testEnv={DB:database,GOOGLE_CLIENT_ID:'test-client-id',GOOGLE_CLIENT_SECRET:'test-client-secret',GOOGLE_OAUTH_REFRESH_TOKEN:'test-refresh-token',EMAIL_FROM:'Campus Eats <test@gmail.com>',sendEmail:async message=>delivered.push({to:[message.to],text:message.text}),RETAILER_ACCOUNTS:JSON.stringify(accounts)};
 await build({entryPoints:['lib/api.ts'],bundle:true,platform:'node',format:'esm',outfile:'outputs/api-under-test.mjs',plugins:[{name:'cloudflare-env-stub',setup(b){b.onResolve({filter:/^cloudflare:workers$/},()=>({path:'env',namespace:'fixture'}));b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:'export const env=globalThis.__testEnv;'}));}}]});
-let delivered=[];const actualFetch=globalThis.fetch;
-globalThis.fetch=async(url,opts)=>{assert.equal(String(url),'https://api.resend.com/emails','No real provider calls allowed');delivered.push(JSON.parse(opts.body));return Response.json({id:'stub-email-1'});};
+let delivered=[];
 const {handle}=await import('../outputs/api-under-test.mjs');
 async function call(path,method='GET',body,cookie='',origin='https://campus.test'){const req=new Request('https://campus.test/api/campus/'+path,{method,headers:{'Content-Type':'application/json',Origin:origin,...(cookie?{Cookie:cookie}:{})},...(body?{body:JSON.stringify(body)}:{})});const res=await handle(req,path.split('/'));const data=await res.json();return {status:res.status,data,cookie:res.headers.get('set-cookie')?.split(';')[0]};}
 try{
@@ -27,11 +26,11 @@ try{
  assert.equal(nextOrderStatus('retailer','Pending','Accepted'),'Accepted');assert.equal(nextOrderStatus('retailer','Pending','Denied'),'Denied');assert.equal(nextOrderStatus('customer','Pending','Accepted'),null);
  const dotted='rishabh.rishabh.kaktan.25bb@bmu.edu.in';
  assert.equal((await call('auth/send','POST',{email:'person@gmail.com'})).status,400);
- let r=await call('auth/send','POST',{email:dotted});assert.equal(r.status,200);assert.equal(delivered.length,1);assert.deepEqual(delivered[0].to,[dotted]);const otp=delivered[0].text.match(/code is (\d{6})/)[1];
- const challenge=await sqlite.prepare('SELECT hash FROM challenges WHERE email=?').get(dotted);assert.ok(!challenge.hash.includes(otp));
+ let r=await call('auth/send','POST',{email:dotted});assert.equal(r.status,200);assert.equal(delivered.length,1);assert.deepEqual(delivered[0].to,[dotted]);const link=delivered[0].text.match(/https:\/\/campus\.test\/#verify=[\da-f-]{64,80}/i)[0];const token=new URLSearchParams(new URL(link).hash.slice(1)).get('verify');
+ const challenge=await sqlite.prepare('SELECT hash FROM challenges WHERE email=?').get(dotted);assert.equal(challenge.hash,createHash('sha256').update(token).digest('hex'));assert.ok(!challenge.hash.includes(token));
  assert.equal((await call('auth/send','POST',{email:dotted})).status,429);
- assert.equal((await call('auth/verify','POST',{email:dotted,code:otp==='000000'?'111111':'000000'})).status,400);
- r=await call('auth/verify','POST',{email:dotted,code:otp});assert.equal(r.status,200);const customer=r.cookie;assert.ok(customer);assert.equal((await call('auth/verify','POST',{email:dotted,code:otp})).status,400);
+ assert.equal((await call('auth/verify-link','POST',{token:token+'a'})).status,400);
+ r=await call('auth/verify-link','POST',{token});assert.equal(r.status,200);const customer=r.cookie;assert.ok(customer);assert.equal((await call('auth/verify-link','POST',{token})).status,400);
  assert.equal((await call('orders')).status,401);assert.equal((await call('orders','POST',{},customer,'https://other.example')).status,403);
  assert.equal((await call('auth/retailer','POST',{username:'test-kathi',password:'wrong'})).status,401);
  r=await call('auth/retailer','POST',{username:'test-kathi',password});assert.equal(r.status,200);const retailer=r.cookie;
@@ -49,8 +48,8 @@ try{
  assert.equal((await call('orders/'+second.id,'PATCH',{status:'Denied',reason:'Paneer rolls sold out'},retailer)).status,200);
  const customerOrders=(await call('orders','GET',undefined,customer)).data.orders;assert.equal(customerOrders.find(o=>o.id===second.id).decisionNote,'Paneer rolls sold out');assert.equal(customerOrders.find(o=>o.id===second.id).status,'Denied');
  assert.equal((await call('orders','GET',undefined,otherRetailer)).data.orders.length,0);
- // Expired codes cannot be used.
- await call('auth/send','POST',{email:'expiry.test@bmu.edu.in'});const expCode=delivered.at(-1).text.match(/code is (\d{6})/)[1];await sqlite.prepare('UPDATE challenges SET expires=0 WHERE email=?').run('expiry.test@bmu.edu.in');assert.equal((await call('auth/verify','POST',{email:'expiry.test@bmu.edu.in',code:expCode})).status,400);
- delete globalThis.__testEnv.RESEND_API_KEY;assert.equal((await call('auth/send','POST',{email:'missing.sender@bmu.edu.in'})).status,503);
- console.log('PASS: dotted email send/verify using a stub provider, wrong/expired/reused OTP rejection, five retailer logins, customer details, server-priced idempotent orders, outlet isolation, accept/deny reasons, customer-visible updates, and complete pickup lifecycle. No real emails sent.');
-}finally{globalThis.fetch=actualFetch;await sqlite.close();}
+ // Expired sign-in links cannot be used.
+ await call('auth/send','POST',{email:'expiry.test@bmu.edu.in'});const expLink=delivered.at(-1).text.match(/https:\/\/campus\.test\/#verify=[\da-f-]{64,80}/i)[0];const expToken=new URLSearchParams(new URL(expLink).hash.slice(1)).get('verify');await sqlite.prepare('UPDATE challenges SET expires=0 WHERE email=?').run('expiry.test@bmu.edu.in');assert.equal((await call('auth/verify-link','POST',{token:expToken})).status,400);
+ delete globalThis.__testEnv.GOOGLE_CLIENT_SECRET;assert.equal((await call('auth/send','POST',{email:'missing.sender@bmu.edu.in'})).status,503);
+ console.log('PASS: dotted email magic-link sign-in using a stub Gmail API sender, invalid/expired/reused link rejection, five retailer logins, customer details, server-priced idempotent orders, outlet isolation, accept/deny reasons, customer-visible updates, and complete pickup lifecycle. No real emails sent.');
+}finally{await sqlite.close();}

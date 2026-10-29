@@ -3,10 +3,14 @@ import {readFile,stat} from 'node:fs/promises';
 import {resolve,extname,sep} from 'node:path';
 import {openPostgres} from './postgres.mjs';
 import {publicOrigin} from './config.mjs';
+import {createGmailSender} from './gmail.mjs';
 const origin=publicOrigin();
 
 const db=await openPostgres(process.env.DATABASE_URL);
-globalThis.__campusRuntime={DB:db,RESEND_API_KEY:process.env.RESEND_API_KEY,EMAIL_FROM:process.env.EMAIL_FROM,RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS};
+const googleMailConfig={clientId:process.env.GOOGLE_CLIENT_ID,clientSecret:process.env.GOOGLE_CLIENT_SECRET,refreshToken:process.env.GOOGLE_OAUTH_REFRESH_TOKEN};
+const gmailConfigured=Object.values(googleMailConfig).every(value=>typeof value==='string'&&value.trim());
+const gmailSender=gmailConfigured?createGmailSender(googleMailConfig):null;
+globalThis.__campusRuntime={DB:db,...googleMailConfig,EMAIL_FROM:process.env.EMAIL_FROM,sendEmail:gmailSender,RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS};
 const {handle}=await import('../dist-render/api.mjs');
 const root=resolve('dist-render/public');
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.ico':'image/x-icon','.woff2':'font/woff2'};
@@ -28,5 +32,5 @@ const server=createServer(async(req,res)=>{
  }catch{res.writeHead(500,{'Content-Type':'application/json'});res.end('{"error":"Request could not be processed."}');}
 });
 server.requestTimeout=15000;server.headersTimeout=10000;
-server.listen(Number(process.env.PORT||3000),'0.0.0.0',()=>console.log('Campus Eats PostgreSQL server ready (postgres-v2)'));
+server.listen(Number(process.env.PORT||3000),'0.0.0.0',()=>console.log('Campus Eats server ready'));
 for(const signal of ['SIGTERM','SIGINT'])process.on(signal,()=>server.close(async()=>{await db.close();process.exit(0);}));
