@@ -17,8 +17,12 @@ async function accessToken({clientId,clientSecret,refreshToken}){
   let response;
   try{response=await fetch('https://oauth2.googleapis.com/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body,signal:AbortSignal.timeout(15000)});}
   catch{throw failure('google_oauth_network_error');}
-  if(!response.ok)throw failure('google_oauth_rejected',response.status);
   const payload=await response.json().catch(()=>null);
+  if(!response.ok){
+   const known=['invalid_client','deleted_client','invalid_grant','unauthorized_client','invalid_request','access_denied'];
+   const reason=known.includes(payload?.error)?payload.error:'rejected';
+   throw failure(`google_oauth_${reason}`,response.status);
+  }
   if(typeof payload?.access_token!=='string'||!Number.isFinite(payload?.expires_in))throw failure('google_oauth_invalid_response');
   cachedAccessToken=payload.access_token;
   accessTokenExpiresAt=Date.now()+payload.expires_in*1000;
