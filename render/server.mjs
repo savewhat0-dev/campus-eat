@@ -3,14 +3,11 @@ import {readFile,stat} from 'node:fs/promises';
 import {resolve,extname,sep} from 'node:path';
 import {openPostgres} from './postgres.mjs';
 import {publicOrigin} from './config.mjs';
-import {createGmailSender} from './gmail.mjs';
+import {mailRuntime} from './mail-runtime.mjs';
 const origin=publicOrigin();
 
 const db=await openPostgres(process.env.DATABASE_URL);
-const googleMailConfig={clientId:process.env.GOOGLE_CLIENT_ID,clientSecret:process.env.GOOGLE_CLIENT_SECRET,refreshToken:process.env.GOOGLE_OAUTH_REFRESH_TOKEN};
-const gmailConfigured=Object.values(googleMailConfig).every(value=>typeof value==='string'&&value.trim());
-const gmailSender=gmailConfigured?createGmailSender(googleMailConfig):null;
-globalThis.__campusRuntime={DB:db,...googleMailConfig,EMAIL_FROM:process.env.EMAIL_FROM,sendEmail:gmailSender,RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS};
+globalThis.__campusRuntime={DB:db,...mailRuntime(process.env),RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS};
 const {handle}=await import('../dist-render/api.mjs');
 const root=resolve('dist-render/public');
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.ico':'image/x-icon','.woff2':'font/woff2'};
