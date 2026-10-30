@@ -1,3 +1,5 @@
+import {menu} from '../lib/catalog.ts';
+import {rankProducts} from '../lib/product-search.ts';
 import assert from 'node:assert/strict';
 import {build} from 'esbuild';
 await build({entryPoints:['lib/wash-chat.ts'],bundle:true,platform:'node',format:'esm',outfile:'outputs/chef-upgrade-test.mjs'});
@@ -15,3 +17,5 @@ assert.equal(ask('vegan pizza').items.length,0);
 assert.equal(ask('gluten free pizza').items.length,0);
 r=ask('मुझे पनीर रोल चाहिए');assert.ok(r.items.length);assert.ok(r.items.every(p=>/paneer/i.test(p.name)));
 console.log('PASS: all eight requested Chef questions, specific-product priority, budget, diet, context, Hindi, unavailable products, unknown food and unrecorded allergen certifications.');
+
+for(const query of ['chiken sandwch','sandwich chicken','barbecue chicken sandwich']){const matches=rankProducts(query,menu);assert.ok(matches.some(r=>r.item.name==='Grilled Chicken BBQ Sandwich'));}

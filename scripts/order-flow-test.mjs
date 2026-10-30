@@ -10,7 +10,7 @@ if(process.env.TEST_POSTGRES==='1')({sqlite,db:database}=await (await import('./
 else{
  sqlite=new DatabaseSync(':memory:');
  for(const f of ['0000_thin_earthquake.sql','0001_thick_saracen.sql'])sqlite.exec(readFileSync(new URL('../drizzle/'+f,import.meta.url),'utf8').replaceAll('--> statement-breakpoint',''));
- for(const f of ['0002_catalog.sql','0003_signin_meme_rotation.sql'])sqlite.exec(readFileSync(new URL('../render/migrations/'+f,import.meta.url),'utf8'));
+ for(const f of ['0002_catalog.sql','0003_signin_meme_rotation.sql','0004_notifications.sql'])sqlite.exec(readFileSync(new URL('../render/migrations/'+f,import.meta.url),'utf8'));
  database={prepare(sql){let args=[];return {bind(...values){args=values;return this;},async first(){return sqlite.prepare(sql).get(...args)||null;},async all(){return {results:sqlite.prepare(sql).all(...args)};},async run(){return sqlite.prepare(sql).run(...args);}};}};
 }
 const ids=['kathi','greenox','cafe','burger','dominos'];const password='Test-only-password-2026';
@@ -55,7 +55,9 @@ try{
  r=await call('orders','GET',undefined,retailer);assert.equal(r.data.orders.length,1);assert.equal(r.data.orders[0].customerDetails.enrollment,details.enrollment);assert.equal((await call('orders','GET',undefined,otherRetailer)).data.orders.length,0);
  assert.equal((await call('orders/'+order.id,'PATCH',{status:'Accepted'},otherRetailer)).status,404);assert.equal((await call('orders/'+order.id,'PATCH',{status:'Accepted'},customer)).status,409);
  assert.equal((await call('orders/'+order.id,'PATCH',{status:'Accepted'},retailer)).status,200);assert.equal((await call('orders','GET',undefined,customer)).data.orders[0].status,'Accepted');assert.equal((await call('orders/'+order.id,'PATCH',{status:'Denied'},retailer)).status,409);
+ assert.ok((await call('notifications','GET',undefined,customer)).data.notifications.some(n=>n.text==='Your order has been confirmed by Kathi Junction.'));assert.ok(!(await call('notifications','GET',undefined,customer)).data.notifications.some(n=>n.text.includes('ready!')));
  for(const status of ['Preparing','Ready','Collected'])assert.equal((await call('orders/'+order.id,'PATCH',{status},retailer)).status,200);
+ const notices=(await call('notifications','GET',undefined,customer)).data.notifications;const ready=notices.find(n=>n.text==='Your order is ready! Collect it from Kathi Junction.');assert.ok(ready);assert.equal((await call('notifications/dismiss','POST',{id:ready.id},customer)).status,200);assert.ok(!(await call('notifications','GET',undefined,customer)).data.notifications.some(n=>n.id===ready.id));assert.equal((await call('notifications','GET',undefined,otherRetailer)).data.notifications.length,0);
  const second=(await call('orders','POST',{...payload,requestId:crypto.randomUUID()},customer)).data.order;
  assert.equal((await call('orders/'+second.id,'PATCH',{status:'Denied',reason:'Paneer rolls sold out'},retailer)).status,200);
  const customerOrders=(await call('orders','GET',undefined,customer)).data.orders;assert.equal(customerOrders.find(o=>o.id===second.id).decisionNote,'Paneer rolls sold out');assert.equal(customerOrders.find(o=>o.id===second.id).status,'Denied');

@@ -1,3 +1,4 @@
+import {rankProducts} from './product-search';
 import { menu,outlets, type Item } from './catalog';
 export type OutletState={open?:boolean;unavailable?:string[];hours?:string};
 export type FoodAnswer={kind:'results'|'not-found';text:string;items:Item[];outletIds:string[];total:number;timingNote:string};
@@ -39,7 +40,7 @@ export function findCampusFood(message:string,states:Record<string,OutletState>=
  const ingredient=/\b(paneer|chicken|cheese|mutton|mushroom|aloo|potato|corn|egg)\b|पनीर|चिकन/.test(q);
  if(!groupMatches.length&&!named.length&&/\b(how.*(?:order|book)|pickup|collect|payment|pay online)\b/.test(q))return {...askProduct,text:'Choose a campus outlet, select your food and pickup time, then confirm the booking. The outlet will accept or deny it. Track the status and pay at pickup; there is no online payment.'};
  const general=/\b(under|below|budget|vegetarian|veg|nonveg|non veg|cheapest|recommend|suggest)\b/.test(q)||outletMatches.length>0&&/\b(menu|available|food|items|dishes)\b/.test(q);
-  if(!groupMatches.length&&!unknownFood&&!named.length&&!ingredient&&!general)return askProduct;
+  if(!groupMatches.length&&!unknownFood&&!named.length&&!ingredient&&!general){const ranked=rankProducts(q,menu);if(ranked.length)return {kind:'results',text:'Here are the closest menu matches. Review an option before adding it.',items:ranked.slice(0,8).map(r=>r.item),outletIds:[...new Set(ranked.map(r=>r.item.outlet))],total:ranked.length,timingNote};return askProduct;}
  // Match only menu products/categories; outlet names alone never count as a product request.
  
   if(unknownFood&&!groupMatches.length&&!named.length&&!ingredient)return {kind:'not-found',text:'That product is not listed in the campus menus.',items:[],outletIds:[],total:0,timingNote};
@@ -63,7 +64,7 @@ export function findCampusFood(message:string,states:Record<string,OutletState>=
   if(ingredients.length&&!ingredients.some(t=>text.includes(t)))return false;
   return true;
  });
- found.sort((a,b)=>a.price-b.price||a.name.localeCompare(b.name));
+ const scores=new Map(rankProducts(q,menu).map(r=>[r.item.id,r.score]));found.sort((a,b)=>(scores.get(b.id)||0)-(scores.get(a.id)||0)||a.price-b.price||a.name.localeCompare(b.name));
  const total=found.length;const outletIds=[...new Set(found.map(m=>m.outlet))];
  // Include every matching outlet before filling the remaining result slots.
  const first=outletIds.map(id=>found.find(m=>m.outlet===id)!);const items=[...first,...found.filter(m=>!first.some(i=>i.id===m.id))].slice(0,8);
