@@ -1,6 +1,6 @@
 # Render setup: final PostgreSQL package
 
-For this upgrade, follow UPGRADE-REPORT.md first. Use CampusEats-Product-Images-2026-10-30.zip. Extract it, and upload all extracted files and folders to the ROOT of a new private GitHub repository named campus-eats. Preserve folder structure. Do not upload the ZIP. Existing incomplete repositories can retain conflicting settings, so a new repository is the clearest route. The package includes Chef, PostgreSQL support and a file guide; no credentials or customer records are included.
+For this upgrade, follow UPGRADE-REPORT.md first. Use CampusEats-Meme-Rotation-2026-10-30.zip. Extract it, and upload all extracted files and folders to the ROOT of a new private GitHub repository named campus-eats. Preserve folder structure. Do not upload the ZIP. Existing incomplete repositories can retain conflicting settings, so a new repository is the clearest route. The package includes Chef, PostgreSQL support, rotating sign-in memes and a file guide; no credentials or customer records are included.
 
 ## A. Project (optional grouping)
 
@@ -72,6 +72,7 @@ Choose Web Service, NOT Static Site. The login and orders API requires a running
 | GOOGLE_OAUTH_REFRESH_TOKEN | Long-lived refresh token issued after authorizing the Gmail API `gmail.send` scope; store only in Render |
 | EMAIL_FROM | `Campus Eats <your-authorized-gmail@gmail.com>`; the address must be the Google account that authorized this OAuth client, or an alias configured in that Gmail account |
 | RETAILER_ACCOUNTS | Five-account salted-hash JSON generated as below |
+| SIGNIN_MEME_ORDER | Optional JSON array of unique meme keys to customize the fixed order; omit it to use all 15 supplied memes in the built-in order. See SIGN-IN-MEMES.md |
 
 Do NOT add DATABASE_PATH, SQLite paths, Datadog keys, frontend VITE_ secrets, or placeholder credentials. Do not manually set PORT; Render supplies it.
 

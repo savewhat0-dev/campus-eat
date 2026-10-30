@@ -5,7 +5,7 @@ import {readFile,stat} from 'node:fs/promises';
 import {resolve,extname,sep} from 'node:path';
 import {createServer} from 'node:http';
 const sql=new DatabaseSync(':memory:');
-for(const file of ['drizzle/0000_thin_earthquake.sql','drizzle/0001_thick_saracen.sql','render/migrations/0002_catalog.sql'])sql.exec(readFileSync(file,'utf8').replaceAll('--> statement-breakpoint',''));
+for(const file of ['drizzle/0000_thin_earthquake.sql','drizzle/0001_thick_saracen.sql','render/migrations/0002_catalog.sql','render/migrations/0003_signin_meme_rotation.sql'])sql.exec(readFileSync(file,'utf8').replaceAll('--> statement-breakpoint',''));
 const DB={prepare(text){let args=[];return {bind(...values){args=values;return this;},async first(){return sql.prepare(text).get(...args)||null;},async all(){return {results:sql.prepare(text).all(...args)};},async run(){return sql.prepare(text).run(...args);}};}};
 let inbox='';
 globalThis.__campusRuntime={DB,GOOGLE_CLIENT_ID:'local-qa',GOOGLE_CLIENT_SECRET:'local-qa',GOOGLE_OAUTH_REFRESH_TOKEN:'local-qa',EMAIL_FROM:'Campus Eats <qa@example.com>',sendEmail:async message=>{inbox=message.text.match(/http[^\s]+/)[0];},RETAILER_ACCOUNTS:''};

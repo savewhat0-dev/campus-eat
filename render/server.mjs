@@ -7,7 +7,7 @@ import {mailRuntime} from './mail-runtime.mjs';
 const origin=publicOrigin();
 
 const db=await openPostgres(process.env.DATABASE_URL);
-globalThis.__campusRuntime={DB:db,...mailRuntime(process.env),RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS,COURSE_OPTIONS:process.env.COURSE_OPTIONS};
+globalThis.__campusRuntime={DB:db,...mailRuntime(process.env),RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS,COURSE_OPTIONS:process.env.COURSE_OPTIONS,SIGNIN_MEME_ORDER:process.env.SIGNIN_MEME_ORDER};
 const {handle,initializeCatalog}=await import('../dist-render/api.mjs');
 await initializeCatalog();
 const root=resolve('dist-render/public');

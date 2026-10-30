@@ -9,6 +9,36 @@ const json=(data:unknown,status=200,headers:Record<string,string>={})=>Response.
 async function hash(s:string){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',enc.encode(s)))).map(x=>x.toString(16).padStart(2,'0')).join('');}
 function randomToken(){return crypto.randomUUID()+crypto.randomUUID();}
 const emailValid=validUniversityEmail;
+const signInMemes=[
+ {key:'hamster-ride',file:'meme-01.jpg',alt:'A hamster on a tiny bike with a playful Hindi greeting.'},
+ {key:'aaj-bhi',file:'meme-02.jpg',alt:'A playful Hindi meme about today.'},
+ {key:'dispreshaan',file:'meme-03.jpg',alt:'An exaggerated anime reaction meme.'},
+ {key:'cat-brain',file:'meme-04.jpg',alt:'A curious cat with a playful Hindi caption.'},
+ {key:'sigma-cats',file:'meme-05.jpg',alt:'Two cats sharing a humorous reaction.'},
+ {key:'dog-pranaam',file:'meme-06.jpg',alt:'A puppy offering a cheerful namaste.'},
+ {key:'chips-kid',file:'meme-07.jpg',alt:'A child enjoying a packet of chips.'},
+ {key:'dumpling-cat',file:'meme-08.jpg',alt:'A cat dressed as a dumpling.'},
+ {key:'brownie-pun',file:'meme-09.jpg',alt:'A brownie with a food pun.'},
+ {key:'message-reaction',file:'meme-10.jpg',alt:'A playful reaction to a message.'},
+ {key:'kitten-live',file:'meme-11.jpg',alt:'A kitten with a playful Hindi caption.'},
+ {key:'dog-reaction',file:'meme-12.jpg',alt:'A dog making a humorous reaction.'},
+ {key:'reaction-pair',file:'meme-13.jpg',alt:'A funny reaction image.'},
+ {key:'game-reaction',file:'meme-14.jpg',alt:'A puzzled video game character.'},
+ {key:'camcorder-approval',file:'meme-15.jpg',alt:'A video game character giving a thumbs-up.'}
+];
+function signInMemeOrder(){try{const configured=JSON.parse(String(env.SIGNIN_MEME_ORDER||'null'));if(Array.isArray(configured)){const known=new Set(signInMemes.map(m=>m.key));const order=configured.filter((key:any)=>typeof key==='string'&&known.has(key));if(order.length===configured.length&&order.length>0&&new Set(order).size===order.length)return order.map(key=>signInMemes.find(m=>m.key===key)!);}}catch{}return signInMemes;}
+async function selectSignInMeme(email:string,order=signInMemeOrder()){
+ await db().prepare('INSERT INTO signin_meme_sequences (email,next_index,previous_key,pending_key) VALUES (?,0,NULL,NULL) ON CONFLICT(email) DO NOTHING').bind(email).run();
+ let row=await db().prepare('SELECT next_index,previous_key,pending_key,pending_state,pending_started FROM signin_meme_sequences WHERE email=?').bind(email).first<any>();
+ if(row?.pending_key){const pending=order.find(m=>m.key===row.pending_key);if(pending){const now=Date.now();if(row.pending_state==='sending'&&now-Number(row.pending_started||now)<60000)return {meme:pending,index:order.indexOf(pending),retry:false,busy:true};if(row.pending_state==='sending')await db().prepare("UPDATE signin_meme_sequences SET pending_state='failed' WHERE email=? AND pending_key=? AND pending_state='sending' AND pending_started<=?").bind(email,pending.key,now-60000).run();const claimed=await db().prepare("UPDATE signin_meme_sequences SET pending_state='sending',pending_started=? WHERE email=? AND pending_key=? AND pending_state='failed' RETURNING pending_key").bind(now,email,pending.key).first<any>();if(claimed)return {meme:pending,index:order.indexOf(pending),retry:true,busy:false};row=await db().prepare('SELECT next_index,previous_key,pending_key,pending_state,pending_started FROM signin_meme_sequences WHERE email=?').bind(email).first<any>();if(row?.pending_key===pending.key)return {meme:pending,index:order.indexOf(pending),retry:false,busy:true};}}
+ let index=Number(row?.next_index||0)%order.length;let meme=order[index];if(order.length>1&&meme.key===row?.previous_key){index=(index+1)%order.length;meme=order[index];}
+ const now=Date.now();const claimed=await db().prepare('UPDATE signin_meme_sequences SET pending_key=?,pending_state=\'sending\',pending_started=? WHERE email=? AND (pending_key IS NULL OR pending_key NOT IN ('+order.map(()=>'?').join(',')+')) RETURNING pending_key').bind(meme.key,now,email,...order.map(m=>m.key)).first<any>();
+ if(!claimed){row=await db().prepare('SELECT next_index,previous_key,pending_key,pending_state,pending_started FROM signin_meme_sequences WHERE email=?').bind(email).first<any>();const current=order.find(m=>m.key===row?.pending_key);if(current){if(row.pending_state==='failed')return selectSignInMeme(email,order);return {meme:current,index:order.indexOf(current),retry:false,busy:true};}}
+ return {meme,index,retry:false,busy:false};
+}
+async function commitSignInMeme(email:string,key:string,index:number,order=signInMemeOrder()){
+ await db().prepare('UPDATE signin_meme_sequences SET next_index=?,previous_key=?,pending_key=NULL,pending_state=NULL,pending_started=NULL WHERE email=? AND pending_key=?').bind((index+1)%order.length,key,email,key).run();
+}
 function retailerConfigurationReady(){try{const accounts=JSON.parse(env.RETAILER_ACCOUNTS||'null');const ids=outlets.map(o=>o.id);return Array.isArray(accounts)&&accounts.length===5&&new Set(accounts.map((a:any)=>String(a.username||'').trim().toLowerCase())).size===5&&new Set(accounts.map((a:any)=>a.outlet)).size===5&&ids.every(id=>accounts.filter((a:any)=>a.outlet===id).length===1)&&accounts.every((a:any)=>typeof a.username==='string'&&a.username.trim().length>0&&typeof a.salt==='string'&&/^[\da-f]{48}$/i.test(a.salt)&&typeof a.hash==='string'&&/^[\da-f]{64}$/i.test(a.hash));}catch{return false;}}
 async function passwordHash(p:string,salt:string){const key=await crypto.subtle.importKey('raw',enc.encode(p),'PBKDF2',false,['deriveBits']);return Array.from(new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:enc.encode(salt),iterations:100000},key,256))).map(x=>x.toString(16).padStart(2,'0')).join('');}
 function equal(a:string,b:string){let d=a.length^b.length;for(let i=0;i<Math.max(a.length,b.length);i++)d|=(a.charCodeAt(i)||0)^(b.charCodeAt(i)||0);return d===0;}
@@ -19,10 +49,12 @@ function clientAddress(req:Request){return (req.headers.get('cf-connecting-ip')|
 async function takeRateLimit(key:string,limit:number,windowMs:number){const now=Date.now();await db().prepare("DELETE FROM challenges WHERE email LIKE 'rl:%' AND expires<=?").bind(now).run();const row=await db().prepare('INSERT INTO challenges (email,hash,expires,sent,attempts) VALUES (?,\'\',?,?,1) ON CONFLICT(email) DO UPDATE SET attempts=CASE WHEN challenges.expires<=? THEN 1 ELSE challenges.attempts+1 END,expires=CASE WHEN challenges.expires<=? THEN excluded.expires ELSE challenges.expires END,sent=excluded.sent RETURNING attempts').bind(key,now+windowMs,now,now,now).first<any>();return Number(row?.attempts||0)<=limit;}
 function senderAddress(value:string){const match=value.match(/<([^<>]+)>/);return (match?.[1]||value).trim().toLowerCase();}
 function emailConfigurationReady(){const from=String(env.EMAIL_FROM||'').trim(),address=senderAddress(from);return !!(from&&!/[\r\n]/.test(from)&&/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(address)&&env.GOOGLE_CLIENT_ID&&env.GOOGLE_CLIENT_SECRET&&env.GOOGLE_OAUTH_REFRESH_TOKEN&&typeof env.sendEmail==='function');}
-async function sendSignInLink(to:string,link:string){
+function escapeHtml(value:string){return value.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));}
+async function sendSignInLink(to:string,link:string,meme:{file:string;alt:string},origin:string){
  if(typeof env.sendEmail!=='function')throw Object.assign(new Error('Gmail API is not configured'),{emailCode:'gmail_api_not_configured'});
- const body=`Sign in to Campus Eats by opening this one-time link:\n\n${link}\n\nThis link expires in 15 minutes and can be used once. If you did not request it, you can ignore this email.`;
- const html=`<div style="font-family:Arial,sans-serif;max-width:560px;margin:auto;color:#18372a"><h1>Sign in to Campus Eats</h1><p>Click below to verify your university email and sign in.</p><p><a href="${link}" style="display:inline-block;background:#176446;color:#fff;padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:bold">Verify email and sign in</a></p><p>This one-time link expires in 15 minutes.</p><p>If the button does not work, copy this link into your browser:<br><a href="${link}">${link}</a></p><small>If you did not request this link, ignore this email.</small></div>`;
+ const body='Sign in to Campus Eats by opening this email in an HTML-capable mail app and selecting “Verify email and sign in”. The one-time link expires in 15 minutes and can be used once. If you did not request it, ignore this email.';
+ const image=`${origin}/assets/sign-in-memes/${meme.file}`;
+ const html=`<!doctype html><html><body style="margin:0;background:#f3f6ef;font-family:Arial,sans-serif;color:#18372a"><div style="max-width:600px;margin:24px auto;padding:28px;background:#fff;border:1px solid #e2e9dc;border-radius:22px;text-align:center"><div style="font-size:27px;font-weight:800;color:#07533b;margin:0 0 22px">Campus Eats</div><img src="${escapeHtml(image)}" alt="${escapeHtml(meme.alt)}" width="520" style="display:block;width:100%;max-width:520px;height:auto;max-height:440px;object-fit:contain;margin:0 auto 22px;border-radius:18px;background:#f7f5f1"><h1 style="font-size:26px;line-height:1.2;margin:0 0 10px;color:#123b2b">Hungry? You’re one tap away.</h1><p style="font-size:16px;line-height:1.6;margin:0 0 22px;color:#4f6458">Verify your university email to sign in.</p><a href="${escapeHtml(link)}" style="display:block;background:#087346;color:#fff;padding:17px 20px;border-radius:14px;text-decoration:none;font-size:17px;font-weight:bold">Verify email and sign in</a><p style="font-size:13px;color:#718076;margin:18px 0 6px">This link expires in 15 minutes and can be used once.</p><p style="font-size:13px;color:#718076;margin:0">If you didn’t request this, you can ignore this email.</p></div></body></html>`;
  await env.sendEmail({from:String(env.EMAIL_FROM).trim(),to,subject:'Your Campus Eats sign-in link',text:body,html});
 }
 async function session(req:Request){const token=req.headers.get('cookie')?.match(/(?:^|; )campus_session=([^;]+)/)?.[1];if(!token)return null;return await db().prepare('SELECT * FROM sessions WHERE token=? AND expires>?').bind(await hash(token),Date.now()).first<any>();}
@@ -44,12 +76,15 @@ export async function handle(req:Request,path:string[]){try{
   const {email:raw}=await req.json() as any;const email=String(raw||'').toLowerCase().trim();if(!emailValid(email))return json({error:'Use your university email ending in @bmu.edu.in.'},400);
    if(!emailConfigurationReady())return json({error:'Email sign-in is not configured. Add GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_OAUTH_REFRESH_TOKEN and EMAIL_FROM to the Render service environment.'},503);
   const ipKey=`rl:send:ip:${await hash(clientAddress(req))}`;const emailKey=`rl:send:email:${await hash(email)}`;if(!await takeRateLimit(ipKey,30,3600000)||!await takeRateLimit(emailKey,6,3600000))return json({error:'Too many sign-in link requests. Try again later.'},429);
-  const old=await db().prepare('SELECT sent FROM challenges WHERE email=?').bind(email).first<any>();if(old&&Date.now()-old.sent<60000)return json({error:'Please wait 60 seconds before requesting another link.'},429);
+  const old=await db().prepare('SELECT sent FROM challenges WHERE email=?').bind(email).first<any>();const existingMeme=await db().prepare('SELECT pending_key,pending_state,pending_started FROM signin_meme_sequences WHERE email=?').bind(email).first<any>();const retry=!!existingMeme?.pending_key&&(existingMeme.pending_state==='failed'||(existingMeme.pending_state==='sending'&&Date.now()-Number(existingMeme.pending_started||Date.now())>=60000));
+  if(existingMeme?.pending_state==='sending'&&Date.now()-Number(existingMeme.pending_started||Date.now())<60000)return json({error:'A sign-in email is already being sent. Wait a moment before retrying.'},409);
+  if(old&&Date.now()-old.sent<60000&&!retry)return json({error:'Please wait 60 seconds before requesting another link.'},429);
+  const memeOrder=signInMemeOrder();const selection=await selectSignInMeme(email,memeOrder);if(selection.busy)return json({error:'A sign-in email is already being sent. Wait a moment before retrying.'},409);
   const token=randomToken();
   await db().prepare('INSERT INTO challenges (email,hash,expires,sent,attempts) VALUES (?,?,?,?,0) ON CONFLICT(email) DO UPDATE SET hash=excluded.hash,expires=excluded.expires,sent=excluded.sent,attempts=0').bind(email,await hash(token),Date.now()+900000,Date.now()).run();
   const link=`${new URL(req.url).origin}/#verify=${encodeURIComponent(token)}`;
-  try{await sendSignInLink(email,link);return json({sent:true});}
-  catch(error:any){await db().prepare('DELETE FROM challenges WHERE email=?').bind(email).run();const code=typeof error?.code==='string'?error.code:typeof error?.emailCode==='string'?error.emailCode:error instanceof Error?error.name:'unknown';console.error('[auth/send] email delivery failed',{code,responseCode:Number.isInteger(error?.responseCode)?error.responseCode:undefined});return json({error:`Could not deliver the sign-in link (${code}). Check the Gmail API credentials, sender account and Google Cloud API status.`},502);}
+  try{await sendSignInLink(email,link,selection.meme,new URL(req.url).origin);await commitSignInMeme(email,selection.meme.key,selection.index,memeOrder);return json({sent:true});}
+  catch(error:any){await db().prepare("UPDATE signin_meme_sequences SET pending_state='failed' WHERE email=? AND pending_key=?").bind(email,selection.meme.key).run();const code=typeof error?.code==='string'?error.code:typeof error?.emailCode==='string'?error.emailCode:error instanceof Error?error.name:'unknown';console.error('[auth/send] email delivery failed',{code,responseCode:Number.isInteger(error?.responseCode)?error.responseCode:undefined});return json({error:`Could not deliver the sign-in link (${code}). Check the Gmail API credentials, sender account and Google Cloud API status.`},502);}
  }
  if(route==='auth/verify-link'&&method==='POST'){
   const b=await req.json() as any;const token=String(b.token||'');if(!/^[\da-f-]{64,80}$/i.test(token))return json({error:'This sign-in link is invalid. Request a new one.'},400);

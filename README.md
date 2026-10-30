@@ -32,7 +32,9 @@ This is a complete source package. Upload the extracted source folders to your c
 | public/assets/logos | Original supplied JPG logos and cropped WebP derivatives |
 | public/assets/banners | Illustrative generated marketing banners |
 | public/assets/products/image-manifest.json | Product photo supply checklist |
+| public/assets/sign-in-memes | Fifteen supplied memes used in the rotating sign-in email |
 | PRODUCT-PHOTO-CHECKLIST.csv | Outlet photo checklist for every menu option |
+| SIGN-IN-MEMES.md | Meme email sequence, retry behavior and optional order configuration |
 | package.json / package-lock.json | Dependency lock, build/start/test commands |
 | render.yaml | Render web-service blueprint |
 | FILES.csv | Complete package file inventory |

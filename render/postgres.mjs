@@ -23,6 +23,8 @@ export async function migratePostgres(client){
   if(!prior.rows.length){await client.query(await readFile(new URL('./migrations/0001_initial.sql',import.meta.url),'utf8'));await client.query('INSERT INTO campus_pg_migrations (name) VALUES ($1)',[name]);}
   const upgraded=await client.query('SELECT name FROM campus_pg_migrations WHERE name=$1',['0002_catalog']);
   if(!upgraded.rows.length){await client.query(await readFile(new URL('./migrations/0002_catalog.sql',import.meta.url),'utf8'));await client.query('INSERT INTO campus_pg_migrations (name) VALUES ($1)',['0002_catalog']);}
+  const memes=await client.query('SELECT name FROM campus_pg_migrations WHERE name=$1',['0003_signin_meme_rotation']);
+  if(!memes.rows.length){await client.query(await readFile(new URL('./migrations/0003_signin_meme_rotation.sql',import.meta.url),'utf8'));await client.query('INSERT INTO campus_pg_migrations (name) VALUES ($1)',['0003_signin_meme_rotation']);}
   await client.query('COMMIT');
  }catch(error){await client.query('ROLLBACK');throw error;}
 }
