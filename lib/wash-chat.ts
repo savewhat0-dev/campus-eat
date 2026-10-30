@@ -24,16 +24,22 @@ const groups:[RegExp,string[]][]=[
 ];
 const missingFood=/\b(sushi|ramen|dosa|idli|biryani|samosa|pani puri|chole bhature|jalebi|waffles?|pancakes?|lasagna|lasagne|falafel platter|shawarma|steak tartare|lobster|dragonfruit|donuts?|doughnuts?)\b|डोसा|इडली|बिरयानी|समोसा|सुशी/;
 const followup=/^(?:and |aur |और )?(?:under|below|within|cheaper|cheapest|veg only|only veg|non veg|nonveg|without chicken|under ₹?\d|in \d|within \d|₹|\d)/;
-export function findCampusFood(message:string,states:Record<string,OutletState>={},context:FoodContext={}):FoodAnswer{
+export function findCampusFood(message:string,states:Record<string,OutletState>={},context:FoodContext={},products:Item[]=menu):FoodAnswer{
+ const menu=products;
  let q=normal(message.replace(/पनीर/g,'paneer').replace(/चिकन/g,'chicken').replace(/बर्गर/g,'burger').replace(/फ्राइज|फ्राइज़/g,'fries').replace(/पिज्जा|पिज़्ज़ा/g,'pizza').replace(/कॉफी/g,'coffee'));const timingNote='Preparation times are estimates from the reference menu, not live queue times. Opening hours need outlet confirmation.';const askProduct:FoodAnswer={kind:'not-found',text:'Please specify the particular product name.',items:[],outletIds:[],total:0,timingNote};if(!q||q.length>400)return askProduct;
- const previous=context.query?normal(context.query):'';const isFollowup=!!previous&&followup.test(q);
+ const previous=context.query?normal(context.query):'';const isFollowup=!!previous&&(followup.test(q)||/\b(this|that|these|it|same)\b/.test(q));
  if(isFollowup)q=previous+' '+q;
  const groupMatches=groups.filter(([re])=>re.test(q));
+ if(/\b(vegan|gluten free|dairy free|nut free|allergen free)\b/.test(q))return {...askProduct,text:'The menu does not record that dietary or allergen certification. Please confirm directly with the outlet.'};
  const outletMatches=outlets.filter(o=>normal(o.name).split(' ').some(t=>t.length>3&&q.split(' ').includes(t))||(o.id==='dominos'&&/domino/.test(q))||(o.id==='greenox'&&/greenox|green ops|green nox/.test(q))||(o.id==='cafe'&&/\bccd\b/.test(q)));
  const unknownFood=missingFood.test(q);
- const named=menu.filter(m=>!['french fries','tea','cappuccino'].includes(normal(m.name))&&q.includes(normal(m.name))).map(m=>m.id);
+ const namedRows=menu.filter(m=>q.includes(normal(m.name)));
+ const longest=Math.max(0,...namedRows.map(m=>normal(m.name).length));
+ const named=namedRows.filter(m=>/compare|versus|\bvs\b/.test(q)||normal(m.name).length===longest).map(m=>m.id);
  const ingredient=/\b(paneer|chicken|cheese|mutton|mushroom|aloo|potato|corn|egg)\b|पनीर|चिकन/.test(q);
-  if(!groupMatches.length&&!unknownFood&&!named.length&&!ingredient)return askProduct;
+ if(!groupMatches.length&&!named.length&&/\b(how.*(?:order|book)|pickup|collect|payment|pay online)\b/.test(q))return {...askProduct,text:'Choose a campus outlet, select your food and pickup time, then confirm the booking. The outlet will accept or deny it. Track the status and pay at pickup; there is no online payment.'};
+ const general=/\b(under|below|budget|vegetarian|veg|nonveg|non veg|cheapest|recommend|suggest)\b/.test(q)||outletMatches.length>0&&/\b(menu|available|food|items|dishes)\b/.test(q);
+  if(!groupMatches.length&&!unknownFood&&!named.length&&!ingredient&&!general)return askProduct;
  // Match only menu products/categories; outlet names alone never count as a product request.
  
   if(unknownFood&&!groupMatches.length&&!named.length&&!ingredient)return {kind:'not-found',text:'That product is not listed in the campus menus.',items:[],outletIds:[],total:0,timingNote};
@@ -47,7 +53,7 @@ export function findCampusFood(message:string,states:Record<string,OutletState>=
  const searchTerms=groupMatches.flatMap(([,terms])=>terms);
  const ingredients=[...q.matchAll(/\b(paneer|chicken|mutton|mushroom|aloo|corn|egg)\b/g)].map(m=>m[1]);
  let found=menu.filter(m=>{
-  const text=normal(m.name+' '+m.category);if(states[m.outlet]?.open===false||states[m.outlet]?.unavailable?.includes(m.id))return false;
+  const text=normal(m.name+' '+m.category);if(m.available===false||states[m.outlet]?.open===false||states[m.outlet]?.unavailable?.includes(m.id))return false;
   if(outletMatches.length&&!outletMatches.some(o=>o.id===m.outlet))return false;
   if(m.price>cap||veg&&!m.veg||nonVeg&&m.veg)return false;
   const max=Number(outlets.find(o=>o.id===m.outlet)!.time.match(/\d+/g)!.at(-1));if(max>limit)return false;
@@ -61,9 +67,10 @@ export function findCampusFood(message:string,states:Record<string,OutletState>=
  const total=found.length;const outletIds=[...new Set(found.map(m=>m.outlet))];
  // Include every matching outlet before filling the remaining result slots.
  const first=outletIds.map(id=>found.find(m=>m.outlet===id)!);const items=[...first,...found.filter(m=>!first.some(i=>i.id===m.id))].slice(0,8);
- if(!items.length)return {kind:'not-found',text:'इन preferences के लिए अभी कोई available campus-menu match नहीं मिला। Try another food, budget or preparation time.',items:[],outletIds:[],total:0,timingNote};
+ if(!items.length){const unavailable=menu.filter(m=>named.includes(m.id)&&(m.available===false||states[m.outlet]?.open===false||states[m.outlet]?.unavailable?.includes(m.id)));if(unavailable.length)return {kind:'results',text:'That product is currently unavailable for booking.',items:unavailable.slice(0,8),outletIds:[...new Set(unavailable.map(m=>m.outlet))],total:unavailable.length,timingNote};return {kind:'not-found',text:'No available campus-menu product matches that request. Try another product or budget.',items:[],outletIds:[],total:0,timingNote};}
  const hours=/\b(open|opening|hours|closed|close|today|now|tomorrow)\b/.test(q);
- return {kind:'results',text:hours?'These menu items are listed. Opening hours are not verified, so please confirm with the outlet.':`Here are ${total} matching menu item${total===1?'':'s'}.`,items,outletIds,total,timingNote};
+ const singleProduct=new Set(items.map(m=>m.outlet+':'+m.name)).size===1;
+ return {kind:'results',text:hours?'These menu items are listed. Opening hours are not verified, so please confirm with the outlet.':singleProduct?`Here’s your ${items[0].name}. Open the product to choose an option and add it to your bag.`:`Here are ${total} matching menu options.`,items,outletIds,total,timingNote};
 }
 
 

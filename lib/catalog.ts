@@ -1,4 +1,4 @@
-export type Item={id:string;outlet:string;name:string;price:number;category:string;veg:boolean;variant?:string;image:string};
+export type Item={id:string;outlet:string;name:string;price:number;category:string;veg:boolean;variant?:string;image:string;description?:string;available?:boolean;prepMinutes?:number;photoApproved?:boolean};
 export const outlets=[
  {id:'kathi',name:'Kathi Junction',tag:'Rolls, North Indian & more',time:'10–15',rating:'4.5',color:'#ac721c',icon:'🌯',crop:'kathi',categories:['Rolls','Main course','Breads','Tea'],address:'Food Court, BML Munjal University, NH-48, Gurugram',hours:'09:00–21:00'},
  {id:'greenox',name:'GreeNox',tag:'Fresh salads & wholesome bowls',time:'10–15',rating:'4.7',color:'#217a42',icon:'🥗',crop:'greenox',categories:['Salads','Sandwiches','Subs & wraps','Bowls','Pasta','Quick bites','Breakfast','Ice cream'],address:'BML Munjal University, 67th Milestone, NH-48, Gurugram',hours:'09:00–21:00'},

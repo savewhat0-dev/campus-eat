@@ -1,0 +1,1 @@
+export type RetailOrder={id:string;outlet:string;items:{id:string;qty:number;name?:string;price?:number;variant?:string}[];total:number;status:string;pickup:string;created:number;note:string;customerDetails?:{name?:string;enrollment?:string;phone?:string;email?:string};decisionNote?:string;paymentMethod?:string};
