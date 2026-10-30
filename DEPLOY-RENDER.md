@@ -1,6 +1,6 @@
 # Render setup: final PostgreSQL package
 
-Use ONLY Campus-Eats-Render-Final.zip. Extract it, and upload all extracted files and folders to the ROOT of a new private GitHub repository named campus-eats. Preserve folder structure. Do not upload the ZIP. Existing incomplete repositories can retain conflicting settings, so a new repository is the clearest route. The package includes Chef, PostgreSQL support and a file guide; no credentials or customer records are included.
+For this upgrade, follow UPGRADE-REPORT.md first. Use CampusEats-Product-Images-2026-10-30.zip. Extract it, and upload all extracted files and folders to the ROOT of a new private GitHub repository named campus-eats. Preserve folder structure. Do not upload the ZIP. Existing incomplete repositories can retain conflicting settings, so a new repository is the clearest route. The package includes Chef, PostgreSQL support and a file guide; no credentials or customer records are included.
 
 ## A. Project (optional grouping)
 
@@ -156,3 +156,5 @@ https://render.com/docs/web-services
 https://render.com/docs/free
 https://render.com/docs/datadog
 https://render.com/docs/environment-variables
+
+

@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {build} from 'esbuild';
+await build({entryPoints:['lib/wash-chat.ts'],bundle:true,platform:'node',format:'esm',outfile:'outputs/chef-upgrade-test.mjs'});
+const {findCampusFood:ask}=await import('../outputs/chef-upgrade-test.mjs');
+for(const [q,expected]of [['I want Margherita Pizza.','Margherita'],['Show me Paneer Roll.','Paneer Roll'],['I want cold coffee.','Cold Coffee']]){const r=ask(q);assert.equal(r.kind,'results',q);assert.ok(r.items.length);assert.ok(r.items.every(p=>p.name===expected),q);}
+let r=ask('Suggest something under ₹100.');assert.ok(r.items.length);assert.ok(r.items.every(p=>p.price<=100));
+r=ask('Which vegetarian pizzas are available?');assert.ok(r.items.length);assert.ok(r.items.every(p=>p.veg&&p.category==='Veg pizza'));
+r=ask('Show me Burger Singh burgers.');assert.ok(r.items.length);assert.ok(r.items.every(p=>p.outlet==='burger'));
+r=ask('Is Margherita Pizza available?');assert.ok(r.items.every(p=>p.name==='Margherita'));
+r=ask('What is the price of this pizza?',{}, {query:'Margherita'});assert.ok(r.items.length);assert.ok(r.items.every(p=>p.name==='Margherita'));
+r=ask('Is Margherita Pizza available?',{dominos:{open:false}});assert.match(r.text,/unavailable/);assert.ok(r.items.every(p=>p.name==='Margherita'));
+assert.equal(ask('What is calculus?').text,'Please specify the particular product name.');
+assert.equal(ask('sushi').items.length,0);
+assert.equal(ask('vegan pizza').items.length,0);
+assert.equal(ask('gluten free pizza').items.length,0);
+r=ask('मुझे पनीर रोल चाहिए');assert.ok(r.items.length);assert.ok(r.items.every(p=>/paneer/i.test(p.name)));
+console.log('PASS: all eight requested Chef questions, specific-product priority, budget, diet, context, Hindi, unavailable products, unknown food and unrecorded allergen certifications.');

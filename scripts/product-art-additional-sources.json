@@ -1,0 +1,52 @@
+[
+  {
+    "key": "cheesy-fries",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-755d86cf-197c-4c03-b69d-35a34a36e76a.png",
+    "review": "visually inspected in QA sheet"
+  },
+  {
+    "key": "falafel-salad",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-b8ff3da6-60e3-48e2-ac54-513a742cc767.png",
+    "review": "visually inspected in QA sheet"
+  },
+  {
+    "key": "falafel-wrap",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-797f0a33-39e0-48b9-bfde-9cf786e6f7f2.png",
+    "review": "visually inspected in QA sheet"
+  },
+  {
+    "key": "veg-sub",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-a667b651-2af5-45a3-be00-6ccf20675503.png",
+    "review": "visually inspected in QA sheet"
+  },
+  {
+    "key": "chicken-sandwich",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-6be116a9-9709-4c6d-bbe6-51a22c33a74d.png",
+    "review": "visually inspected in QA sheet"
+  },
+  {
+    "key": "veg-wrap",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-b4732fd3-5bdd-4aa9-9014-96c676ffba50.png",
+    "review": "visually inspected in QA sheet"
+  },
+  {
+    "key": "vegetable-curry",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-66a0789b-2b2c-4965-aed9-321f96daf54e.png",
+    "review": "visually inspected in QA sheet"
+  },
+  {
+    "key": "yellow-dal",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-da8b5811-be6a-4ee6-b194-6289524d882f.png",
+    "review": "visually inspected in QA sheet"
+  },
+  {
+    "key": "chicken-taco",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-d496f026-00db-4528-b067-ed8e1a3d96dc.png",
+    "review": "visually inspected in QA sheet"
+  },
+  {
+    "key": "soya-curry",
+    "source": "C:\\Users\\risha\\.codex\\generated_images\\01a173bb-cf29-7af0-bb31-2ba0e841b2b3\\exec-d891f2dd-75d2-4006-893b-d865a532fc1d.png",
+    "review": "visually inspected in QA sheet"
+  }
+]

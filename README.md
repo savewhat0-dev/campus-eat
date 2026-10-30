@@ -1,43 +1,43 @@
-# Campus Eats final Render upload package
+# CampusEats — Render upgrade
 
-This replaces the previous SQLite upload package. Start with DEPLOY-RENDER.md for the exact steps and environment settings. Upload every extracted file and folder to your GitHub repository ROOT, preserving the folder structure. Do not upload the ZIP itself. This package contains no credentials or customer records.
+Read PRODUCT-IMAGES.md for the latest AI product artwork and actual-photo replacement update. Start with UPGRADE-REPORT.md for the changes, verification results, actual-product-photo workflow and instructions for updating your existing service. DEPLOY-RENDER.md contains the full Render setup reference.
+
+This is a complete source package. Upload the extracted source folders to your connected GitHub repository, preserving their structure. No credentials, customer database or node_modules are included.
 
 | Path | Purpose |
 | --- | --- |
-| package.json | Dependencies, build, start and test commands |
-| package-lock.json | Locked dependencies for npm ci |
-| index.html | Browser entry page |
-| vite.render.config.mjs | React frontend build |
-| postcss.config.mjs | CSS processor configuration |
-| render.yaml | Free Render web service; no disk; DATABASE_URL supplied as secret |
-| app/page.tsx | Customer menus, authentication, cart and orders |
-| app/globals.css | Website styles |
-| components/retailer-workspace.tsx | Outlet-scoped retailer orders and status actions |
-| components/wash-chat.tsx | Chef food assistant UI (historical filename) |
-| components/menu-food.tsx | Food-specific image selection shared by menus and Chef results |
-| lib/catalog.ts | Menus, prices and outlets |
-| lib/order-flow.ts | Customer validation and order transitions |
-| lib/wash-chat.ts | Chef catalogue matching |
-| lib/api.ts | Email-link sign-in, sessions, profile, order and retailer APIs |
-| render/client.tsx | Mounts the React application |
-| render/build.mjs | Bundles the backend API |
-| render/env.mjs | Supplies backend environment bindings |
-| render/server.mjs | Starts Node server and PostgreSQL initialization |
-| render/postgres.mjs | Parameterized queries, connection pool and transactional migrations |
-| render/migrations/0001_initial.sql | PostgreSQL schema for all app tables |
-| render/README.md | Backend and verification notes |
-| drizzle/*.sql | Original SQLite schema, retained for regression tests only |
-| scripts/provision-retailers.mjs | Generates salted hashes for five retailer accounts |
-| scripts/order-flow-test.mjs | Full authentication and order lifecycle tests |
-| scripts/postgres-test-db.mjs | Embedded PostgreSQL test fixture |
-| scripts/wash-chat-test.mjs | Food search tests |
-| public/favicon.svg | Browser icon |
-| public/assets/* | Website images and reference menu photos |
-| DEPLOY-RENDER.md | Step-by-step deployment, secrets and verification |
-| .gitignore | Excludes secrets, local database files and generated output |
-| FILES.csv | Upload inventory and file sizes |
-| README.md | This file guide |
+| app/page.tsx | Customer UI, authentication, booking, cart and tracking |
+| app/redesign.css | Responsive green visual redesign |
+| components/product-card.tsx | Shared menu/Chef cards and real variant dialog |
+| components/chef-ai.tsx | Chef AI chat and catalogue result UI |
+| components/profile-gate.tsx | Mandatory first-login profile |
+| components/retailer-dashboard.tsx | Outlet-scoped orders, menu, analytics, feedback and settings |
+| components/menu-food.tsx | Actual outlet photo, with labeled AI illustration as fallback |
+| components/outlet-logo.tsx | Supplied brand logo display |
+| components/feedback-form.tsx | Collected-order feedback |
+| lib/api.ts | Authentication, profile, catalogue, image, order and retailer APIs |
+| lib/catalog.ts | Original seed menu and prices |
+| lib/catalog-store.ts | Persisted products and validated raster photo uploads |
+| lib/profile.ts | Programme/year options and profile validation |
+| lib/wash-chat.ts | Chef catalogue matching; historical internal filename |
+| render/server.mjs | Production Node server |
+| render/gmail.mjs | Gmail API transport |
+| render/mail-runtime.mjs | Runtime mail configuration |
+| render/postgres.mjs | PostgreSQL adapter and migrations |
+| render/migrations | Idempotent schema upgrades |
+| scripts/setup-retailers.ps1 | Interactive five-account hash generator |
+| scripts/provision-retailers.mjs | Hash generation implementation |
+| scripts/*test*.mjs | Automated regression checks |
+| scripts/preview-ui.mjs | Local QA only, captures mail without sending |
+| public/assets/logos | Original supplied JPG logos and cropped WebP derivatives |
+| public/assets/banners | Illustrative generated marketing banners |
+| public/assets/products/image-manifest.json | Product photo supply checklist |
+| PRODUCT-PHOTO-CHECKLIST.csv | Outlet photo checklist for every menu option |
+| package.json / package-lock.json | Dependency lock, build/start/test commands |
+| render.yaml | Render web-service blueprint |
+| FILES.csv | Complete package file inventory |
 
-Render Free Postgres expires after 30 days. This package removes the paid disk requirement but does not remove hosting provider limits. Existing ChatGPT-site orders are not transferred automatically. The app generates and validates one-time sign-in links itself; email delivery uses standard SMTP settings (no Google OAuth or Gmail API). See DEPLOY-RENDER.md for setup and Render SMTP port limits.
+Commands: `npm ci --include=dev`, `npm test`, `npm run build:render`, `npm run start:render`.
 
-New files: render/config.mjs automatically selects and validates the Render URL; scripts/setup-retailers.ps1 privately prompts for retailer passwords and copies hashes; scripts/render-config-test.mjs verifies automatic URL and custom-domain settings. Follow DEPLOY-RENDER.md for the complete field-by-field setup, including Datadog, project, PostgreSQL version and environment variables.
+The source and local tests are complete. Live Gmail delivery still requires valid matching OAuth credentials and a deployed-service test. Every seed menu option has a labeled AI illustration. Retailers may replace it with an actual outlet photo.
+

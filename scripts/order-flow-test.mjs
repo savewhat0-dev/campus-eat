@@ -10,6 +10,7 @@ if(process.env.TEST_POSTGRES==='1')({sqlite,db:database}=await (await import('./
 else{
  sqlite=new DatabaseSync(':memory:');
  for(const f of ['0000_thin_earthquake.sql','0001_thick_saracen.sql'])sqlite.exec(readFileSync(new URL('../drizzle/'+f,import.meta.url),'utf8').replaceAll('--> statement-breakpoint',''));
+ sqlite.exec(readFileSync(new URL('../render/migrations/0002_catalog.sql',import.meta.url),'utf8'));
  database={prepare(sql){let args=[];return {bind(...values){args=values;return this;},async first(){return sqlite.prepare(sql).get(...args)||null;},async all(){return {results:sqlite.prepare(sql).all(...args)};},async run(){return sqlite.prepare(sql).run(...args);}};}};
 }
 const ids=['kathi','greenox','cafe','burger','dominos'];const password='Test-only-password-2026';
@@ -17,7 +18,8 @@ const accounts=ids.map(outlet=>{const salt=createHash('sha256').update('test-sal
 globalThis.__testEnv={DB:database,GOOGLE_CLIENT_ID:'test-client-id',GOOGLE_CLIENT_SECRET:'test-client-secret',GOOGLE_OAUTH_REFRESH_TOKEN:'test-refresh-token',EMAIL_FROM:'Campus Eats <test@gmail.com>',sendEmail:async message=>delivered.push({to:[message.to],text:message.text}),RETAILER_ACCOUNTS:JSON.stringify(accounts)};
 await build({entryPoints:['lib/api.ts'],bundle:true,platform:'node',format:'esm',outfile:'outputs/api-under-test.mjs',plugins:[{name:'cloudflare-env-stub',setup(b){b.onResolve({filter:/^cloudflare:workers$/},()=>({path:'env',namespace:'fixture'}));b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:'export const env=globalThis.__testEnv;'}));}}]});
 let delivered=[];
-const {handle}=await import('../outputs/api-under-test.mjs');
+const {handle,initializeCatalog}=await import('../outputs/api-under-test.mjs');
+await initializeCatalog();
 async function call(path,method='GET',body,cookie='',origin='https://campus.test'){const req=new Request('https://campus.test/api/campus/'+path,{method,headers:{'Content-Type':'application/json',Origin:origin,...(cookie?{Cookie:cookie}:{})},...(body?{body:JSON.stringify(body)}:{})});const res=await handle(req,path.split('/'));const data=await res.json();return {status:res.status,data,cookie:res.headers.get('set-cookie')?.split(';')[0]};}
 try{
  for(const email of ['rishabh.rishabh.kaktan.25bb@bmu.edu.in','Rishabh.Kaktan.25BB@bmu.edu.in'])assert.ok(validUniversityEmail(email));
@@ -31,6 +33,11 @@ try{
  assert.equal((await call('auth/send','POST',{email:dotted})).status,429);
  assert.equal((await call('auth/verify-link','POST',{token:token+'a'})).status,400);
  r=await call('auth/verify-link','POST',{token});assert.equal(r.status,200);const customer=r.cookie;assert.ok(customer);assert.equal((await call('auth/verify-link','POST',{token})).status,400);
+ assert.equal((await call('orders','GET',undefined,customer)).status,403,'Incomplete profiles must be blocked at the API');
+ assert.equal((await call('profile','POST',{name:'Student',enrollment:'25TEST',phone:'9000000001'},customer)).status,400);
+ const completeProfile={name:'Test Student',enrollment:'25TEST',phone:'9000000001',course:'btech',year:2};
+ assert.equal((await call('profile','POST',completeProfile,customer)).status,200);
+ assert.equal((await call('orders','GET',undefined,customer)).status,200);
  assert.equal((await call('orders')).status,401);assert.equal((await call('orders','POST',{},customer,'https://other.example')).status,403);
  assert.equal((await call('auth/retailer','POST',{username:'test-kathi',password:'wrong'})).status,401);
  r=await call('auth/retailer','POST',{username:'test-kathi',password});assert.equal(r.status,200);const retailer=r.cookie;
@@ -50,6 +57,26 @@ try{
  assert.equal((await call('orders','GET',undefined,otherRetailer)).data.orders.length,0);
  // Expired sign-in links cannot be used.
  await call('auth/send','POST',{email:'expiry.test@bmu.edu.in'});const expLink=delivered.at(-1).text.match(/https:\/\/campus\.test\/#verify=[\da-f-]{64,80}/i)[0];const expToken=new URLSearchParams(new URL(expLink).hash.slice(1)).get('verify');await sqlite.prepare('UPDATE challenges SET expires=0 WHERE email=?').run('expiry.test@bmu.edu.in');assert.equal((await call('auth/verify-link','POST',{token:expToken})).status,400);
+ const stored=(await call('products')).data.products.find(p=>p.id===item.id);
+ const testPhoto='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/hN0AAAAASUVORK5CYII=';
+ const withPhoto=await call('retailer/products/'+item.id,'PATCH',{...stored,image:testPhoto,photoApproved:true},retailer);assert.equal(withPhoto.status,200);assert.ok(withPhoto.data.product.image.startsWith('/api/campus/product-images/'));assert.ok(!withPhoto.data.product.image.includes('base64'));
+ const imagePath=withPhoto.data.product.image.split('/').at(-1);const imageResponse=await handle(new Request('https://campus.test/api/campus/product-images/'+imagePath),['product-images',item.id]);assert.equal(imageResponse.headers.get('Content-Type'),'image/png');assert.ok((await imageResponse.arrayBuffer()).byteLength>0);
+ assert.equal((await call('retailer/products/'+item.id,'PATCH',{...stored,image:'data:image/png;base64,aGVsbG8='},retailer)).status,400,'Reject fake image bytes');
+ assert.equal((await call('retailer/products/'+item.id,'PATCH',{...stored,price:123},otherRetailer)).status,404);
+ assert.equal((await call('retailer/products/'+item.id,'PATCH',{...stored,price:123,description:'Outlet-authored description',available:true},retailer)).status,200);
+ assert.equal((await call('products/'+item.id)).data.product.price,123);
+ await initializeCatalog();assert.equal((await call('products/'+item.id)).data.product.price,123,'Catalog reseeding must preserve retailer edits');
+ assert.equal((await call('orders','POST',{...payload,priceSnapshot:{[item.id]:stored.price},requestId:crypto.randomUUID()},customer)).status,409,'Reject changed prices until customer reviews the cart');
+ const newProduct=await call('retailer/products','POST',{...stored,name:'Test variant product',variant:'Test size',outlet:'greenox'},retailer);assert.equal(newProduct.status,201);assert.equal(newProduct.data.product.outlet,'kathi','Retailers cannot spoof another outlet when adding a product');
+ const chef=await call('chef-ai/chat','POST',{message:item.name});assert.equal(chef.status,200);assert.ok(chef.data.answer.items.some(p=>p.id===item.id&&p.price===123));
+ const priced=(await call('orders','POST',{...payload,requestId:crypto.randomUUID()},customer)).data.order;assert.equal(priced.total,246);
+ assert.equal((await call('retailer/products/'+item.id,'PATCH',{...stored,available:false},retailer)).status,200);
+ assert.equal((await call('orders','POST',{...payload,requestId:crypto.randomUUID()},customer)).status,400);
+ assert.equal((await call('feedback','POST',{orderId:order.id,rating:5,comment:'Great pickup'},customer)).status,200);
+ assert.equal((await call('feedback','GET',undefined,retailer)).data.feedback.length,1);
+ assert.equal((await call('feedback','GET',undefined,otherRetailer)).data.feedback.length,0);
+ assert.equal((await call('me','GET',undefined,customer)).data.profile.course,'btech','Checkout must not erase course and year');
+ assert.equal((await call('analytics','GET',undefined,retailer)).data.completed,1);
  delete globalThis.__testEnv.GOOGLE_CLIENT_SECRET;assert.equal((await call('auth/send','POST',{email:'missing.sender@bmu.edu.in'})).status,503);
  console.log('PASS: dotted email magic-link sign-in using a stub Gmail API sender, invalid/expired/reused link rejection, five retailer logins, customer details, server-priced idempotent orders, outlet isolation, accept/deny reasons, customer-visible updates, and complete pickup lifecycle. No real emails sent.');
 }finally{await sqlite.close();}

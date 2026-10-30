@@ -7,8 +7,9 @@ import {mailRuntime} from './mail-runtime.mjs';
 const origin=publicOrigin();
 
 const db=await openPostgres(process.env.DATABASE_URL);
-globalThis.__campusRuntime={DB:db,...mailRuntime(process.env),RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS};
-const {handle}=await import('../dist-render/api.mjs');
+globalThis.__campusRuntime={DB:db,...mailRuntime(process.env),RETAILER_ACCOUNTS:process.env.RETAILER_ACCOUNTS,COURSE_OPTIONS:process.env.COURSE_OPTIONS};
+const {handle,initializeCatalog}=await import('../dist-render/api.mjs');
+await initializeCatalog();
 const root=resolve('dist-render/public');
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.ico':'image/x-icon','.woff2':'font/woff2'};
 const server=createServer(async(req,res)=>{
@@ -16,7 +17,7 @@ const server=createServer(async(req,res)=>{
   const url=new URL(req.url,origin);
   if(url.pathname==='/healthz'){await db.prepare('SELECT 1').first();res.writeHead(200,{'Content-Type':'application/json'});res.end('{"ok":true}');return;}
   if(url.pathname.startsWith('/api/campus/')){
-   let size=0;const chunks=[];for await(const chunk of req){size+=chunk.length;if(size>65536){res.writeHead(413);res.end();return;}chunks.push(chunk);}
+   let size=0;const chunks=[];for await(const chunk of req){size+=chunk.length;if(size>1048576){res.writeHead(413,{'Content-Type':'application/json'});res.end('{"error":"Upload is too large. Use an image under 600 KB."}');return;}chunks.push(chunk);}
    const headers=new Headers();for(const [key,value]of Object.entries(req.headers)){if(value!==undefined)headers.set(key,Array.isArray(value)?value.join(', '):value);}
    const response=await handle(new Request(new URL(url.pathname+url.search,origin),{method:req.method,headers,...(!['GET','HEAD'].includes(req.method)?{body:Buffer.concat(chunks)}:{})}),url.pathname.slice('/api/campus/'.length).split('/'));
    res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()));return;
