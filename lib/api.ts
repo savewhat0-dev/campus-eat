@@ -1,3 +1,4 @@
+import {numericHours} from './outlet-hours';
 import {retailerAnalytics} from './retailer-analytics';
 import { env } from 'cloudflare:workers';
 import { menu, outlets } from './catalog';
@@ -138,7 +139,7 @@ export async function handle(req:Request,path:string[]){try{
   const result=await db().prepare('UPDATE orders SET status=?,decision_note=? WHERE id=? AND status=? RETURNING *').bind(next,reason,id,o.status).first<any>();if(!result)return json({error:'The order was already updated. Please refresh.'},409);await db().prepare('INSERT INTO order_events (id,order_id,outlet,status,created) VALUES (?,?,?,?,?)').bind(crypto.randomUUID(),id,o.outlet,next,Date.now()).run();return json({order:orderDto(result)});
  }
  if(route==='settings'&&s.role==='retailer'&&method==='PATCH'){
-  const b=await req.json() as any;const address=String(b.address||'').trim();const hours=String(b.hours||'').trim();if(!address||address.length>300||hours.length>80)return json({error:'Enter a store address (up to 300 characters) and valid hours.'},400);
+  const b=await req.json() as any;const address=String(b.address||'').trim();const hours=numericHours(String(b.hours||'').trim());if(!address||address.length>300||!hours)return json({error:'Enter a store address (up to 300 characters) and valid hours.'},400);
   const products=await storedProducts(db());const unavailable=Array.isArray(b.unavailable)?b.unavailable.filter((id:string)=>products.some(m=>m.id===id&&m.outlet===s.outlet)):[];
   const data={address,hours,open:b.open===true,unavailable};await db().prepare('INSERT INTO settings (outlet,data) VALUES (?,?) ON CONFLICT(outlet) DO UPDATE SET data=excluded.data').bind(s.outlet,JSON.stringify(data)).run();return json({ok:true,settings:data});
  }
