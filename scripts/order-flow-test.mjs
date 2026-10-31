@@ -84,6 +84,7 @@ try{
  assert.equal((await call('feedback','GET',undefined,otherRetailer)).data.feedback.length,0);
  assert.equal((await call('me','GET',undefined,customer)).data.profile.course,'btech','Checkout must not erase course and year');
  assert.equal((await call('analytics','GET',undefined,retailer)).data.completed,1);
+ const reportResponse=await handle(new Request('https://campus.test/api/campus/analytics/transactions?period=all',{headers:{Cookie:retailer}}),['analytics','transactions']);assert.equal(reportResponse.status,200);const reportData=await reportResponse.json();const savedTotals=await database.prepare("SELECT COUNT(*) AS n,SUM(total) AS total FROM orders WHERE outlet=?").bind('kathi').first();assert.equal(reportData.totals.placed,Number(savedTotals.n));assert.equal(reportData.totals.orderValue,Number(savedTotals.total));assert.equal(reportData.totals.received,null);
  delete globalThis.__testEnv.GOOGLE_CLIENT_SECRET;assert.equal((await call('auth/send','POST',{email:'missing.sender@bmu.edu.in'})).status,503);
  console.log('PASS: per-account sign-in meme rotation, retry reuse without advancing on delivery failure, fixed order loop, independent account state, responsive HTML email link, dotted email magic-link sign-in, invalid/expired/reused link rejection, five retailer logins, customer details, server-priced idempotent orders, outlet isolation, accept/deny reasons, customer-visible updates, and complete pickup lifecycle. No real emails sent.');
 }finally{await sqlite.close();}

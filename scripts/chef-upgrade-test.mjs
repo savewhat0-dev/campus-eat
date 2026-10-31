@@ -19,3 +19,8 @@ r=ask('मुझे पनीर रोल चाहिए');assert.ok(r.items.l
 console.log('PASS: all eight requested Chef questions, specific-product priority, budget, diet, context, Hindi, unavailable products, unknown food and unrecorded allergen certifications.');
 
 for(const query of ['chiken sandwch','sandwich chicken','barbecue chicken sandwich']){const matches=rankProducts(query,menu);assert.ok(matches.some(r=>r.item.name==='Grilled Chicken BBQ Sandwich'));}
+
+for(const q of ['Hi','Hello','Hey!']){const greeting=ask(q);assert.equal(greeting.kind,'conversation');assert.equal(greeting.items.length,0);assert.match(greeting.text,/what would you like to eat/i);}
+const hungry=ask('I want something to eat');assert.equal(hungry.kind,'conversation');assert.equal(hungry.items.length,0);assert.match(hungry.text,/snack.*meal/i);
+assert.ok(ask('snacks',{}, {query:hungry.context}).items.length);assert.ok(ask('vegetarian',{}, {query:'pizza'}).items.every(p=>p.veg&&p.category==='Veg pizza'));
+assert.ok(ask('paneer rol').items.every(p=>/paneer/i.test(p.name)&&/roll/i.test(p.name)));

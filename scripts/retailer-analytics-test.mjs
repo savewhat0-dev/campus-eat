@@ -1,0 +1,9 @@
+import assert from 'node:assert/strict';
+import {retailerAnalytics} from '../lib/retailer-analytics.ts';
+const now=Date.parse('2026-10-31T18:00:00Z'),start=Date.parse('2026-10-30T18:30:00Z'),day=86400000;
+const make=(id,total,status,created=start,outlet='kathi')=>({id,total,status,created,outlet,items:JSON.stringify([{name:'Saved item',qty:1}])});
+const records=[make('a',100,'Collected'),make('b',200,'Pending'),make('c',300,'Denied'),make('d',400,'Cancelled'),make('e',500,'Accepted'),make('other',9999,'Collected',start,'greenox'),make('y',600,'Collected',start-1),make('7',700,'Collected',start-6*day),make('15',800,'Collected',start-14*day),make('30',900,'Collected',start-29*day),make('old',1000,'Collected',start-30*day)];
+const today=retailerAnalytics(records,'kathi','today',now);assert.equal(today.totals.placed,5);assert.equal(today.totals.pending,2);assert.equal(today.totals.cancelled,1);assert.equal(today.totals.rejected,1);assert.equal(today.totals.orderValue,1500);assert.equal(today.totals.completedValue,100);assert.equal(today.totals.averageCompletedValue,100);assert.equal(today.totals.received,null);assert.equal(today.range.start,'2026-10-31');
+for(const [period,count,value] of [['7',7,1400],['15',8,2200],['30',9,3100],['all',10,4100]]){const r=retailerAnalytics(records,'kathi',period,now);assert.equal(r.totals.placed,count);assert.equal(r.totals.completedValue,value);assert.equal(r.daily.reduce((n,d)=>n+d.orders,0),count);assert.equal(r.daily.reduce((n,d)=>n+d.sales,0),value);assert.equal(r.transactions.length,count);assert.ok(r.transactions.every(t=>t.paymentStatus==='Not recorded'));}
+assert.equal(retailerAnalytics([],'kathi','all',now).totals.completedValue,0);assert.throws(()=>retailerAnalytics(records,'kathi','invalid',now));
+console.log('PASS: campus-midnight boundaries, all five ranges, outlet isolation, cancelled/rejected exclusions, pending statuses, chart/table reconciliation and unavailable cash receipts.');

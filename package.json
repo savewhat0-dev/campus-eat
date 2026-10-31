@@ -8,7 +8,7 @@
   "scripts": {
     "build:render": "vite build --config vite.render.config.mjs && node render/build.mjs",
     "start:render": "node render/server.mjs",
-    "test": "node scripts/order-flow-test.mjs && node scripts/chef-upgrade-test.mjs && node scripts/render-config-test.mjs && node scripts/product-images-test.mjs"
+    "test": "node scripts/order-flow-test.mjs && node scripts/chef-upgrade-test.mjs && node scripts/render-config-test.mjs && node scripts/product-images-test.mjs && node scripts/retailer-analytics-test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

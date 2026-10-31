@@ -1,0 +1,15 @@
+Apply these changed files on top of your existing project after the previous UI/search/notification update. Preserve the paths, replace matching files, add the new files, commit to GitHub and deploy the latest commit on Render. No new required environment variables or database migrations for this update.
+Reports use orders placed within inclusive Asia/Kolkata dates and their current order status. Daily completed value is allocated to the original order placement date. All-time includes all saved outlet orders, beyond the 200-row live order list. Money received remains unavailable because the existing database contains no counter-payment or refund ledger. Collected status never becomes a cash receipt automatically.
+Chef greetings, food preferences, product matching, conversation context and retailer layout/reporting are updated. Verified: production build, frontend TypeScript, regression suite, embedded PostgreSQL API totals, deterministic date-boundary and report reconciliation tests, plus browser greeting/report/filter/layout checks. Live Render has not been deployed.
+Changed files:
+app/redesign.css
+components/chef-ai.tsx
+components/orders-transactions.tsx
+components/retailer-dashboard.tsx
+lib/api.ts
+lib/retailer-analytics.ts
+lib/wash-chat.ts
+scripts/chef-upgrade-test.mjs
+scripts/order-flow-test.mjs
+scripts/retailer-analytics-test.mjs
+package.json
