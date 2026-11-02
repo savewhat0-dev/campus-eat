@@ -1,0 +1,4476 @@
+[
+  {
+    "productId": "m1",
+    "outlet": "kathi",
+    "name": "Aloo Roll",
+    "variant": "",
+    "price": 50,
+    "illustration": {
+      "src": "/assets/illustrations/aloo-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m2",
+    "outlet": "kathi",
+    "name": "Paneer Roll",
+    "variant": "",
+    "price": 80,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m3",
+    "outlet": "kathi",
+    "name": "Double Paneer Roll",
+    "variant": "",
+    "price": 100,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m4",
+    "outlet": "kathi",
+    "name": "Peri Peri Paneer Roll",
+    "variant": "",
+    "price": 90,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m5",
+    "outlet": "kathi",
+    "name": "Paneer Tikka Roll",
+    "variant": "",
+    "price": 110,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m6",
+    "outlet": "kathi",
+    "name": "Double Paneer Tikka Roll",
+    "variant": "",
+    "price": 130,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m7",
+    "outlet": "kathi",
+    "name": "Malai Paneer Roll",
+    "variant": "",
+    "price": 140,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m8",
+    "outlet": "kathi",
+    "name": "Mix Veg Roll",
+    "variant": "",
+    "price": 70,
+    "illustration": {
+      "src": "/assets/illustrations/veg-wrap.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m9",
+    "outlet": "kathi",
+    "name": "Soya Chaap Roll",
+    "variant": "",
+    "price": 70,
+    "illustration": {
+      "src": "/assets/illustrations/soya-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m10",
+    "outlet": "kathi",
+    "name": "Double Soya Chaap Roll",
+    "variant": "",
+    "price": 90,
+    "illustration": {
+      "src": "/assets/illustrations/soya-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m11",
+    "outlet": "kathi",
+    "name": "Mushroom Roll",
+    "variant": "",
+    "price": 80,
+    "illustration": {
+      "src": "/assets/illustrations/mushroom-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m12",
+    "outlet": "kathi",
+    "name": "Double Mushroom Roll",
+    "variant": "",
+    "price": 100,
+    "illustration": {
+      "src": "/assets/illustrations/mushroom-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m13",
+    "outlet": "kathi",
+    "name": "Peri Peri Mushroom Roll",
+    "variant": "",
+    "price": 90,
+    "illustration": {
+      "src": "/assets/illustrations/mushroom-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m14",
+    "outlet": "kathi",
+    "name": "Veg Jumbo Roll",
+    "variant": "",
+    "price": 150,
+    "illustration": {
+      "src": "/assets/illustrations/veg-wrap.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m15",
+    "outlet": "kathi",
+    "name": "Double Egg Roll",
+    "variant": "",
+    "price": 70,
+    "illustration": {
+      "src": "/assets/illustrations/egg-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m16",
+    "outlet": "kathi",
+    "name": "Single Egg Roll",
+    "variant": "",
+    "price": 50,
+    "illustration": {
+      "src": "/assets/illustrations/egg-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m17",
+    "outlet": "kathi",
+    "name": "Chicken Roll",
+    "variant": "",
+    "price": 100,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m18",
+    "outlet": "kathi",
+    "name": "Egg Chicken Roll",
+    "variant": "",
+    "price": 110,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m19",
+    "outlet": "kathi",
+    "name": "Double Chicken Roll",
+    "variant": "",
+    "price": 130,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m20",
+    "outlet": "kathi",
+    "name": "Double Egg Double Chicken Roll",
+    "variant": "",
+    "price": 150,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m21",
+    "outlet": "kathi",
+    "name": "Peri Peri Chicken Roll",
+    "variant": "",
+    "price": 110,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m22",
+    "outlet": "kathi",
+    "name": "Single Chicken Tikka Roll",
+    "variant": "",
+    "price": 130,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m23",
+    "outlet": "kathi",
+    "name": "Egg Chicken Tikka Roll",
+    "variant": "",
+    "price": 140,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m24",
+    "outlet": "kathi",
+    "name": "Double Chicken Tikka Roll",
+    "variant": "",
+    "price": 150,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m25",
+    "outlet": "kathi",
+    "name": "Double Egg Double Chicken Tikka Roll",
+    "variant": "",
+    "price": 170,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m26",
+    "outlet": "kathi",
+    "name": "Peri Peri Chicken Tikka Roll",
+    "variant": "",
+    "price": 140,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m27",
+    "outlet": "kathi",
+    "name": "Chicken Malai Roll",
+    "variant": "",
+    "price": 150,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m28",
+    "outlet": "kathi",
+    "name": "Chicken Sheekh Roll",
+    "variant": "",
+    "price": 130,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m29",
+    "outlet": "kathi",
+    "name": "Mutton Roll",
+    "variant": "",
+    "price": 150,
+    "illustration": {
+      "src": "/assets/illustrations/mutton-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m30",
+    "outlet": "kathi",
+    "name": "Egg Mutton Roll",
+    "variant": "",
+    "price": 160,
+    "illustration": {
+      "src": "/assets/illustrations/mutton-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m31",
+    "outlet": "kathi",
+    "name": "Double Mutton Roll",
+    "variant": "",
+    "price": 190,
+    "illustration": {
+      "src": "/assets/illustrations/mutton-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m32",
+    "outlet": "kathi",
+    "name": "Double Egg Double Mutton Roll",
+    "variant": "",
+    "price": 210,
+    "illustration": {
+      "src": "/assets/illustrations/mutton-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m33",
+    "outlet": "kathi",
+    "name": "Non Veg Jumbo Roll",
+    "variant": "",
+    "price": 230,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m34",
+    "outlet": "kathi",
+    "name": "Shahi Paneer",
+    "variant": "300 ml",
+    "price": 130,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m35",
+    "outlet": "kathi",
+    "name": "Paneer Lababdar",
+    "variant": "300 ml",
+    "price": 120,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m36",
+    "outlet": "kathi",
+    "name": "Kadhai Paneer",
+    "variant": "300 ml",
+    "price": 130,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m37",
+    "outlet": "kathi",
+    "name": "Mix Veg",
+    "variant": "300 ml",
+    "price": 110,
+    "illustration": {
+      "src": "/assets/illustrations/vegetable-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m38",
+    "outlet": "kathi",
+    "name": "Masala Chaap Gravy",
+    "variant": "300 ml",
+    "price": 120,
+    "illustration": {
+      "src": "/assets/illustrations/soya-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m39",
+    "outlet": "kathi",
+    "name": "Dal Fry",
+    "variant": "300 ml",
+    "price": 80,
+    "illustration": {
+      "src": "/assets/illustrations/yellow-dal.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m40",
+    "outlet": "kathi",
+    "name": "Dal Makhni",
+    "variant": "300 ml",
+    "price": 100,
+    "illustration": {
+      "src": "/assets/illustrations/dal.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m41",
+    "outlet": "kathi",
+    "name": "Butter Chicken with Bone",
+    "variant": "2 pcs",
+    "price": 180,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m42",
+    "outlet": "kathi",
+    "name": "Butter Chicken Boneless",
+    "variant": "4 pcs",
+    "price": 200,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m43",
+    "outlet": "kathi",
+    "name": "Kadhai Chicken",
+    "variant": "2 pcs",
+    "price": 210,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m44",
+    "outlet": "kathi",
+    "name": "Tawa Chicken",
+    "variant": "4 pcs",
+    "price": 220,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m45",
+    "outlet": "kathi",
+    "name": "Chicken Curry",
+    "variant": "2 pcs",
+    "price": 160,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m46",
+    "outlet": "kathi",
+    "name": "Mutton Curry",
+    "variant": "2 pcs",
+    "price": 280,
+    "illustration": {
+      "src": "/assets/illustrations/mutton-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m47",
+    "outlet": "kathi",
+    "name": "Egg Curry",
+    "variant": "2 pcs",
+    "price": 100,
+    "illustration": {
+      "src": "/assets/illustrations/egg-curry.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m48",
+    "outlet": "kathi",
+    "name": "Plain Tandoori Roti",
+    "variant": "",
+    "price": 10,
+    "illustration": {
+      "src": "/assets/illustrations/roti.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m49",
+    "outlet": "kathi",
+    "name": "Butter Tandoori Roti",
+    "variant": "",
+    "price": 12,
+    "illustration": {
+      "src": "/assets/illustrations/roti.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m50",
+    "outlet": "kathi",
+    "name": "Khamiri Roti",
+    "variant": "",
+    "price": 30,
+    "illustration": {
+      "src": "/assets/illustrations/roti.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m51",
+    "outlet": "kathi",
+    "name": "Laccha Paratha",
+    "variant": "",
+    "price": 30,
+    "illustration": {
+      "src": "/assets/illustrations/paratha.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m52",
+    "outlet": "kathi",
+    "name": "Mirchi Paratha",
+    "variant": "",
+    "price": 30,
+    "illustration": {
+      "src": "/assets/illustrations/paratha.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m53",
+    "outlet": "kathi",
+    "name": "Missi Roti",
+    "variant": "",
+    "price": 25,
+    "illustration": {
+      "src": "/assets/illustrations/roti.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m54",
+    "outlet": "kathi",
+    "name": "Butter Naan",
+    "variant": "",
+    "price": 35,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 3,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m55",
+    "outlet": "kathi",
+    "name": "Garlic Naan",
+    "variant": "",
+    "price": 50,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 3,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m56",
+    "outlet": "kathi",
+    "name": "Stuffed Naan",
+    "variant": "",
+    "price": 60,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 3,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m57",
+    "outlet": "kathi",
+    "name": "Tea",
+    "variant": "Small",
+    "price": 10,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m58",
+    "outlet": "kathi",
+    "name": "Tea",
+    "variant": "Large",
+    "price": 20,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m59",
+    "outlet": "greenox",
+    "name": "Classic Caesar Salad",
+    "variant": "",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/caesar-salad.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m60",
+    "outlet": "greenox",
+    "name": "Extravaganza Veggies Salad",
+    "variant": "",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 4,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m61",
+    "outlet": "greenox",
+    "name": "Protein Packed Salad",
+    "variant": "",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 4,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m62",
+    "outlet": "greenox",
+    "name": "Basil Pesto Pasta Salad",
+    "variant": "",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 2,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m63",
+    "outlet": "greenox",
+    "name": "Cottage Cheese Salad",
+    "variant": "",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 4,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m64",
+    "outlet": "greenox",
+    "name": "Delight Fruit Salad",
+    "variant": "",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 3,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m65",
+    "outlet": "greenox",
+    "name": "Hummus Falafel Salad",
+    "variant": "",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/falafel-salad.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m66",
+    "outlet": "greenox",
+    "name": "Chicken Caesar Salad",
+    "variant": "",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m67",
+    "outlet": "greenox",
+    "name": "Grilled Chicken & Quinoa Salad",
+    "variant": "",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m68",
+    "outlet": "greenox",
+    "name": "High Protein Chicken Salad",
+    "variant": "",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m69",
+    "outlet": "greenox",
+    "name": "Grilled Chicken Mexican Salad",
+    "variant": "",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m70",
+    "outlet": "greenox",
+    "name": "Classic Sandwich",
+    "variant": "2 pieces",
+    "price": 79,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m71",
+    "outlet": "greenox",
+    "name": "Classic Sandwich",
+    "variant": "4 pieces",
+    "price": 129,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m72",
+    "outlet": "greenox",
+    "name": "Corn Sandwich",
+    "variant": "2 pieces",
+    "price": 89,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m73",
+    "outlet": "greenox",
+    "name": "Corn Sandwich",
+    "variant": "4 pieces",
+    "price": 129,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m74",
+    "outlet": "greenox",
+    "name": "Cheese Aloo Patty Sandwich",
+    "variant": "2 pieces",
+    "price": 99,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m75",
+    "outlet": "greenox",
+    "name": "Cheese Aloo Patty Sandwich",
+    "variant": "4 pieces",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m76",
+    "outlet": "greenox",
+    "name": "Paneer Tikka Sandwich",
+    "variant": "2 pieces",
+    "price": 99,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m77",
+    "outlet": "greenox",
+    "name": "Paneer Tikka Sandwich",
+    "variant": "4 pieces",
+    "price": 159,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m78",
+    "outlet": "greenox",
+    "name": "Pesto Grilled Veggies Sandwich",
+    "variant": "2 pieces",
+    "price": 109,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m79",
+    "outlet": "greenox",
+    "name": "Pesto Grilled Veggies Sandwich",
+    "variant": "4 pieces",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m80",
+    "outlet": "greenox",
+    "name": "Grilled Chicken BBQ Sandwich",
+    "variant": "2 pieces",
+    "price": 129,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-sandwich.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m81",
+    "outlet": "greenox",
+    "name": "Grilled Chicken BBQ Sandwich",
+    "variant": "4 pieces",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-sandwich.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m82",
+    "outlet": "greenox",
+    "name": "Green Farm Sub",
+    "variant": "",
+    "price": 99,
+    "illustration": {
+      "src": "/assets/illustrations/veg-sub.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m83",
+    "outlet": "greenox",
+    "name": "Grilled Veggies Sub",
+    "variant": "",
+    "price": 129,
+    "illustration": {
+      "src": "/assets/illustrations/veg-sub.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m84",
+    "outlet": "greenox",
+    "name": "Paneer Tikka Sub",
+    "variant": "",
+    "price": 159,
+    "illustration": {
+      "src": "/assets/illustrations/veg-sub.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m85",
+    "outlet": "greenox",
+    "name": "Cheesy Tikka Sub",
+    "variant": "",
+    "price": 159,
+    "illustration": {
+      "src": "/assets/illustrations/veg-sub.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m86",
+    "outlet": "greenox",
+    "name": "Hummus Falafel Sub",
+    "variant": "",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/veg-sub.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m87",
+    "outlet": "greenox",
+    "name": "Assorted Grilled Veggies Wrap",
+    "variant": "",
+    "price": 99,
+    "illustration": {
+      "src": "/assets/illustrations/egg-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m88",
+    "outlet": "greenox",
+    "name": "Paneer Tikka Wrap",
+    "variant": "",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/paneer-roll.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m89",
+    "outlet": "greenox",
+    "name": "Hummus Falafel Wrap",
+    "variant": "",
+    "price": 159,
+    "illustration": {
+      "src": "/assets/illustrations/falafel-wrap.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m90",
+    "outlet": "greenox",
+    "name": "Pesto Chicken Sub",
+    "variant": "",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 7,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m91",
+    "outlet": "greenox",
+    "name": "Grilled Chicken Sub",
+    "variant": "",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 7,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m92",
+    "outlet": "greenox",
+    "name": "Grilled Chicken Wrap",
+    "variant": "",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 1,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m93",
+    "outlet": "greenox",
+    "name": "Mexican Avocado Burrito Bowl",
+    "variant": "",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/veg-rice-bowl.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m94",
+    "outlet": "greenox",
+    "name": "Cottage Cheese Burrito Bowl",
+    "variant": "",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/veg-rice-bowl.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m95",
+    "outlet": "greenox",
+    "name": "Soya Paneer Rice Bowl",
+    "variant": "",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/veg-rice-bowl.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m96",
+    "outlet": "greenox",
+    "name": "Paneer Steak Rice Bowl",
+    "variant": "",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/veg-rice-bowl.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m97",
+    "outlet": "greenox",
+    "name": "Mexican Chicken Avocado Burrito Bowl",
+    "variant": "",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-rice-bowl.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m98",
+    "outlet": "greenox",
+    "name": "Grilled Chicken Rice Bowl",
+    "variant": "",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-rice-bowl.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m99",
+    "outlet": "greenox",
+    "name": "Chicken Steak Rice Bowl",
+    "variant": "",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-rice-bowl.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m100",
+    "outlet": "greenox",
+    "name": "Alfredo Pasta",
+    "variant": "Veg",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/white-pasta.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m101",
+    "outlet": "greenox",
+    "name": "Alfredo Pasta",
+    "variant": "Non-veg",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/white-pasta.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m102",
+    "outlet": "greenox",
+    "name": "Arrabbiata Pasta",
+    "variant": "Veg",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/red-pasta.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m103",
+    "outlet": "greenox",
+    "name": "Arrabbiata Pasta",
+    "variant": "Non-veg",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/red-pasta.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m104",
+    "outlet": "greenox",
+    "name": "Mix Sauce Pasta",
+    "variant": "Veg",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/red-pasta.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m105",
+    "outlet": "greenox",
+    "name": "Mix Sauce Pasta",
+    "variant": "Non-veg",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/red-pasta.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m106",
+    "outlet": "greenox",
+    "name": "Pesto Pasta",
+    "variant": "Veg",
+    "price": 159,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 2,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m107",
+    "outlet": "greenox",
+    "name": "Pesto Pasta",
+    "variant": "Non-veg",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 2,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m108",
+    "outlet": "greenox",
+    "name": "Mexican Veg Taco",
+    "variant": "2 pcs",
+    "price": 109,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 8,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m109",
+    "outlet": "greenox",
+    "name": "Vegetable Maggi",
+    "variant": "",
+    "price": 79,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m110",
+    "outlet": "greenox",
+    "name": "Chilli Cheese Maggi",
+    "variant": "",
+    "price": 89,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m111",
+    "outlet": "greenox",
+    "name": "Classic French Fries",
+    "variant": "",
+    "price": 89,
+    "illustration": {
+      "src": "/assets/illustrations/fries.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m112",
+    "outlet": "greenox",
+    "name": "Potato Wedges",
+    "variant": "",
+    "price": 89,
+    "illustration": {
+      "src": "/assets/illustrations/potato-wedges.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m113",
+    "outlet": "greenox",
+    "name": "Peri Peri French Fries",
+    "variant": "",
+    "price": 99,
+    "illustration": {
+      "src": "/assets/illustrations/fries.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m114",
+    "outlet": "greenox",
+    "name": "Nachos with Salsa",
+    "variant": "",
+    "price": 119,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 15,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m115",
+    "outlet": "greenox",
+    "name": "Mexican Chicken Taco",
+    "variant": "2 pcs",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-taco.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m116",
+    "outlet": "greenox",
+    "name": "Sweet Bun Muska",
+    "variant": "",
+    "price": 39,
+    "illustration": {
+      "src": "/assets/illustrations/bun-muska.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m117",
+    "outlet": "greenox",
+    "name": "Seasonal Fruit Bowl",
+    "variant": "",
+    "price": 79,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 3,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m118",
+    "outlet": "greenox",
+    "name": "Vegetable Upma",
+    "variant": "",
+    "price": 79,
+    "illustration": {
+      "src": "/assets/illustrations/upma.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m119",
+    "outlet": "greenox",
+    "name": "Mushroom Cheese Omelette",
+    "variant": "",
+    "price": 99,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m120",
+    "outlet": "greenox",
+    "name": "Vanilla / Strawberry",
+    "variant": "",
+    "price": 39,
+    "illustration": {
+      "src": "/assets/illustrations/vanilla-icecream.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m121",
+    "outlet": "greenox",
+    "name": "Butter Scotch / Chocolate",
+    "variant": "",
+    "price": 49,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m122",
+    "outlet": "greenox",
+    "name": "Mango / Tutti Frutti",
+    "variant": "",
+    "price": 59,
+    "illustration": {
+      "src": "/assets/illustrations/vanilla-icecream.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m123",
+    "outlet": "greenox",
+    "name": "American Nuts",
+    "variant": "",
+    "price": 69,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m124",
+    "outlet": "greenox",
+    "name": "Belgian Chocolate / Hazelnut Coffee",
+    "variant": "",
+    "price": 69,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m125",
+    "outlet": "greenox",
+    "name": "Waffle Cone Extra",
+    "variant": "",
+    "price": 29,
+    "illustration": {
+      "src": "/assets/illustrations/waffle-cone.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m126",
+    "outlet": "cafe",
+    "name": "Black Coffee (Espresso / Americano)",
+    "variant": "Small",
+    "price": 35,
+    "illustration": {
+      "src": "/assets/illustrations/black-coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m127",
+    "outlet": "cafe",
+    "name": "Black Coffee (Espresso / Americano)",
+    "variant": "Large",
+    "price": 50,
+    "illustration": {
+      "src": "/assets/illustrations/black-coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m128",
+    "outlet": "cafe",
+    "name": "Cappuccino",
+    "variant": "Small",
+    "price": 35,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m129",
+    "outlet": "cafe",
+    "name": "Cappuccino",
+    "variant": "Large",
+    "price": 50,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m130",
+    "outlet": "cafe",
+    "name": "Flavoured Cappuccino",
+    "variant": "Small",
+    "price": 45,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m131",
+    "outlet": "cafe",
+    "name": "Flavoured Cappuccino",
+    "variant": "Large",
+    "price": 75,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m132",
+    "outlet": "cafe",
+    "name": "Jaggery Cappuccino",
+    "variant": "Small",
+    "price": 40,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m133",
+    "outlet": "cafe",
+    "name": "Jaggery Cappuccino",
+    "variant": "Large",
+    "price": 60,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m134",
+    "outlet": "cafe",
+    "name": "Chai (Ginger / Masala / Cardamom)",
+    "variant": "Small",
+    "price": 40,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m135",
+    "outlet": "cafe",
+    "name": "Chai (Ginger / Masala / Cardamom)",
+    "variant": "Large",
+    "price": 50,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m136",
+    "outlet": "cafe",
+    "name": "Garam Chai / Green Tea / Lemon Tea",
+    "variant": "Small",
+    "price": 35,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m137",
+    "outlet": "cafe",
+    "name": "Garam Chai / Green Tea / Lemon Tea",
+    "variant": "Large",
+    "price": 50,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m138",
+    "outlet": "cafe",
+    "name": "Café Latte",
+    "variant": "",
+    "price": 50,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m139",
+    "outlet": "cafe",
+    "name": "Café Mocha",
+    "variant": "",
+    "price": 50,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m140",
+    "outlet": "cafe",
+    "name": "Hot Chocolate",
+    "variant": "",
+    "price": 35,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m141",
+    "outlet": "cafe",
+    "name": "Badam Milk",
+    "variant": "",
+    "price": 35,
+    "illustration": {
+      "src": "/assets/illustrations/badam-milk.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m142",
+    "outlet": "cafe",
+    "name": "Hot n Sour / Vegetable Corn Soup",
+    "variant": "",
+    "price": 35,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m143",
+    "outlet": "cafe",
+    "name": "Cold Coffee",
+    "variant": "Classic / Hazelnut / Caramel",
+    "price": 85,
+    "illustration": {
+      "src": "/assets/illustrations/coldcoffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m144",
+    "outlet": "cafe",
+    "name": "Milkshake",
+    "variant": "Classic Chocolate / Berry",
+    "price": 85,
+    "illustration": {
+      "src": "/assets/illustrations/milkshake.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m145",
+    "outlet": "cafe",
+    "name": "Original Masala Maggi",
+    "variant": "",
+    "price": 44,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m146",
+    "outlet": "cafe",
+    "name": "Corn Maggi",
+    "variant": "",
+    "price": 44,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m147",
+    "outlet": "cafe",
+    "name": "Special Double Masala",
+    "variant": "",
+    "price": 55,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m148",
+    "outlet": "cafe",
+    "name": "Maggi Butter Garlic",
+    "variant": "",
+    "price": 55,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m149",
+    "outlet": "cafe",
+    "name": "Schezwan Maggi",
+    "variant": "",
+    "price": 55,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m150",
+    "outlet": "cafe",
+    "name": "Chilli Garlic Maggi",
+    "variant": "",
+    "price": 55,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m151",
+    "outlet": "cafe",
+    "name": "Chilli Garlic Cheese Maggi",
+    "variant": "",
+    "price": 55,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m152",
+    "outlet": "cafe",
+    "name": "Peri Peri Maggi",
+    "variant": "",
+    "price": 55,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m153",
+    "outlet": "cafe",
+    "name": "Cheese Oregano Maggi",
+    "variant": "",
+    "price": 70,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m154",
+    "outlet": "cafe",
+    "name": "Manchurian Mix / Biryani Mix Maggi",
+    "variant": "",
+    "price": 75,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m155",
+    "outlet": "cafe",
+    "name": "Masala Pazzta / Tomato Pazzta",
+    "variant": "",
+    "price": 70,
+    "illustration": {
+      "src": "/assets/illustrations/red-pasta.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m156",
+    "outlet": "cafe",
+    "name": "Cheese Pazzta / Mushroom Pazzta",
+    "variant": "",
+    "price": 70,
+    "illustration": {
+      "src": "/assets/illustrations/white-pasta.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m157",
+    "outlet": "cafe",
+    "name": "Egg Burji Maggi",
+    "variant": "",
+    "price": 75,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m158",
+    "outlet": "cafe",
+    "name": "Chicken Maggi",
+    "variant": "",
+    "price": 90,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 14,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m159",
+    "outlet": "cafe",
+    "name": "Sweet Corn",
+    "variant": "",
+    "price": 45,
+    "illustration": {
+      "src": "/assets/illustrations/sweet-corn.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m160",
+    "outlet": "cafe",
+    "name": "Corn Extras",
+    "variant": "Sev / Bhujia / Cheese / Butter / Vegetables",
+    "price": 15,
+    "illustration": {
+      "src": "/assets/illustrations/sweet-corn.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m161",
+    "outlet": "cafe",
+    "name": "Tomato / Manchow Soup",
+    "variant": "",
+    "price": 40,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m162",
+    "outlet": "burger",
+    "name": "Nikku Singh Veg",
+    "variant": "",
+    "price": 39,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m163",
+    "outlet": "burger",
+    "name": "Veg Snacker",
+    "variant": "",
+    "price": 69,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m164",
+    "outlet": "burger",
+    "name": "Churmur Pandey Veg",
+    "variant": "",
+    "price": 85,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m165",
+    "outlet": "burger",
+    "name": "White Guy Veg",
+    "variant": "",
+    "price": 109,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m166",
+    "outlet": "burger",
+    "name": "Potato Crunch",
+    "variant": "",
+    "price": 109,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m167",
+    "outlet": "burger",
+    "name": "Bunty Pappeh Da Aloo",
+    "variant": "",
+    "price": 119,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m168",
+    "outlet": "burger",
+    "name": "Veg United States of Punjab",
+    "variant": "",
+    "price": 139,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m169",
+    "outlet": "burger",
+    "name": "Jr. Udta Punjab",
+    "variant": "",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m170",
+    "outlet": "burger",
+    "name": "Paneer Pind-er",
+    "variant": "",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m171",
+    "outlet": "burger",
+    "name": "Chunky Paneer Pandey",
+    "variant": "",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m172",
+    "outlet": "burger",
+    "name": "Udta Punjab 2.0",
+    "variant": "",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m173",
+    "outlet": "burger",
+    "name": "Veg Momo Burger",
+    "variant": "",
+    "price": 99,
+    "illustration": {
+      "src": "/assets/illustrations/vegburger.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m174",
+    "outlet": "burger",
+    "name": "Nikku Singh Chicken",
+    "variant": "",
+    "price": 59,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m175",
+    "outlet": "burger",
+    "name": "Bihari Gosht",
+    "variant": "",
+    "price": 79,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m176",
+    "outlet": "burger",
+    "name": "Chicken Snacker",
+    "variant": "",
+    "price": 85,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m177",
+    "outlet": "burger",
+    "name": "Churmur Pandey Chicken",
+    "variant": "",
+    "price": 95,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m178",
+    "outlet": "burger",
+    "name": "Jattputt Chicken",
+    "variant": "",
+    "price": 109,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m179",
+    "outlet": "burger",
+    "name": "Lucknowi Mutton",
+    "variant": "",
+    "price": 115,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m180",
+    "outlet": "burger",
+    "name": "White Guy Chicken",
+    "variant": "",
+    "price": 119,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m181",
+    "outlet": "burger",
+    "name": "Jr. Fried Chicken",
+    "variant": "",
+    "price": 129,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m182",
+    "outlet": "burger",
+    "name": "Chicken United States of Punjab",
+    "variant": "",
+    "price": 129,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m183",
+    "outlet": "burger",
+    "name": "Amritsari Murg Makhani",
+    "variant": "",
+    "price": 149,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m184",
+    "outlet": "burger",
+    "name": "American Grilled Chicken",
+    "variant": "",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m185",
+    "outlet": "burger",
+    "name": "Chicken Pind-er",
+    "variant": "",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m186",
+    "outlet": "burger",
+    "name": "Big Crispy Chicken",
+    "variant": "",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m187",
+    "outlet": "burger",
+    "name": "Chicken Momo Burger",
+    "variant": "",
+    "price": 109,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m188",
+    "outlet": "burger",
+    "name": "French Fries",
+    "variant": "Small",
+    "price": 79,
+    "illustration": {
+      "src": "/assets/illustrations/fries.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m189",
+    "outlet": "burger",
+    "name": "French Fries",
+    "variant": "Large",
+    "price": 99,
+    "illustration": {
+      "src": "/assets/illustrations/fries.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m190",
+    "outlet": "burger",
+    "name": "Cheesy Fries",
+    "variant": "",
+    "price": 129,
+    "illustration": {
+      "src": "/assets/illustrations/cheesy-fries.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m191",
+    "outlet": "burger",
+    "name": "Mini Batata Vada",
+    "variant": "",
+    "price": 69,
+    "illustration": {
+      "src": "/assets/illustrations/batata-vada.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m192",
+    "outlet": "burger",
+    "name": "Onion Rings",
+    "variant": "6 pcs",
+    "price": 109,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 10,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m193",
+    "outlet": "burger",
+    "name": "Cheesy Coins",
+    "variant": "3 pcs",
+    "price": 79,
+    "illustration": {
+      "src": "/assets/illustrations/cheese-coins.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m194",
+    "outlet": "burger",
+    "name": "Cheesy Coins",
+    "variant": "6 pcs",
+    "price": 129,
+    "illustration": {
+      "src": "/assets/illustrations/cheese-coins.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m195",
+    "outlet": "burger",
+    "name": "Karare Murgh Pops",
+    "variant": "",
+    "price": 139,
+    "illustration": {
+      "src": "/assets/illustrations/chicken-pops.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m196",
+    "outlet": "burger",
+    "name": "Chicken Wings",
+    "variant": "Fried",
+    "price": 159,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m197",
+    "outlet": "burger",
+    "name": "Chicken Wings",
+    "variant": "Hotshock",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 9,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m198",
+    "outlet": "burger",
+    "name": "Steamed Veg Momo",
+    "variant": "6 pcs",
+    "price": 129,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m199",
+    "outlet": "burger",
+    "name": "Steamed Paneer Momo",
+    "variant": "6 pcs",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m200",
+    "outlet": "burger",
+    "name": "Fried Veg Momo",
+    "variant": "6 pcs",
+    "price": 139,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m201",
+    "outlet": "burger",
+    "name": "Fried Paneer Momo",
+    "variant": "6 pcs",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m202",
+    "outlet": "burger",
+    "name": "Kurkure Veg Momo",
+    "variant": "5 pcs",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m203",
+    "outlet": "burger",
+    "name": "Kurkure Paneer Momo",
+    "variant": "5 pcs",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m204",
+    "outlet": "burger",
+    "name": "Cheese / Tandoori / Hot Bihari Dip",
+    "variant": "",
+    "price": 23,
+    "illustration": {
+      "src": "/assets/illustrations/dip.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m205",
+    "outlet": "burger",
+    "name": "Steamed Chicken Momo",
+    "variant": "6 pcs",
+    "price": 169,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m206",
+    "outlet": "burger",
+    "name": "Fried Chicken Momo",
+    "variant": "6 pcs",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m207",
+    "outlet": "burger",
+    "name": "Kurkure Chicken Momo",
+    "variant": "5 pcs",
+    "price": 189,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m208",
+    "outlet": "burger",
+    "name": "Kurkure Chicken Cheese Momo",
+    "variant": "5 pcs",
+    "price": 209,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 11,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m209",
+    "outlet": "dominos",
+    "name": "Margherita",
+    "variant": "Regular",
+    "price": 109,
+    "illustration": {
+      "src": "/assets/illustrations/margherita.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m210",
+    "outlet": "dominos",
+    "name": "Margherita",
+    "variant": "Medium",
+    "price": 239,
+    "illustration": {
+      "src": "/assets/illustrations/margherita.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m211",
+    "outlet": "dominos",
+    "name": "Margherita",
+    "variant": "Large",
+    "price": 449,
+    "illustration": {
+      "src": "/assets/illustrations/margherita.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m212",
+    "outlet": "dominos",
+    "name": "Achari Do Pyaza",
+    "variant": "Regular",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m213",
+    "outlet": "dominos",
+    "name": "Achari Do Pyaza",
+    "variant": "Medium",
+    "price": 329,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m214",
+    "outlet": "dominos",
+    "name": "Achari Do Pyaza",
+    "variant": "Large",
+    "price": 549,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m215",
+    "outlet": "dominos",
+    "name": "Corn n Cheese Paratha Pizza",
+    "variant": "Regular",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m216",
+    "outlet": "dominos",
+    "name": "Blazing Onion & Paprika",
+    "variant": "Regular",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m217",
+    "outlet": "dominos",
+    "name": "Blazing Onion & Paprika",
+    "variant": "Medium",
+    "price": 329,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m218",
+    "outlet": "dominos",
+    "name": "Blazing Onion & Paprika",
+    "variant": "Large",
+    "price": 549,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m219",
+    "outlet": "dominos",
+    "name": "Fiery Jalapeno & Paprika",
+    "variant": "Regular",
+    "price": 179,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m220",
+    "outlet": "dominos",
+    "name": "Fiery Jalapeno & Paprika",
+    "variant": "Medium",
+    "price": 329,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m221",
+    "outlet": "dominos",
+    "name": "Fiery Jalapeno & Paprika",
+    "variant": "Large",
+    "price": 549,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m222",
+    "outlet": "dominos",
+    "name": "Cheese n Corn",
+    "variant": "Regular",
+    "price": 209,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m223",
+    "outlet": "dominos",
+    "name": "Cheese n Corn",
+    "variant": "Medium",
+    "price": 379,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m224",
+    "outlet": "dominos",
+    "name": "Cheese n Corn",
+    "variant": "Large",
+    "price": 609,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m225",
+    "outlet": "dominos",
+    "name": "Double Cheese Margherita",
+    "variant": "Regular",
+    "price": 209,
+    "illustration": {
+      "src": "/assets/illustrations/margherita.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m226",
+    "outlet": "dominos",
+    "name": "Double Cheese Margherita",
+    "variant": "Medium",
+    "price": 379,
+    "illustration": {
+      "src": "/assets/illustrations/margherita.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m227",
+    "outlet": "dominos",
+    "name": "Double Cheese Margherita",
+    "variant": "Large",
+    "price": 609,
+    "illustration": {
+      "src": "/assets/illustrations/margherita.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m228",
+    "outlet": "dominos",
+    "name": "Fresh Veggie",
+    "variant": "Regular",
+    "price": 209,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m229",
+    "outlet": "dominos",
+    "name": "Fresh Veggie",
+    "variant": "Medium",
+    "price": 379,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m230",
+    "outlet": "dominos",
+    "name": "Fresh Veggie",
+    "variant": "Large",
+    "price": 609,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m231",
+    "outlet": "dominos",
+    "name": "Peppy Paneer",
+    "variant": "Regular",
+    "price": 259,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m232",
+    "outlet": "dominos",
+    "name": "Peppy Paneer",
+    "variant": "Medium",
+    "price": 459,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m233",
+    "outlet": "dominos",
+    "name": "Peppy Paneer",
+    "variant": "Large",
+    "price": 689,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m234",
+    "outlet": "dominos",
+    "name": "Farmhouse",
+    "variant": "Regular",
+    "price": 259,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m235",
+    "outlet": "dominos",
+    "name": "Farmhouse",
+    "variant": "Medium",
+    "price": 459,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m236",
+    "outlet": "dominos",
+    "name": "Farmhouse",
+    "variant": "Large",
+    "price": 689,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m237",
+    "outlet": "dominos",
+    "name": "Mexican Green Wave",
+    "variant": "Regular",
+    "price": 259,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m238",
+    "outlet": "dominos",
+    "name": "Mexican Green Wave",
+    "variant": "Medium",
+    "price": 459,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m239",
+    "outlet": "dominos",
+    "name": "Mexican Green Wave",
+    "variant": "Large",
+    "price": 689,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m240",
+    "outlet": "dominos",
+    "name": "Veggie Paradise",
+    "variant": "Regular",
+    "price": 259,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m241",
+    "outlet": "dominos",
+    "name": "Veggie Paradise",
+    "variant": "Medium",
+    "price": 459,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m242",
+    "outlet": "dominos",
+    "name": "Veggie Paradise",
+    "variant": "Large",
+    "price": 689,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m243",
+    "outlet": "dominos",
+    "name": "Veg Extravaganza",
+    "variant": "Regular",
+    "price": 289,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m244",
+    "outlet": "dominos",
+    "name": "Veg Extravaganza",
+    "variant": "Medium",
+    "price": 549,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m245",
+    "outlet": "dominos",
+    "name": "Veg Extravaganza",
+    "variant": "Large",
+    "price": 799,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m246",
+    "outlet": "dominos",
+    "name": "Indi Tandoori Paneer",
+    "variant": "Regular",
+    "price": 289,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m247",
+    "outlet": "dominos",
+    "name": "Indi Tandoori Paneer",
+    "variant": "Medium",
+    "price": 549,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m248",
+    "outlet": "dominos",
+    "name": "Indi Tandoori Paneer",
+    "variant": "Large",
+    "price": 799,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 12,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m249",
+    "outlet": "dominos",
+    "name": "The 4 Cheese Pizza",
+    "variant": "Regular",
+    "price": 349,
+    "illustration": {
+      "src": "/assets/illustrations/margherita.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m250",
+    "outlet": "dominos",
+    "name": "The 4 Cheese Pizza",
+    "variant": "Medium",
+    "price": 839,
+    "illustration": {
+      "src": "/assets/illustrations/margherita.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m251",
+    "outlet": "dominos",
+    "name": "The 4 Cheese Pizza",
+    "variant": "Large",
+    "price": 959,
+    "illustration": {
+      "src": "/assets/illustrations/margherita.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m252",
+    "outlet": "dominos",
+    "name": "Chicken Sausage",
+    "variant": "Regular",
+    "price": 199,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m253",
+    "outlet": "dominos",
+    "name": "Chicken Sausage",
+    "variant": "Medium",
+    "price": 369,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m254",
+    "outlet": "dominos",
+    "name": "Chicken Sausage",
+    "variant": "Large",
+    "price": 599,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m255",
+    "outlet": "dominos",
+    "name": "Pepper Barbecue Chicken",
+    "variant": "Regular",
+    "price": 249,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m256",
+    "outlet": "dominos",
+    "name": "Pepper Barbecue Chicken",
+    "variant": "Medium",
+    "price": 449,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m257",
+    "outlet": "dominos",
+    "name": "Pepper Barbecue Chicken",
+    "variant": "Large",
+    "price": 669,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m258",
+    "outlet": "dominos",
+    "name": "Chicken Keema Paratha Pizza",
+    "variant": "Regular",
+    "price": 249,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m259",
+    "outlet": "dominos",
+    "name": "Blazing Chicken & Paprika",
+    "variant": "Regular",
+    "price": 249,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m260",
+    "outlet": "dominos",
+    "name": "Blazing Chicken & Paprika",
+    "variant": "Medium",
+    "price": 449,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m261",
+    "outlet": "dominos",
+    "name": "Blazing Chicken & Paprika",
+    "variant": "Large",
+    "price": 669,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m262",
+    "outlet": "dominos",
+    "name": "Fiery Sausage & Paprika",
+    "variant": "Regular",
+    "price": 249,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m263",
+    "outlet": "dominos",
+    "name": "Fiery Sausage & Paprika",
+    "variant": "Medium",
+    "price": 449,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m264",
+    "outlet": "dominos",
+    "name": "Fiery Sausage & Paprika",
+    "variant": "Large",
+    "price": 669,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m265",
+    "outlet": "dominos",
+    "name": "Spiced Double Chicken",
+    "variant": "Regular",
+    "price": 309,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m266",
+    "outlet": "dominos",
+    "name": "Spiced Double Chicken",
+    "variant": "Medium",
+    "price": 559,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m267",
+    "outlet": "dominos",
+    "name": "Spiced Double Chicken",
+    "variant": "Large",
+    "price": 829,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m268",
+    "outlet": "dominos",
+    "name": "Chicken Fiesta",
+    "variant": "Regular",
+    "price": 309,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m269",
+    "outlet": "dominos",
+    "name": "Chicken Fiesta",
+    "variant": "Medium",
+    "price": 559,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m270",
+    "outlet": "dominos",
+    "name": "Chicken Fiesta",
+    "variant": "Large",
+    "price": 829,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m271",
+    "outlet": "dominos",
+    "name": "Chicken Golden Delight",
+    "variant": "Regular",
+    "price": 309,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m272",
+    "outlet": "dominos",
+    "name": "Chicken Golden Delight",
+    "variant": "Medium",
+    "price": 559,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m273",
+    "outlet": "dominos",
+    "name": "Chicken Golden Delight",
+    "variant": "Large",
+    "price": 829,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m274",
+    "outlet": "dominos",
+    "name": "Chicken Dominator",
+    "variant": "Regular",
+    "price": 359,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m275",
+    "outlet": "dominos",
+    "name": "Chicken Dominator",
+    "variant": "Medium",
+    "price": 599,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m276",
+    "outlet": "dominos",
+    "name": "Chicken Dominator",
+    "variant": "Large",
+    "price": 919,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m277",
+    "outlet": "dominos",
+    "name": "Non-Veg Supreme",
+    "variant": "Regular",
+    "price": 359,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m278",
+    "outlet": "dominos",
+    "name": "Non-Veg Supreme",
+    "variant": "Medium",
+    "price": 599,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m279",
+    "outlet": "dominos",
+    "name": "Non-Veg Supreme",
+    "variant": "Large",
+    "price": 919,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m280",
+    "outlet": "dominos",
+    "name": "Chicken Pepperoni",
+    "variant": "Regular",
+    "price": 359,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m281",
+    "outlet": "dominos",
+    "name": "Chicken Pepperoni",
+    "variant": "Medium",
+    "price": 599,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m282",
+    "outlet": "dominos",
+    "name": "Chicken Pepperoni",
+    "variant": "Large",
+    "price": 919,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m283",
+    "outlet": "dominos",
+    "name": "Indi Chicken Tikka",
+    "variant": "Regular",
+    "price": 359,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m284",
+    "outlet": "dominos",
+    "name": "Indi Chicken Tikka",
+    "variant": "Medium",
+    "price": 599,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m285",
+    "outlet": "dominos",
+    "name": "Indi Chicken Tikka",
+    "variant": "Large",
+    "price": 919,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m286",
+    "outlet": "dominos",
+    "name": "The 5 Chicken Feast Pizza",
+    "variant": "Regular",
+    "price": 399,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m287",
+    "outlet": "dominos",
+    "name": "The 5 Chicken Feast Pizza",
+    "variant": "Medium",
+    "price": 699,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m288",
+    "outlet": "dominos",
+    "name": "The 5 Chicken Feast Pizza",
+    "variant": "Large",
+    "price": 1029,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-1.webp",
+      "tile": 13,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m289",
+    "outlet": "cafe",
+    "name": "Nescafé Espresso",
+    "variant": "",
+    "price": 28,
+    "illustration": {
+      "src": "/assets/illustrations/black-coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m290",
+    "outlet": "cafe",
+    "name": "Nescafé Masala Tea",
+    "variant": "",
+    "price": 28,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m291",
+    "outlet": "cafe",
+    "name": "Nescafé Cardamom Tea",
+    "variant": "",
+    "price": 28,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m292",
+    "outlet": "cafe",
+    "name": "Nescafé Hot Lemon Tea",
+    "variant": "",
+    "price": 28,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 5,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m293",
+    "outlet": "cafe",
+    "name": "Milk",
+    "variant": "",
+    "price": 28,
+    "illustration": {
+      "src": "/assets/illustrations/milk.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m294",
+    "outlet": "cafe",
+    "name": "Nescafé Café Latte",
+    "variant": "",
+    "price": 33,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m295",
+    "outlet": "cafe",
+    "name": "Nescafé Cappuccino",
+    "variant": "",
+    "price": 38,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m296",
+    "outlet": "cafe",
+    "name": "Nescafé Café Moha",
+    "variant": "",
+    "price": 44,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m297",
+    "outlet": "cafe",
+    "name": "Nescafé Hot Chocolate",
+    "variant": "",
+    "price": 44,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 6,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m298",
+    "outlet": "cafe",
+    "name": "Nescafé Irish Cappuccino",
+    "variant": "",
+    "price": 55,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m299",
+    "outlet": "cafe",
+    "name": "Nescafé Hazelnut Cappuccino",
+    "variant": "",
+    "price": 55,
+    "illustration": {
+      "src": "/assets/illustrations/coffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m300",
+    "outlet": "cafe",
+    "name": "Lemon Iced Tea",
+    "variant": "",
+    "price": 45,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 7,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m301",
+    "outlet": "cafe",
+    "name": "Special Masala Ice Tea",
+    "variant": "",
+    "price": 55,
+    "illustration": {
+      "src": "/assets/illustrations/food-sheet-2.webp",
+      "tile": 7,
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m302",
+    "outlet": "cafe",
+    "name": "Frappe (Cold Coffee)",
+    "variant": "",
+    "price": 60,
+    "illustration": {
+      "src": "/assets/illustrations/coldcoffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m303",
+    "outlet": "cafe",
+    "name": "Frappe Mocha / Cold Chocolate",
+    "variant": "",
+    "price": 70,
+    "illustration": {
+      "src": "/assets/illustrations/coldcoffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m304",
+    "outlet": "cafe",
+    "name": "Choco Frappe",
+    "variant": "",
+    "price": 70,
+    "illustration": {
+      "src": "/assets/illustrations/coldcoffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m305",
+    "outlet": "cafe",
+    "name": "Irish Frappe",
+    "variant": "",
+    "price": 85,
+    "illustration": {
+      "src": "/assets/illustrations/coldcoffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m306",
+    "outlet": "cafe",
+    "name": "Hazelnut Frappe",
+    "variant": "",
+    "price": 85,
+    "illustration": {
+      "src": "/assets/illustrations/coldcoffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  },
+  {
+    "productId": "m307",
+    "outlet": "cafe",
+    "name": "Kit Kat / Munch Nuts Frappe",
+    "variant": "",
+    "price": 85,
+    "illustration": {
+      "src": "/assets/illustrations/coldcoffee.webp",
+      "label": "AI-generated illustration"
+    },
+    "photoSource": "Retailer Menu Management upload; stored in database and shown instead of illustration",
+    "status": "AI_illustration_actual_outlet_photo_optional",
+    "displayPolicy": "AI illustration is labeled. An actual outlet photo uploaded through Menu Management takes priority."
+  }
+]
