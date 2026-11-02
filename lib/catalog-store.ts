@@ -1,10 +1,14 @@
 import {menu,outlets,type Item} from './catalog';
 export async function initializeProducts(db:any){
- const existing=await db.prepare('SELECT id FROM products').all();const ids=new Set(existing.results.map((r:any)=>r.id));
- for(const item of menu)if(!ids.has(item.id))await db.prepare('INSERT INTO products (id,outlet,data,updated) VALUES (?,?,?,?) ON CONFLICT(id) DO NOTHING').bind(item.id,item.outlet,JSON.stringify({...item,available:true}),Date.now()).run();
+ const existing=await db.prepare('SELECT id,data FROM products').all();const records=new Map(existing.results.map((r:any)=>[r.id,JSON.parse(r.data)]));
+ for(const item of menu){const old=records.get(item.id) as Item|undefined;
+ if(old&&(!item.sourceRevision||old.sourceRevision===item.sourceRevision))continue;
+ const data={...item,...(old?.photoApproved?{image:old.image,photoApproved:true}:{}),available:item.available!==false&&(old?.available!==false)};
+ await db.prepare('INSERT INTO products (id,outlet,data,updated) VALUES (?,?,?,?) ON CONFLICT(id) DO UPDATE SET outlet=excluded.outlet,data=excluded.data,updated=excluded.updated').bind(item.id,item.outlet,JSON.stringify(data),Date.now()).run();
+ }
 }
 const seedOrder=new Map(menu.map((item,index)=>[item.id,index]));
-export async function storedProducts(db:any):Promise<Item[]>{const r=await db.prepare('SELECT data FROM products ORDER BY updated,id').all();return r.results.map((row:any)=>JSON.parse(row.data)).sort((a:Item,b:Item)=>(seedOrder.get(a.id)??Number.MAX_SAFE_INTEGER)-(seedOrder.get(b.id)??Number.MAX_SAFE_INTEGER));}
+export async function storedProducts(db:any):Promise<Item[]>{const r=await db.prepare('SELECT data FROM products ORDER BY updated,id').all();return r.results.map((row:any)=>JSON.parse(row.data)).filter((p:Item)=>!/^m\d+$/.test(p.id)||seedOrder.has(p.id)).sort((a:Item,b:Item)=>(seedOrder.get(a.id)??Number.MAX_SAFE_INTEGER)-(seedOrder.get(b.id)??Number.MAX_SAFE_INTEGER));}
 export function validateProduct(input:any,outlet:string,id:string):Item{
  const name=String(input?.name||'').trim(),category=String(input?.category||'').trim(),description=String(input?.description||'').trim(),price=Number(input?.price),variant=String(input?.variant||'').trim(),image=String(input?.image||outlet);
  if(!outlets.some(o=>o.id===outlet)||name.length<2||name.length>120||!category||category.length>60||description.length>1200||variant.length>100)throw Error('Enter a product name, category and valid description.');
@@ -14,7 +18,7 @@ export function validateProduct(input:any,outlet:string,id:string):Item{
  if(image.length>850000||!(/^[a-z]+$/.test(image)||ownPhoto||/^\/assets\/[a-zA-Z0-9_./-]+$/.test(image)||/^data:image\/(?:png|jpeg|webp);base64,[a-zA-Z0-9+/=]+$/.test(image)))throw Error('Choose a JPEG, PNG or WebP image under 600 KB.');
  const prepMinutes=input.prepMinutes===''||input.prepMinutes==null?undefined:Number(input.prepMinutes);
  if(prepMinutes!==undefined&&(!Number.isInteger(prepMinutes)||prepMinutes<1||prepMinutes>180))throw Error('Preparation time must be between 1 and 180 minutes.');
- return {id,outlet,name,category,description,price,variant,veg:input.veg,available:input.available,image,prepMinutes,photoApproved:input.photoApproved===true&&(ownPhoto||image.startsWith('data:image/'))};
+ return {sourceRevision:menu.find(p=>p.id===id)?.sourceRevision,illustrationApproved:input.illustrationApproved===true,dietaryKnown:input.dietaryKnown!==false,priceReview:false,id,outlet,name,category,description,price,variant,veg:input.veg,available:input.available,image,prepMinutes,photoApproved:input.photoApproved===true&&(ownPhoto||image.startsWith('data:image/'))};
 }
 export async function saveProductPhoto(db:any,product:Item):Promise<Item>{
  if(!product.image.startsWith('data:image/'))return product;

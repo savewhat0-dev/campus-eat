@@ -1,15 +1,15 @@
-Apply these changed files on top of your existing project after the previous UI/search/notification update. Preserve the paths, replace matching files, add the new files, commit to GitHub and deploy the latest commit on Render. No new required environment variables or database migrations for this update.
-Reports use orders placed within inclusive Asia/Kolkata dates and their current order status. Daily completed value is allocated to the original order placement date. All-time includes all saved outlet orders, beyond the 200-row live order list. Money received remains unavailable because the existing database contains no counter-payment or refund ledger. Collected status never becomes a cash receipt automatically.
-Chef greetings, food preferences, product matching, conversation context and retailer layout/reporting are updated. Verified: production build, frontend TypeScript, regression suite, embedded PostgreSQL API totals, deterministic date-boundary and report reconciliation tests, plus browser greeting/report/filter/layout checks. Live Render has not been deployed.
-Changed files:
-app/redesign.css
-components/chef-ai.tsx
-components/orders-transactions.tsx
-components/retailer-dashboard.tsx
-lib/api.ts
-lib/retailer-analytics.ts
-lib/wash-chat.ts
-scripts/chef-upgrade-test.mjs
-scripts/order-flow-test.mjs
-scripts/retailer-analytics-test.mjs
-package.json
+Campus Eats — changed files only — 2 November 2026
+
+1. Back up your repository and PostgreSQL database. Extract this patch into the existing project root, replacing matching files. Keep the directory paths. Do not delete your database, environment variables or other project files.
+2. Run npm test and node scripts/menu-import-test.mjs, then npm run build:render.
+3. Commit these files to your connected GitHub repository and redeploy the existing Render service. No new environment variable or SQL migration is required. Startup reconciles the revised menu once; later retailer edits are preserved.
+
+Catalog: 397 imported size/flavour options plus 58 previously supported Kathi Junction options (455 total). Maggi Point is a separate sixth outlet; it is not Café Coffee Day. Existing five retailer credentials continue to work. A separate Maggi Point retailer account is still needed before operating that outlet live; this patch does not create credentials.
+
+54 options are blocked for price confirmation: conflicting classic vegetarian pizza variants, non-vegetarian Board B prices requiring confirmation, illegible Big Big chicken Cheese Burst, and Domino's upgrade/meal rows needing scope or price confirmation. See MENU-REVIEW.json for source figures and the competing boards. Retailer Menu Management shows the pending-price notice and source price; enter the verified whole-rupee price and enable the option. Customer checkout rejects pending/unknown prices. Meal upgrades require a burger and burrito extras require a burrito bowl.
+
+267 imported options have no verified reusable product-image mapping. They show an honest neutral placeholder, not an unrelated food image. No new AI images were generated in this patch. Exact existing mappings and actual uploaded photos are preserved. Upload actual product photos using the retailer editor. MENU-REVIEW.json lists missing image options; counts include sizes, not necessarily distinct dishes. Campus and BMU logo are the supplied originals; the source photo is 550 x 330, so its detail cannot equal a high-resolution photograph.
+
+The original layout, green/cream branding, navigation and pickup flow are retained. The only BMU graphic is anchored inside the campus hero photograph; Campus Eats text branding stays intact. Mobile, tablet and desktop were inspected; there was no detected horizontal overflow or broken image at the checked widths. Automated account, order, search/Chef, image mapping, analytics and catalog reconciliation checks passed. Test email is mocked: live Gmail delivery, live PostgreSQL deployment, actual stock, retailer-confirmed prices and live-device keyboard operation were not verified. This patch is not yet deployed.
+
+The importer accepts a source MD path: node scripts/import-detailed-menu.mjs path/to/menu.md. Default source: docs/Campus_Eats_Detailed_Menu.md. Do not rerun on a different document layout without reviewing the output.

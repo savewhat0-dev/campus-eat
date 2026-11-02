@@ -51,6 +51,7 @@ try{
  const item=menu.find(m=>m.outlet==='kathi');const details={name:'Test Student',enrollment:'25-BBA-TEST',phone:'9000000001'};
  const payload={items:{[item.id]:2},pickupAt:Date.now()+20*60000,customerDetails:details,requestId:crypto.randomUUID(),total:1,note:'Less spicy'};
  assert.equal((await call('orders','POST',{...payload,customerDetails:{}},customer)).status,400);
+ const pendingPrice=menu.find(p=>p.priceReview);assert.equal((await call('orders','POST',{...payload,items:{[pendingPrice.id]:1},requestId:crypto.randomUUID()},customer)).status,400,'Unconfirmed prices must never enter checkout');
  r=await call('orders','POST',payload,customer);assert.equal(r.status,201);const order=r.data.order;assert.equal(order.total,item.price*2);assert.equal(order.status,'Pending');assert.deepEqual(order.customerDetails,{...details,email:dotted});assert.equal((await call('orders','POST',payload,customer)).data.order.id,order.id);
  r=await call('orders','GET',undefined,retailer);assert.equal(r.data.orders.length,1);assert.equal(r.data.orders[0].customerDetails.enrollment,details.enrollment);assert.equal((await call('orders','GET',undefined,otherRetailer)).data.orders.length,0);
  assert.equal((await call('orders/'+order.id,'PATCH',{status:'Accepted'},otherRetailer)).status,404);assert.equal((await call('orders/'+order.id,'PATCH',{status:'Accepted'},customer)).status,409);

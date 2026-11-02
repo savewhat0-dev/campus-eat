@@ -1,0 +1,2644 @@
+{
+  "revision": "2026-11-02",
+  "options": 397,
+  "byOutlet": {
+    "greenox": 131,
+    "maggi": 19,
+    "burger": 63,
+    "cafe": 35,
+    "dominos": 149
+  },
+  "priceReview": [
+    {
+      "id": "m211",
+      "outlet": "dominos",
+      "name": "Margherita",
+      "category": "Classic vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": true,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "109 / 239 / 339",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic vegetarian pizzas — Board A"
+    },
+    {
+      "id": "m212",
+      "outlet": "dominos",
+      "name": "Achari Do Pyaza",
+      "category": "Classic vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": true,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "189 / 339 / 429",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic vegetarian pizzas — Board A"
+    },
+    {
+      "id": "m213",
+      "outlet": "dominos",
+      "name": "Achari Do Pyaza",
+      "category": "Classic vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": true,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "189 / 339 / 429",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic vegetarian pizzas — Board A"
+    },
+    {
+      "id": "m214",
+      "outlet": "dominos",
+      "name": "Achari Do Pyaza",
+      "category": "Classic vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": true,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "189 / 339 / 429",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic vegetarian pizzas — Board A"
+    },
+    {
+      "id": "m231",
+      "outlet": "dominos",
+      "name": "Peppy Paneer",
+      "category": "Classic vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": true,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "269 / 479 / 579",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic vegetarian pizzas — Board A"
+    },
+    {
+      "id": "m232",
+      "outlet": "dominos",
+      "name": "Peppy Paneer",
+      "category": "Classic vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": true,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "269 / 479 / 579",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic vegetarian pizzas — Board A"
+    },
+    {
+      "id": "m233",
+      "outlet": "dominos",
+      "name": "Peppy Paneer",
+      "category": "Classic vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": true,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "269 / 479 / 579",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic vegetarian pizzas — Board A"
+    },
+    {
+      "id": "m252",
+      "outlet": "dominos",
+      "name": "Chicken Sausage",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "199 / 369 / 599",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m253",
+      "outlet": "dominos",
+      "name": "Chicken Sausage",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "199 / 369 / 599",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m254",
+      "outlet": "dominos",
+      "name": "Chicken Sausage",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "199 / 369 / 599",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m255",
+      "outlet": "dominos",
+      "name": "Pepper Barbecue Chicken",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / 449 / 669",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m256",
+      "outlet": "dominos",
+      "name": "Pepper Barbecue Chicken",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / 449 / 669",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m257",
+      "outlet": "dominos",
+      "name": "Pepper Barbecue Chicken",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / 449 / 669",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m258",
+      "outlet": "dominos",
+      "name": "Chicken Keema Paratha Pizza",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / — / —",
+      "sourceNotes": "Regular only; grouped with the ₹249 price band",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m259",
+      "outlet": "dominos",
+      "name": "Blazing Chicken & Paprika",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / 449 / 669",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m260",
+      "outlet": "dominos",
+      "name": "Blazing Chicken & Paprika",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / 449 / 669",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m261",
+      "outlet": "dominos",
+      "name": "Blazing Chicken & Paprika",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / 449 / 669",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m262",
+      "outlet": "dominos",
+      "name": "Fiery Sausage & Paprika",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / 449 / 669",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m263",
+      "outlet": "dominos",
+      "name": "Fiery Sausage & Paprika",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / 449 / 669",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m264",
+      "outlet": "dominos",
+      "name": "Fiery Sausage & Paprika",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "249 / 449 / 669",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m265",
+      "outlet": "dominos",
+      "name": "Spiced Double Chicken",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "309 / 559 / 829",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m266",
+      "outlet": "dominos",
+      "name": "Spiced Double Chicken",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "309 / 559 / 829",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m267",
+      "outlet": "dominos",
+      "name": "Spiced Double Chicken",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "309 / 559 / 829",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m268",
+      "outlet": "dominos",
+      "name": "Chicken Fiesta",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "309 / 559 / 829",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m269",
+      "outlet": "dominos",
+      "name": "Chicken Fiesta",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "309 / 559 / 829",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m270",
+      "outlet": "dominos",
+      "name": "Chicken Fiesta",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "309 / 559 / 829",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m271",
+      "outlet": "dominos",
+      "name": "Chicken Golden Delight",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "309 / 559 / 829",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m272",
+      "outlet": "dominos",
+      "name": "Chicken Golden Delight",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "309 / 559 / 829",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m273",
+      "outlet": "dominos",
+      "name": "Chicken Golden Delight",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "309 / 559 / 829",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m274",
+      "outlet": "dominos",
+      "name": "Chicken Dominator",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m275",
+      "outlet": "dominos",
+      "name": "Chicken Dominator",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m276",
+      "outlet": "dominos",
+      "name": "Chicken Dominator",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m277",
+      "outlet": "dominos",
+      "name": "Non-Veg Supreme",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m278",
+      "outlet": "dominos",
+      "name": "Non-Veg Supreme",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m279",
+      "outlet": "dominos",
+      "name": "Non-Veg Supreme",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m280",
+      "outlet": "dominos",
+      "name": "Chicken Pepperoni",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m281",
+      "outlet": "dominos",
+      "name": "Chicken Pepperoni",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m282",
+      "outlet": "dominos",
+      "name": "Chicken Pepperoni",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m283",
+      "outlet": "dominos",
+      "name": "Indi Chicken Tikka",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m284",
+      "outlet": "dominos",
+      "name": "Indi Chicken Tikka",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m285",
+      "outlet": "dominos",
+      "name": "Indi Chicken Tikka",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "359 / 599 / 919",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m286",
+      "outlet": "dominos",
+      "name": "The 5 Chicken Feast Pizza",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "399 / 699 / 1029",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m287",
+      "outlet": "dominos",
+      "name": "The 5 Chicken Feast Pizza",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "399 / 699 / 1029",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "m288",
+      "outlet": "dominos",
+      "name": "The 5 Chicken Feast Pizza",
+      "category": "Classic non-vegetarian pizzas",
+      "price": null,
+      "variant": "Large",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": true,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": true,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "399 / 699 / 1029",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Classic non-vegetarian pizzas — Board B"
+    },
+    {
+      "id": "md-0e199447c835884c",
+      "outlet": "dominos",
+      "name": "Big Big · Cheese Burst — Chicken",
+      "category": "Big Big pizzas",
+      "price": null,
+      "variant": "",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "Not legible",
+      "sourceNotes": "",
+      "priceReview": true,
+      "sourceCategory": "Big Big pizzas — Board A"
+    },
+    {
+      "id": "md-2afc821eaef939f6",
+      "outlet": "dominos",
+      "name": "Fresh Pan crust",
+      "category": "Crusts, cheese and meal offers",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "+30 / +50",
+      "sourceNotes": "Regular / Medium",
+      "priceReview": true,
+      "sourceCategory": "Crusts, cheese and meal offers"
+    },
+    {
+      "id": "md-181e02a7407f4d92",
+      "outlet": "dominos",
+      "name": "Fresh Pan crust",
+      "category": "Crusts, cheese and meal offers",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "+30 / +50",
+      "sourceNotes": "Regular / Medium",
+      "priceReview": true,
+      "sourceCategory": "Crusts, cheese and meal offers"
+    },
+    {
+      "id": "md-32dc5cf1df08a46e",
+      "outlet": "dominos",
+      "name": "100% Wheat Thin Crust",
+      "category": "Crusts, cheese and meal offers",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "+30 / +50",
+      "sourceNotes": "Regular / Medium; shared upgrade band",
+      "priceReview": true,
+      "sourceCategory": "Crusts, cheese and meal offers"
+    },
+    {
+      "id": "md-c7c15ddb26762899",
+      "outlet": "dominos",
+      "name": "100% Wheat Thin Crust",
+      "category": "Crusts, cheese and meal offers",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "+30 / +50",
+      "sourceNotes": "Regular / Medium; shared upgrade band",
+      "priceReview": true,
+      "sourceCategory": "Crusts, cheese and meal offers"
+    },
+    {
+      "id": "md-ba4de8d6bb12457b",
+      "outlet": "dominos",
+      "name": "Cheese Burst",
+      "category": "Crusts, cheese and meal offers",
+      "price": null,
+      "variant": "",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "Regular +79",
+      "sourceNotes": "Classic / Korean Sweet Chilli / Creamy Makhani / Hot & Fiery; other size charge cropped",
+      "priceReview": true,
+      "sourceCategory": "Crusts, cheese and meal offers"
+    },
+    {
+      "id": "md-d0cd76ad27713a20",
+      "outlet": "dominos",
+      "name": "Cheese Burst",
+      "category": "Crusts, cheese and meal offers",
+      "price": null,
+      "variant": "Regular",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "+75 / +99",
+      "sourceNotes": "Regular / Medium; conflicting board",
+      "priceReview": true,
+      "sourceCategory": "Crusts, cheese and meal offers"
+    },
+    {
+      "id": "md-b23432f574b44368",
+      "outlet": "dominos",
+      "name": "Cheese Burst",
+      "category": "Crusts, cheese and meal offers",
+      "price": null,
+      "variant": "Medium",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "+75 / +99",
+      "sourceNotes": "Regular / Medium; conflicting board",
+      "priceReview": true,
+      "sourceCategory": "Crusts, cheese and meal offers"
+    },
+    {
+      "id": "md-f0d99ffee9fee19f",
+      "outlet": "dominos",
+      "name": "Garlic Bread meal add-on",
+      "category": "Crusts, cheese and meal offers",
+      "price": null,
+      "variant": "",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "149",
+      "sourceNotes": "Offer shown; full accompanying details cropped",
+      "priceReview": true,
+      "sourceCategory": "Crusts, cheese and meal offers"
+    },
+    {
+      "id": "md-c8e8b3c61d81c820",
+      "outlet": "dominos",
+      "name": "Choco Lava Cake + Pepsi",
+      "category": "Crusts, cheese and meal offers",
+      "price": null,
+      "variant": "",
+      "description": "",
+      "veg": false,
+      "dietaryKnown": false,
+      "available": false,
+      "image": "dominos",
+      "illustrationApproved": false,
+      "sourceRevision": "2026-11-02",
+      "sourcePrice": "149",
+      "sourceNotes": "Offer shown",
+      "priceReview": true,
+      "sourceCategory": "Crusts, cheese and meal offers"
+    }
+  ],
+  "missingImages": [
+    {
+      "id": "md-86baeca5985081be",
+      "outlet": "greenox",
+      "name": "Protein Packed Salad [Veg]",
+      "variant": ""
+    },
+    {
+      "id": "md-572bced752aec328",
+      "outlet": "greenox",
+      "name": "Classic Caesar Salad (Veg)",
+      "variant": ""
+    },
+    {
+      "id": "md-e09703dc92fb3214",
+      "outlet": "greenox",
+      "name": "Rainbow Fruit Salad",
+      "variant": ""
+    },
+    {
+      "id": "md-370fb3a71cdb8db1",
+      "outlet": "greenox",
+      "name": "Caribbean Chicken Fillets",
+      "variant": ""
+    },
+    {
+      "id": "md-a796b5b4173514e9",
+      "outlet": "greenox",
+      "name": "High Protein Chicken (120 g)",
+      "variant": ""
+    },
+    {
+      "id": "md-6deee273b05b7959",
+      "outlet": "greenox",
+      "name": "Grilled Chicken With Mashed Potato",
+      "variant": ""
+    },
+    {
+      "id": "md-d05f5bc8d9fc48e1",
+      "outlet": "greenox",
+      "name": "Artisanal Fish Fillet",
+      "variant": ""
+    },
+    {
+      "id": "md-841a0a7bd950e038",
+      "outlet": "greenox",
+      "name": "Mexican Avocado Veg Burrito Bowl",
+      "variant": ""
+    },
+    {
+      "id": "md-14cf7495b232ce29",
+      "outlet": "greenox",
+      "name": "Delight Veggies Sub",
+      "variant": ""
+    },
+    {
+      "id": "md-fe3264db71aac465",
+      "outlet": "greenox",
+      "name": "Classic Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-d6de2e5c6aab9f41",
+      "outlet": "greenox",
+      "name": "Cheese Aloo Patty Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-1d1c553c18b71eec",
+      "outlet": "greenox",
+      "name": "Pesto Assorted Veggies Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-5e059dd86a60ed6f",
+      "outlet": "greenox",
+      "name": "Paneer Tikka Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-cd5116fbaa5aaa44",
+      "outlet": "greenox",
+      "name": "Grilled Chicken Korean Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-cd5dea56c7564f95",
+      "outlet": "greenox",
+      "name": "Corn Cheese Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-2476889c4f929d3e",
+      "outlet": "greenox",
+      "name": "Grilled Chicken Burger",
+      "variant": ""
+    },
+    {
+      "id": "md-1d1afca95fab773e",
+      "outlet": "greenox",
+      "name": "Cheesy Veg Burger",
+      "variant": ""
+    },
+    {
+      "id": "md-6115bcabe6dfc22e",
+      "outlet": "greenox",
+      "name": "Paneer Mania Burger",
+      "variant": ""
+    },
+    {
+      "id": "md-af63181e8e3434b2",
+      "outlet": "greenox",
+      "name": "Korean Veg Burger",
+      "variant": ""
+    },
+    {
+      "id": "md-137142d6c9b020f5",
+      "outlet": "greenox",
+      "name": "Barbaresca (Mix Sauce) Chicken Pasta",
+      "variant": ""
+    },
+    {
+      "id": "md-14fb442bce83d1c8",
+      "outlet": "greenox",
+      "name": "Barbaresca (Mix Sauce) Pasta",
+      "variant": ""
+    },
+    {
+      "id": "md-eb2f7f137de768e3",
+      "outlet": "greenox",
+      "name": "Alfredo (White Sauce) Chicken Pasta",
+      "variant": ""
+    },
+    {
+      "id": "md-d89ca02c6527aa28",
+      "outlet": "greenox",
+      "name": "Arrabiata (Red Sauce) Chicken Pasta",
+      "variant": ""
+    },
+    {
+      "id": "md-e8c0ff70e3236830",
+      "outlet": "greenox",
+      "name": "Arrabiata (Red Sauce) Pasta",
+      "variant": ""
+    },
+    {
+      "id": "md-62efbab0af19dd13",
+      "outlet": "greenox",
+      "name": "Alfredo (White Sauce) Veg Pasta",
+      "variant": ""
+    },
+    {
+      "id": "md-ba35a2fa5891b052",
+      "outlet": "greenox",
+      "name": "Pesto (Classic Herb) Chicken Pasta",
+      "variant": ""
+    },
+    {
+      "id": "md-737e8447436b4ca2",
+      "outlet": "greenox",
+      "name": "Pesto Pasta (Veg)",
+      "variant": ""
+    },
+    {
+      "id": "md-d0fa8048e08bd15d",
+      "outlet": "greenox",
+      "name": "Mix Berry Granola Smoothie Bowl (7 Layer Buddha Bowl)",
+      "variant": ""
+    },
+    {
+      "id": "md-70075e60b0899811",
+      "outlet": "greenox",
+      "name": "Mix Berries Kiwi & Nuts Smoothie Bowl",
+      "variant": ""
+    },
+    {
+      "id": "md-9fd1c9f0c1cf8a00",
+      "outlet": "greenox",
+      "name": "Fruits and Nuts Smoothie Bowl",
+      "variant": ""
+    },
+    {
+      "id": "md-3035d0e69551c0cf",
+      "outlet": "greenox",
+      "name": "Mango Blueberry Chia Pudding",
+      "variant": ""
+    },
+    {
+      "id": "md-9ef62fefc7050680",
+      "outlet": "greenox",
+      "name": "Chocolate Mousse Cup",
+      "variant": ""
+    },
+    {
+      "id": "md-af4fd0c08fd8b4dc",
+      "outlet": "greenox",
+      "name": "Old Fashioned Chocolate Pastry",
+      "variant": ""
+    },
+    {
+      "id": "md-94c6775cd151f99e",
+      "outlet": "greenox",
+      "name": "New York Cheese Cake",
+      "variant": ""
+    },
+    {
+      "id": "md-fe0b2e9f2c86be43",
+      "outlet": "greenox",
+      "name": "Tiramisu Cup",
+      "variant": ""
+    },
+    {
+      "id": "md-a2cb88b1759c5b08",
+      "outlet": "greenox",
+      "name": "Walnut Brownie",
+      "variant": ""
+    },
+    {
+      "id": "md-3ca8ae45ce8e807b",
+      "outlet": "greenox",
+      "name": "Biscoff Cheesecake",
+      "variant": ""
+    },
+    {
+      "id": "md-2b39731c49c42097",
+      "outlet": "greenox",
+      "name": "Choco Lava",
+      "variant": ""
+    },
+    {
+      "id": "md-0841866e5fecc2b8",
+      "outlet": "greenox",
+      "name": "Mix Berries Banana Smoothie",
+      "variant": ""
+    },
+    {
+      "id": "md-56c41dc7565688ef",
+      "outlet": "greenox",
+      "name": "Protein Packed Smoothie",
+      "variant": ""
+    },
+    {
+      "id": "md-cdf123cde32aac81",
+      "outlet": "greenox",
+      "name": "Whey Protein Shake",
+      "variant": ""
+    },
+    {
+      "id": "md-a9e608bda876c998",
+      "outlet": "greenox",
+      "name": "Icy Strawberry Shake",
+      "variant": ""
+    },
+    {
+      "id": "md-2b2a10de4105f0b1",
+      "outlet": "greenox",
+      "name": "Mix Berry Shake",
+      "variant": ""
+    },
+    {
+      "id": "md-53aa3d4011c7db01",
+      "outlet": "greenox",
+      "name": "Peanut Butter Banana Shake",
+      "variant": ""
+    },
+    {
+      "id": "md-d87a227160ce3785",
+      "outlet": "greenox",
+      "name": "Belgian Chocolate Shake",
+      "variant": ""
+    },
+    {
+      "id": "md-df8c15dc44900a0e",
+      "outlet": "greenox",
+      "name": "Cookies Caramel Shake",
+      "variant": ""
+    },
+    {
+      "id": "md-63b1e27da3fd0d23",
+      "outlet": "greenox",
+      "name": "Matcha Blueberry Shake",
+      "variant": ""
+    },
+    {
+      "id": "md-648f81cb03dd4851",
+      "outlet": "greenox",
+      "name": "Classic Cold Coffee",
+      "variant": ""
+    },
+    {
+      "id": "md-072a77c31c8fc52a",
+      "outlet": "greenox",
+      "name": "Hazelnut Cold Coffee",
+      "variant": ""
+    },
+    {
+      "id": "md-4bee9736e8468655",
+      "outlet": "greenox",
+      "name": "Iced Americano",
+      "variant": ""
+    },
+    {
+      "id": "md-8d230bef8ee9af02",
+      "outlet": "greenox",
+      "name": "Iced Matcha Latte",
+      "variant": ""
+    },
+    {
+      "id": "md-f60de8c20674668e",
+      "outlet": "greenox",
+      "name": "Iced Caramel Latte",
+      "variant": ""
+    },
+    {
+      "id": "md-bc85313e5d8f4598",
+      "outlet": "greenox",
+      "name": "Orange Juice",
+      "variant": ""
+    },
+    {
+      "id": "md-6d64265f28d2ec94",
+      "outlet": "greenox",
+      "name": "Watermelon Juice",
+      "variant": ""
+    },
+    {
+      "id": "md-dbc792c7f1d184cf",
+      "outlet": "greenox",
+      "name": "The Vitamin C Juice",
+      "variant": ""
+    },
+    {
+      "id": "md-f05a8ad7508f78eb",
+      "outlet": "greenox",
+      "name": "Watermelon Beetroot Fusion Juice",
+      "variant": ""
+    },
+    {
+      "id": "md-0be64fbb258f13a3",
+      "outlet": "greenox",
+      "name": "ABC Red Nutritional Juice",
+      "variant": ""
+    },
+    {
+      "id": "md-025b2f1aedaa0465",
+      "outlet": "greenox",
+      "name": "Mix Fruit Juice",
+      "variant": ""
+    },
+    {
+      "id": "md-ad4d83ee39a47012",
+      "outlet": "greenox",
+      "name": "Lemon Iced Tea",
+      "variant": ""
+    },
+    {
+      "id": "md-37faa917d2e33a0f",
+      "outlet": "greenox",
+      "name": "Blue Lagoon Mint",
+      "variant": ""
+    },
+    {
+      "id": "md-cddefc0e0c689172",
+      "outlet": "greenox",
+      "name": "Classic Mint Mojito",
+      "variant": ""
+    },
+    {
+      "id": "md-004d9aa2e837e307",
+      "outlet": "greenox",
+      "name": "Masala Lemonade",
+      "variant": ""
+    },
+    {
+      "id": "md-e5209bf7b0af994f",
+      "outlet": "greenox",
+      "name": "Watermelon Mint Mojito",
+      "variant": ""
+    },
+    {
+      "id": "md-c4c92f0912a3059c",
+      "outlet": "greenox",
+      "name": "Aam Panna",
+      "variant": ""
+    },
+    {
+      "id": "md-5450a2e21bec2534",
+      "outlet": "greenox",
+      "name": "Peach Iced Tea",
+      "variant": ""
+    },
+    {
+      "id": "md-50534a271eaa305f",
+      "outlet": "greenox",
+      "name": "Passion Fruit Lemonade",
+      "variant": ""
+    },
+    {
+      "id": "md-96c625fb3309feff",
+      "outlet": "greenox",
+      "name": "Raspberry Splitzer",
+      "variant": ""
+    },
+    {
+      "id": "md-0480fc546b0aee21",
+      "outlet": "greenox",
+      "name": "Vegetable Poha",
+      "variant": ""
+    },
+    {
+      "id": "md-9d210be3bef46b25",
+      "outlet": "greenox",
+      "name": "Scrambled Egg",
+      "variant": ""
+    },
+    {
+      "id": "md-ef3367f27d06b850",
+      "outlet": "greenox",
+      "name": "Fresh Fruit Glass",
+      "variant": ""
+    },
+    {
+      "id": "md-0eaca8be5938fee8",
+      "outlet": "greenox",
+      "name": "Boiled Egg",
+      "variant": ""
+    },
+    {
+      "id": "md-2dd545e356a10764",
+      "outlet": "greenox",
+      "name": "Bread Omelette",
+      "variant": ""
+    },
+    {
+      "id": "md-58162a1eee2204b3",
+      "outlet": "greenox",
+      "name": "Adrak Chai",
+      "variant": ""
+    },
+    {
+      "id": "md-e50f8e543a33f8c5",
+      "outlet": "greenox",
+      "name": "Honey Lemon Tea",
+      "variant": ""
+    },
+    {
+      "id": "md-085a7c29dc9ca584",
+      "outlet": "greenox",
+      "name": "Masala Chai",
+      "variant": ""
+    },
+    {
+      "id": "md-21da0b81bf6dfc2b",
+      "outlet": "greenox",
+      "name": "Kulhad Chai",
+      "variant": ""
+    },
+    {
+      "id": "md-bc23d023e12b9a26",
+      "outlet": "greenox",
+      "name": "Hot Chocolate",
+      "variant": ""
+    },
+    {
+      "id": "md-f1fb82d8381b5602",
+      "outlet": "greenox",
+      "name": "Chilli Cheese Vegetable Maggi",
+      "variant": ""
+    },
+    {
+      "id": "md-87451ebe9c8b70eb",
+      "outlet": "greenox",
+      "name": "Nachos Salsa",
+      "variant": ""
+    },
+    {
+      "id": "md-c8efb95964a0fcb0",
+      "outlet": "greenox",
+      "name": "Mexican Veg Taco",
+      "variant": ""
+    },
+    {
+      "id": "md-3e34cf0412fa8482",
+      "outlet": "greenox",
+      "name": "Mexican Chicken Taco (2 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-b5d932b975d6aefe",
+      "outlet": "greenox",
+      "name": "Extra Avocado",
+      "variant": ""
+    },
+    {
+      "id": "md-a2eb3af40bcef282",
+      "outlet": "greenox",
+      "name": "Guacamole",
+      "variant": ""
+    },
+    {
+      "id": "md-7a06a06b590419d5",
+      "outlet": "greenox",
+      "name": "Chocolate Ice Cream",
+      "variant": ""
+    },
+    {
+      "id": "md-0ae0c1742edc17bf",
+      "outlet": "greenox",
+      "name": "Strawberry Ice Cream",
+      "variant": ""
+    },
+    {
+      "id": "md-5ab9c0c06706ebc2",
+      "outlet": "greenox",
+      "name": "Belgian Chocolate Ice Cream",
+      "variant": ""
+    },
+    {
+      "id": "md-c516d735e5cdd7df",
+      "outlet": "greenox",
+      "name": "American Nuts Ice Cream",
+      "variant": ""
+    },
+    {
+      "id": "md-76286888d34a0cd2",
+      "outlet": "greenox",
+      "name": "Tutti Frutti Ice Cream",
+      "variant": ""
+    },
+    {
+      "id": "md-423221d0c72c212d",
+      "outlet": "greenox",
+      "name": "Butter Scotch Ice Cream",
+      "variant": ""
+    },
+    {
+      "id": "md-d550495b8cd27193",
+      "outlet": "greenox",
+      "name": "Hazelnut Coffee Ice Cream",
+      "variant": ""
+    },
+    {
+      "id": "md-fefaeab76a3b54ce",
+      "outlet": "greenox",
+      "name": "Vanilla Ice Cream",
+      "variant": ""
+    },
+    {
+      "id": "md-bcedc482d15db1d4",
+      "outlet": "greenox",
+      "name": "Mix Berry Custard Jar",
+      "variant": ""
+    },
+    {
+      "id": "md-c0c04bf1aa15a4e1",
+      "outlet": "greenox",
+      "name": "Exotic Fruit Custard Jar",
+      "variant": ""
+    },
+    {
+      "id": "md-49494bc95b0de4e8",
+      "outlet": "greenox",
+      "name": "Extra Waffle Cone",
+      "variant": ""
+    },
+    {
+      "id": "md-f5b52f644fe4d95d",
+      "outlet": "greenox",
+      "name": "Espresso",
+      "variant": ""
+    },
+    {
+      "id": "md-32a7a5e1fe4aa496",
+      "outlet": "greenox",
+      "name": "Café Latte",
+      "variant": ""
+    },
+    {
+      "id": "md-5520be326eb4b45b",
+      "outlet": "greenox",
+      "name": "Café Mocha",
+      "variant": ""
+    },
+    {
+      "id": "md-d0a919c9e86dff27",
+      "outlet": "greenox",
+      "name": "Americano",
+      "variant": ""
+    },
+    {
+      "id": "md-d3c1e45bbec28968",
+      "outlet": "greenox",
+      "name": "Cappuccino",
+      "variant": ""
+    },
+    {
+      "id": "md-6ca4efc505cf30fd",
+      "outlet": "greenox",
+      "name": "Roasted Cashew",
+      "variant": ""
+    },
+    {
+      "id": "md-7f321b3989338572",
+      "outlet": "maggi",
+      "name": "Veg Wrap",
+      "variant": ""
+    },
+    {
+      "id": "md-3fb69fcaab0308e2",
+      "outlet": "maggi",
+      "name": "Maggi Wrap",
+      "variant": ""
+    },
+    {
+      "id": "md-698fa83b1bb29169",
+      "outlet": "maggi",
+      "name": "Paneer Wrap",
+      "variant": ""
+    },
+    {
+      "id": "md-a39764d574827363",
+      "outlet": "maggi",
+      "name": "Egg Wrap",
+      "variant": ""
+    },
+    {
+      "id": "md-048a67c53aac7712",
+      "outlet": "maggi",
+      "name": "Chicken Wrap",
+      "variant": ""
+    },
+    {
+      "id": "md-7b975bc5a4eae04e",
+      "outlet": "maggi",
+      "name": "Chicken Tikka Wrap",
+      "variant": ""
+    },
+    {
+      "id": "md-6dba12c12df3de73",
+      "outlet": "maggi",
+      "name": "Malai Chicken Tikka Wrap",
+      "variant": ""
+    },
+    {
+      "id": "md-b5812c6c9071a8b6",
+      "outlet": "maggi",
+      "name": "Veg Grilled Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-a553956aad33a175",
+      "outlet": "maggi",
+      "name": "Cheese Grilled Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-962a1bd8ce24e545",
+      "outlet": "maggi",
+      "name": "Paneer Grilled Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-a4ae1a7d380f567f",
+      "outlet": "maggi",
+      "name": "Chicken Grilled Sandwich",
+      "variant": ""
+    },
+    {
+      "id": "md-5a01d90c254bba5d",
+      "outlet": "maggi",
+      "name": "Veg Burger",
+      "variant": ""
+    },
+    {
+      "id": "md-28992e662476bd85",
+      "outlet": "maggi",
+      "name": "Chicken Burger",
+      "variant": ""
+    },
+    {
+      "id": "md-480639bb6f4f61b4",
+      "outlet": "maggi",
+      "name": "Veg Nuggets (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-fca369389019283e",
+      "outlet": "maggi",
+      "name": "Chicken Nuggets (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-f580a82ff33427d3",
+      "outlet": "maggi",
+      "name": "Cheese Shorts (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-0d5f18ff20fdbd73",
+      "outlet": "maggi",
+      "name": "French Fries",
+      "variant": ""
+    },
+    {
+      "id": "md-4b1c99e1f5528e0a",
+      "outlet": "maggi",
+      "name": "Peri Peri Fries",
+      "variant": ""
+    },
+    {
+      "id": "md-10cd235ea787df3f",
+      "outlet": "maggi",
+      "name": "Chilli Garlic Fries",
+      "variant": ""
+    },
+    {
+      "id": "md-c070944c9998c589",
+      "outlet": "burger",
+      "name": "Small Fries",
+      "variant": ""
+    },
+    {
+      "id": "md-93917f6b21691f13",
+      "outlet": "burger",
+      "name": "Large Fries",
+      "variant": ""
+    },
+    {
+      "id": "md-7a5e0de911372637",
+      "outlet": "burger",
+      "name": "Onion Rings (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-3fe8af61269d42f9",
+      "outlet": "burger",
+      "name": "Cheesy Coins (3 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-3569b85fd76a6a37",
+      "outlet": "burger",
+      "name": "Cheesy Coins (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-f285658dcbe19569",
+      "outlet": "burger",
+      "name": "Karrre Murgh Pops",
+      "variant": ""
+    },
+    {
+      "id": "md-cda3a709c8087eaa",
+      "outlet": "burger",
+      "name": "Chicken Wings (Fried)",
+      "variant": ""
+    },
+    {
+      "id": "md-7bf346c496840125",
+      "outlet": "burger",
+      "name": "Chicken Wings (Hotshock)",
+      "variant": ""
+    },
+    {
+      "id": "md-862dbd6522f23bae",
+      "outlet": "burger",
+      "name": "Steamed Veg Momo (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-d9ce9440e872701d",
+      "outlet": "burger",
+      "name": "Steamed Paneer Momo (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-c527276784f5ab8a",
+      "outlet": "burger",
+      "name": "Steamed Chicken Momo (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-6a8cc97db16bd6ce",
+      "outlet": "burger",
+      "name": "Fried Veg Momo (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-47a1a10d35cde648",
+      "outlet": "burger",
+      "name": "Fried Paneer Momo (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-8009dc0d039cfc40",
+      "outlet": "burger",
+      "name": "Fried Chicken Momo (6 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-a31ddea3a7ffcee8",
+      "outlet": "burger",
+      "name": "Kurkure Veg Momo (5 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-112e1ee1d9f40568",
+      "outlet": "burger",
+      "name": "Kurkure Paneer Momo (5 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-e24f61b699611924",
+      "outlet": "burger",
+      "name": "Kurkure Chicken Momo (5 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-5dbba34b91a5bc80",
+      "outlet": "burger",
+      "name": "Kurkure Chicken Cheese Momo (5 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-764dff5bc820e230",
+      "outlet": "burger",
+      "name": "Cheese Dip",
+      "variant": ""
+    },
+    {
+      "id": "md-13369b3d176c7259",
+      "outlet": "burger",
+      "name": "Tandoori Dip",
+      "variant": ""
+    },
+    {
+      "id": "md-e776c868b3b839dc",
+      "outlet": "burger",
+      "name": "Hot Bihari Dip",
+      "variant": ""
+    },
+    {
+      "id": "md-15e03714d673ec4b",
+      "outlet": "burger",
+      "name": "Fruit Iced Tea — Orange",
+      "variant": ""
+    },
+    {
+      "id": "md-18027f2767fcf8f2",
+      "outlet": "burger",
+      "name": "Fruit Iced Tea — Strawberry",
+      "variant": ""
+    },
+    {
+      "id": "md-d92b1ee469b543b0",
+      "outlet": "burger",
+      "name": "Fruit Iced Tea — Pineapple",
+      "variant": ""
+    },
+    {
+      "id": "md-ca0437dbd5c63baf",
+      "outlet": "burger",
+      "name": "Fruit Iced Tea — Pink Guava",
+      "variant": ""
+    },
+    {
+      "id": "md-8095cc115a0eb9ae",
+      "outlet": "burger",
+      "name": "Fruit Iced Tea — Blueberry",
+      "variant": ""
+    },
+    {
+      "id": "md-685d5e13ca35e4a5",
+      "outlet": "burger",
+      "name": "Fruit Iced Tea — Mango",
+      "variant": ""
+    },
+    {
+      "id": "md-7d71b88103686400",
+      "outlet": "burger",
+      "name": "Fruit Iced Tea — Blackcurrant",
+      "variant": ""
+    },
+    {
+      "id": "md-32c79ec2d66c7d55",
+      "outlet": "burger",
+      "name": "Fruit Iced Tea — Mint",
+      "variant": ""
+    },
+    {
+      "id": "md-23410d1f7d162e7f",
+      "outlet": "burger",
+      "name": "Gulaabo Pink Lemonade",
+      "variant": ""
+    },
+    {
+      "id": "md-cbb0426ee69fd1db",
+      "outlet": "burger",
+      "name": "Shake",
+      "variant": ""
+    },
+    {
+      "id": "md-2593c976508e6dec",
+      "outlet": "burger",
+      "name": "Fauji-Mess Custard Pocket (1 pc)",
+      "variant": ""
+    },
+    {
+      "id": "md-9e9a90d10968b725",
+      "outlet": "burger",
+      "name": "Fauji-Mess Custard Pocket (2 pcs)",
+      "variant": ""
+    },
+    {
+      "id": "md-2500ba24dd4c2a78",
+      "outlet": "burger",
+      "name": "Fruit Iced Tea + Fries upgrade",
+      "variant": ""
+    },
+    {
+      "id": "md-5bd012b8c5666b47",
+      "outlet": "burger",
+      "name": "Gulaabo + Fries upgrade",
+      "variant": ""
+    },
+    {
+      "id": "md-156cb9e8c87ac479",
+      "outlet": "cafe",
+      "name": "Black Coffee — Espresso",
+      "variant": "Small"
+    },
+    {
+      "id": "md-15d2efdd29bd2b62",
+      "outlet": "cafe",
+      "name": "Black Coffee — Espresso",
+      "variant": "Large"
+    },
+    {
+      "id": "md-2850420a0a8c3c4b",
+      "outlet": "cafe",
+      "name": "Black Coffee — Americano",
+      "variant": "Small"
+    },
+    {
+      "id": "md-8bf1576dceceee9d",
+      "outlet": "cafe",
+      "name": "Black Coffee — Americano",
+      "variant": "Large"
+    },
+    {
+      "id": "md-61ab0b6007eb1b58",
+      "outlet": "cafe",
+      "name": "Café Latte",
+      "variant": "Large"
+    },
+    {
+      "id": "md-338198f13fd7958a",
+      "outlet": "cafe",
+      "name": "Flavoured Cappuccino — Hazelnut",
+      "variant": "Small"
+    },
+    {
+      "id": "md-a2f3f5f3ddafabdd",
+      "outlet": "cafe",
+      "name": "Flavoured Cappuccino — Hazelnut",
+      "variant": "Large"
+    },
+    {
+      "id": "md-bfe9bd5a4c8bf4d6",
+      "outlet": "cafe",
+      "name": "Flavoured Cappuccino — Caramel",
+      "variant": "Small"
+    },
+    {
+      "id": "md-96dd619e8b0415d3",
+      "outlet": "cafe",
+      "name": "Flavoured Cappuccino — Caramel",
+      "variant": "Large"
+    },
+    {
+      "id": "md-81d2febf415fd75e",
+      "outlet": "cafe",
+      "name": "Café Mocha",
+      "variant": "Large"
+    },
+    {
+      "id": "md-a3ef73944172273d",
+      "outlet": "cafe",
+      "name": "Chai — Ginger",
+      "variant": "Small"
+    },
+    {
+      "id": "md-44aeaab1649fb255",
+      "outlet": "cafe",
+      "name": "Chai — Ginger",
+      "variant": "Large"
+    },
+    {
+      "id": "md-604ba1a61717ee1a",
+      "outlet": "cafe",
+      "name": "Chai — Masala",
+      "variant": "Small"
+    },
+    {
+      "id": "md-d5893df76b10ec4c",
+      "outlet": "cafe",
+      "name": "Chai — Masala",
+      "variant": "Large"
+    },
+    {
+      "id": "md-5ba81e89b1534e25",
+      "outlet": "cafe",
+      "name": "Chai — Cardamom",
+      "variant": "Small"
+    },
+    {
+      "id": "md-d43e501ba820cbb7",
+      "outlet": "cafe",
+      "name": "Chai — Cardamom",
+      "variant": "Large"
+    },
+    {
+      "id": "md-b2c13c4a562b0572",
+      "outlet": "cafe",
+      "name": "Garam Chai",
+      "variant": "Small"
+    },
+    {
+      "id": "md-1c5a1fe6ece8f4aa",
+      "outlet": "cafe",
+      "name": "Garam Chai",
+      "variant": "Large"
+    },
+    {
+      "id": "md-6dc56a2f98d648f5",
+      "outlet": "cafe",
+      "name": "Green Tea",
+      "variant": "Small"
+    },
+    {
+      "id": "md-87de48d6a72a623a",
+      "outlet": "cafe",
+      "name": "Green Tea",
+      "variant": "Large"
+    },
+    {
+      "id": "md-15ec118c0cb7df03",
+      "outlet": "cafe",
+      "name": "Lemon Tea",
+      "variant": "Small"
+    },
+    {
+      "id": "md-20f21629f0485489",
+      "outlet": "cafe",
+      "name": "Lemon Tea",
+      "variant": "Large"
+    },
+    {
+      "id": "md-c4d86a78883eacb8",
+      "outlet": "cafe",
+      "name": "Hot Chocolate",
+      "variant": "Small"
+    },
+    {
+      "id": "md-965d111146be0dbc",
+      "outlet": "cafe",
+      "name": "Badam Milk",
+      "variant": "Small"
+    },
+    {
+      "id": "md-5ae8f7472c8d95f8",
+      "outlet": "cafe",
+      "name": "Soup — Hot N Sour",
+      "variant": "Small"
+    },
+    {
+      "id": "md-1a24cea561820b92",
+      "outlet": "cafe",
+      "name": "Soup — Vegetable Corn",
+      "variant": "Small"
+    },
+    {
+      "id": "md-bc8eca53e5792629",
+      "outlet": "cafe",
+      "name": "Cold Coffee — Classic",
+      "variant": "Large"
+    },
+    {
+      "id": "md-2b0e2401371adfda",
+      "outlet": "cafe",
+      "name": "Cold Coffee — Hazelnut",
+      "variant": "Large"
+    },
+    {
+      "id": "md-8469ed7eaac3a244",
+      "outlet": "cafe",
+      "name": "Cold Coffee — Caramel",
+      "variant": "Large"
+    },
+    {
+      "id": "md-4e00ef5b87d17761",
+      "outlet": "cafe",
+      "name": "Milkshake — Classic Chocolate",
+      "variant": "Large"
+    },
+    {
+      "id": "md-9ba03f29d4e1ec0e",
+      "outlet": "cafe",
+      "name": "Milkshake — Berry",
+      "variant": "Large"
+    },
+    {
+      "id": "md-2428a5634e72963f",
+      "outlet": "dominos",
+      "name": "Corn & Cheese Paratha Pizza",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-425a959ae309c756",
+      "outlet": "dominos",
+      "name": "Cheese & Corn",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-ccbe81f60644bf96",
+      "outlet": "dominos",
+      "name": "Cheese & Corn",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-4226275fba5fcce2",
+      "outlet": "dominos",
+      "name": "Cheese & Corn",
+      "variant": "Large"
+    },
+    {
+      "id": "md-728e23588fae9df8",
+      "outlet": "dominos",
+      "name": "Cheese Overload",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-3bc10050c4203f4b",
+      "outlet": "dominos",
+      "name": "Cheese Overload",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-57af3e26a5363747",
+      "outlet": "dominos",
+      "name": "Cheese Overload",
+      "variant": "Large"
+    },
+    {
+      "id": "md-86a32863fdb522a5",
+      "outlet": "dominos",
+      "name": "Pizza Mania · Classic",
+      "variant": ""
+    },
+    {
+      "id": "md-3a878fc195696327",
+      "outlet": "dominos",
+      "name": "Pizza Mania · Onion",
+      "variant": ""
+    },
+    {
+      "id": "md-c1192c953a08c13b",
+      "outlet": "dominos",
+      "name": "Pizza Mania · Golden Corn",
+      "variant": ""
+    },
+    {
+      "id": "md-9af67e36bf8adcb5",
+      "outlet": "dominos",
+      "name": "Pizza Mania · Capsicum & Red Paprika",
+      "variant": ""
+    },
+    {
+      "id": "md-2a6fb6ed241cab8d",
+      "outlet": "dominos",
+      "name": "Pizza Mania · Capsicum & Masala Paneer",
+      "variant": ""
+    },
+    {
+      "id": "md-92a7dcbe8acf64ce",
+      "outlet": "dominos",
+      "name": "Pizza Mania · Paneer, Onion & Capsicum",
+      "variant": ""
+    },
+    {
+      "id": "md-b7a22322733a2d79",
+      "outlet": "dominos",
+      "name": "Pizza Mania · Veg Loaded",
+      "variant": ""
+    },
+    {
+      "id": "md-c8fb97ccd69d91fa",
+      "outlet": "dominos",
+      "name": "Cheese Lava Pull Apart · Golden Corn",
+      "variant": ""
+    },
+    {
+      "id": "md-2a80d5534b362fca",
+      "outlet": "dominos",
+      "name": "Cheese Lava Pull Apart · Peppy Paneer",
+      "variant": ""
+    },
+    {
+      "id": "md-d0035f7bb23fadf3",
+      "outlet": "dominos",
+      "name": "Cheese Lava Pull Apart · Farmhouse",
+      "variant": ""
+    },
+    {
+      "id": "md-69faaab66a59a90c",
+      "outlet": "dominos",
+      "name": "Cheese Lava Pull Apart · Veggie Paradise",
+      "variant": ""
+    },
+    {
+      "id": "md-8dedcdd911d10294",
+      "outlet": "dominos",
+      "name": "Cheese Lava Pull Apart · Pepper BBQ Chicken",
+      "variant": ""
+    },
+    {
+      "id": "md-2cbac9241bb75a2a",
+      "outlet": "dominos",
+      "name": "Cheese Lava Pull Apart · Spiced Double Chicken",
+      "variant": ""
+    },
+    {
+      "id": "md-157c541b247a90d0",
+      "outlet": "dominos",
+      "name": "Cheese Lava Pull Apart · Chicken Golden Delight",
+      "variant": ""
+    },
+    {
+      "id": "md-b1787b3ccd76e4ef",
+      "outlet": "dominos",
+      "name": "Cheese Lava Pull Apart · Blazing Chicken & Paprika",
+      "variant": ""
+    },
+    {
+      "id": "md-dcf2e9feabdccb1e",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Farmhouse",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-d1100586051471ee",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Farmhouse",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-7b4775a8ce1f8071",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Peppy Paneer",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-0d1643355c20ec1a",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Peppy Paneer",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-11fc02ff820a7719",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Cheese N Corn",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-0a30b38ef587692b",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Cheese N Corn",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-7dc49f2ab906075f",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Veggie Paradise",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-112d6ef32518f670",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Veggie Paradise",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-cb1fc5a2767ee3ac",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Pepper BBQ Chicken",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-590ae550d162c3c2",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Pepper BBQ Chicken",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-13db2d68eb8757a2",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Spiced Double Chicken",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-3a1aa4f0988d13ce",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Spiced Double Chicken",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-ea22628529159598",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Chicken Golden Delight",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-e207a1d70bbc3599",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Chicken Golden Delight",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-e833af51bb71d1ae",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Blazing Chicken & Paprika",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-2db219fb40cbc713",
+      "outlet": "dominos",
+      "name": "Cheese Volcano · Blazing Chicken & Paprika",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-aae710f3baf1e37b",
+      "outlet": "dominos",
+      "name": "Sourdough · Classic Veg",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-85ff775e991044b3",
+      "outlet": "dominos",
+      "name": "Sourdough · Classic Veg",
+      "variant": "SLIM"
+    },
+    {
+      "id": "md-84e99703395d6f23",
+      "outlet": "dominos",
+      "name": "Sourdough · Classic Truffle",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-4ca7c3c458b8bdbd",
+      "outlet": "dominos",
+      "name": "Sourdough · Classic Truffle",
+      "variant": "SLIM"
+    },
+    {
+      "id": "md-92a4ea401ed41a02",
+      "outlet": "dominos",
+      "name": "Sourdough · Pesto Veggie",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-cce9dce796f748e5",
+      "outlet": "dominos",
+      "name": "Sourdough · Pesto Veggie",
+      "variant": "SLIM"
+    },
+    {
+      "id": "md-ff9312558daea3bc",
+      "outlet": "dominos",
+      "name": "Sourdough · Creamy Truffle Mushroom",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-76c9d407d87bbcf1",
+      "outlet": "dominos",
+      "name": "Sourdough · Creamy Truffle Mushroom",
+      "variant": "SLIM"
+    },
+    {
+      "id": "md-5e477da79b100cf5",
+      "outlet": "dominos",
+      "name": "Sourdough · Chicken Pepperoni",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-90fe5427d21b95a8",
+      "outlet": "dominos",
+      "name": "Sourdough · Chicken Pepperoni",
+      "variant": "SLIM"
+    },
+    {
+      "id": "md-7a323ccee899188d",
+      "outlet": "dominos",
+      "name": "Sourdough · Classic Truffle Pepperoni",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-064aaf97cc934700",
+      "outlet": "dominos",
+      "name": "Sourdough · Classic Truffle Pepperoni",
+      "variant": "SLIM"
+    },
+    {
+      "id": "md-29bdd3669628b982",
+      "outlet": "dominos",
+      "name": "Sourdough · Pesto Chicken",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-95a9914e1e2c598d",
+      "outlet": "dominos",
+      "name": "Sourdough · Pesto Chicken",
+      "variant": "SLIM"
+    },
+    {
+      "id": "md-68a0c0c1968bd255",
+      "outlet": "dominos",
+      "name": "Sourdough · Creamy Truffle Chicken",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-07563a4be241c2a4",
+      "outlet": "dominos",
+      "name": "Sourdough · Creamy Truffle Chicken",
+      "variant": "SLIM"
+    },
+    {
+      "id": "md-985686bd9bfb8e06",
+      "outlet": "dominos",
+      "name": "Chicken Burst · Chicken Burst Tandoori",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-bf2dc7b83a902f33",
+      "outlet": "dominos",
+      "name": "Chicken Burst · Chicken Burst Tandoori",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-cccfd20946c81f44",
+      "outlet": "dominos",
+      "name": "Chicken Burst · Chicken Burst Southern Spice",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-00de9cd85cc3fd53",
+      "outlet": "dominos",
+      "name": "Chicken Burst · Chicken Burst Southern Spice",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-097ae69d8e0ededf",
+      "outlet": "dominos",
+      "name": "Chicken Burst · Chicken Burst Korean",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-47778dd22a6eeb2b",
+      "outlet": "dominos",
+      "name": "Chicken Burst · Chicken Burst Korean",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-657113aae6504e75",
+      "outlet": "dominos",
+      "name": "Chicken Burst · Chicken Burst Shawarma",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-d0ab0cf89c00262f",
+      "outlet": "dominos",
+      "name": "Chicken Burst · Chicken Burst Shawarma",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-748f65d262427d8b",
+      "outlet": "dominos",
+      "name": "Big Big · Big Big Pizza — Veg",
+      "variant": ""
+    },
+    {
+      "id": "md-0615c9b5b5ae4421",
+      "outlet": "dominos",
+      "name": "Big Big · Big Big Pizza — Chicken",
+      "variant": ""
+    },
+    {
+      "id": "md-d5b9dcafaf45c961",
+      "outlet": "dominos",
+      "name": "Big Big · Cheese Burst — Veg",
+      "variant": ""
+    },
+    {
+      "id": "md-1a2ecb5cc0a14f16",
+      "outlet": "dominos",
+      "name": "Big Big · Big Big Pizza Cheezilla — Veg",
+      "variant": ""
+    },
+    {
+      "id": "md-0e199447c835884c",
+      "outlet": "dominos",
+      "name": "Big Big · Cheese Burst — Chicken",
+      "variant": ""
+    },
+    {
+      "id": "md-a137e7f1dc55c6c6",
+      "outlet": "dominos",
+      "name": "Big Big · Lava Burst — Veg",
+      "variant": ""
+    },
+    {
+      "id": "md-fe85b249156ce872",
+      "outlet": "dominos",
+      "name": "Big Big · Tandoori Cheese Burst — Veg",
+      "variant": ""
+    },
+    {
+      "id": "md-0ad971cb6866c6df",
+      "outlet": "dominos",
+      "name": "Big Big · Korean Sweet Chilli Cheeseburst — Veg",
+      "variant": ""
+    },
+    {
+      "id": "md-6e78fce2beec7ad7",
+      "outlet": "dominos",
+      "name": "Big Big · Lava Burst — Chicken",
+      "variant": ""
+    },
+    {
+      "id": "md-2928c8d10b448508",
+      "outlet": "dominos",
+      "name": "Big Big · Tandoori Cheese Burst — Chicken",
+      "variant": ""
+    },
+    {
+      "id": "md-6dd220da64f96bce",
+      "outlet": "dominos",
+      "name": "Big Big · Korean Sweet Chilli Cheeseburst — Chicken",
+      "variant": ""
+    },
+    {
+      "id": "md-2afc821eaef939f6",
+      "outlet": "dominos",
+      "name": "Fresh Pan crust",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-181e02a7407f4d92",
+      "outlet": "dominos",
+      "name": "Fresh Pan crust",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-32dc5cf1df08a46e",
+      "outlet": "dominos",
+      "name": "100% Wheat Thin Crust",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-c7c15ddb26762899",
+      "outlet": "dominos",
+      "name": "100% Wheat Thin Crust",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-ba4de8d6bb12457b",
+      "outlet": "dominos",
+      "name": "Cheese Burst",
+      "variant": ""
+    },
+    {
+      "id": "md-d0cd76ad27713a20",
+      "outlet": "dominos",
+      "name": "Cheese Burst",
+      "variant": "Regular"
+    },
+    {
+      "id": "md-b23432f574b44368",
+      "outlet": "dominos",
+      "name": "Cheese Burst",
+      "variant": "Medium"
+    },
+    {
+      "id": "md-f0d99ffee9fee19f",
+      "outlet": "dominos",
+      "name": "Garlic Bread meal add-on",
+      "variant": ""
+    },
+    {
+      "id": "md-c8e8b3c61d81c820",
+      "outlet": "dominos",
+      "name": "Choco Lava Cake + Pepsi",
+      "variant": ""
+    }
+  ],
+  "conflictingBoards": "### Visible price conflicts requiring retailer confirmation\n\nThese are comparisons of the same products, not extra products or extra images. Board B includes other vegetarian names cut off on its left edge; missing entries are not reconstructed from unrelated menus.\n\n| Product | Price (₹) | Details |\n| --- | --- | --- |\n| Margherita — Board A | 109 / 239 / 339 | Regular / Medium / Large |\n| Margherita — Board B | 109 / 239 / 449 | Regular / Medium / Large |\n| Achari Do Pyaza — Board A | 189 / 339 / 429 | Regular / Medium / Large |\n| Achari Do Pyaza — Board B | 179 / 329 / 549 | Regular / Medium / Large |\n| Peppy Paneer — Board A | 269 / 479 / 579 | Regular / Medium / Large |\n| Peppy Paneer — Board B | 259 / 459 / 689 | Regular / Medium / Large |\n\n"
+}
