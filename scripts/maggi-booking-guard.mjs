@@ -1,0 +1,2 @@
+import fs from 'node:fs';let s=fs.readFileSync('lib/api.ts','utf8').replace('  const selectedProducts=entries.map',`  if(outlet==='maggi'){let assigned=false;try{assigned=retailerConfigurationReady()&&JSON.parse(env.RETAILER_ACCOUNTS||'[]').some((a:any)=>a.outlet==='maggi');}catch{}if(!assigned)return json({error:'Maggi Point is not accepting bookings yet. Its retailer account must be activated first.'},409);}
+  const selectedProducts=entries.map`);fs.writeFileSync('lib/api.ts',s);

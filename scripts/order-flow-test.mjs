@@ -10,7 +10,7 @@ if(process.env.TEST_POSTGRES==='1')({sqlite,db:database}=await (await import('./
 else{
  sqlite=new DatabaseSync(':memory:');
  for(const f of ['0000_thin_earthquake.sql','0001_thick_saracen.sql'])sqlite.exec(readFileSync(new URL('../drizzle/'+f,import.meta.url),'utf8').replaceAll('--> statement-breakpoint',''));
- for(const f of ['0002_catalog.sql','0003_signin_meme_rotation.sql','0004_notifications.sql'])sqlite.exec(readFileSync(new URL('../render/migrations/'+f,import.meta.url),'utf8'));
+ for(const f of ['0002_catalog.sql','0003_signin_meme_rotation.sql','0004_notifications.sql','0005_order_payments.sql'])sqlite.exec(readFileSync(new URL('../render/migrations/'+f,import.meta.url),'utf8'));
  database={prepare(sql){let args=[];return {bind(...values){args=values;return this;},async first(){return sqlite.prepare(sql).get(...args)||null;},async all(){return {results:sqlite.prepare(sql).all(...args)};},async run(){return sqlite.prepare(sql).run(...args);}};}};
 }
 const ids=['kathi','greenox','cafe','burger','dominos'];const password='Test-only-password-2026';
@@ -57,7 +57,19 @@ try{
  assert.equal((await call('orders/'+order.id,'PATCH',{status:'Accepted'},otherRetailer)).status,404);assert.equal((await call('orders/'+order.id,'PATCH',{status:'Accepted'},customer)).status,409);
  assert.equal((await call('orders/'+order.id,'PATCH',{status:'Accepted'},retailer)).status,200);assert.equal((await call('orders','GET',undefined,customer)).data.orders[0].status,'Accepted');assert.equal((await call('orders/'+order.id,'PATCH',{status:'Denied'},retailer)).status,409);
  assert.ok((await call('notifications','GET',undefined,customer)).data.notifications.some(n=>n.text==='Your order has been confirmed by Kathi Junction.'));assert.ok(!(await call('notifications','GET',undefined,customer)).data.notifications.some(n=>n.text.includes('ready!')));
- for(const status of ['Preparing','Ready','Collected'])assert.equal((await call('orders/'+order.id,'PATCH',{status},retailer)).status,200);
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'qr'},customer)).status,409,'No payment choice before Ready');
+ for(const status of ['Preparing','Ready'])assert.equal((await call('orders/'+order.id,'PATCH',{status},retailer)).status,200);
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'pickup'},customer)).data.choice,'pickup');
+ assert.equal((await call('orders/'+order.id+'/payment','GET',undefined,otherRetailer)).status,404);
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'confirm'},customer)).status,409);
+ const qr=(await call('orders/'+order.id+'/payment','POST',{choice:'qr'},customer)).data;assert.equal(qr.status,'Unpaid');assert.equal(qr.qrUrl,null);
+ assert.equal((await call('orders/'+order.id,'PATCH',{status:'Collected'},retailer)).status,200);
+ assert.equal((await call('orders/'+order.id+'/payment','GET',undefined,customer)).data.status,'Unpaid','Collection must not mean paid');
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'confirm'},retailer)).data.status,'Paid');
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'confirm'},retailer)).status,409);
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'qr'},customer)).status,409);
+ const sessionResponse=await handle(new Request('https://campus.test/api/campus/me',{headers:{Cookie:customer}}),['me']);assert.match(sessionResponse.headers.get('Set-Cookie'),/Max-Age=2592000/);assert.match(sessionResponse.headers.get('Set-Cookie'),/HttpOnly/);assert.match(sessionResponse.headers.get('Set-Cookie'),/Secure/);const me=await call('me','GET',undefined,customer);assert.ok(me.cookie.includes('campus_session='));
+ assert.equal((await call('chef-ai/chat','POST',{message:'a'.repeat(501)})).status,400);
  const notices=(await call('notifications','GET',undefined,customer)).data.notifications;const ready=notices.find(n=>n.text==='Your order is ready! Collect it from Kathi Junction.');assert.ok(ready);assert.equal((await call('notifications/dismiss','POST',{id:ready.id},customer)).status,200);assert.ok(!(await call('notifications','GET',undefined,customer)).data.notifications.some(n=>n.id===ready.id));assert.equal((await call('notifications','GET',undefined,otherRetailer)).data.notifications.length,0);
  const second=(await call('orders','POST',{...payload,requestId:crypto.randomUUID()},customer)).data.order;
  assert.equal((await call('orders/'+second.id,'PATCH',{status:'Denied',reason:'Paneer rolls sold out'},retailer)).status,200);
@@ -85,7 +97,7 @@ try{
  assert.equal((await call('feedback','GET',undefined,otherRetailer)).data.feedback.length,0);
  assert.equal((await call('me','GET',undefined,customer)).data.profile.course,'btech','Checkout must not erase course and year');
  assert.equal((await call('analytics','GET',undefined,retailer)).data.completed,1);
- const reportResponse=await handle(new Request('https://campus.test/api/campus/analytics/transactions?period=all',{headers:{Cookie:retailer}}),['analytics','transactions']);assert.equal(reportResponse.status,200);const reportData=await reportResponse.json();const savedTotals=await database.prepare("SELECT COUNT(*) AS n,SUM(total) AS total FROM orders WHERE outlet=?").bind('kathi').first();assert.equal(reportData.totals.placed,Number(savedTotals.n));assert.equal(reportData.totals.orderValue,Number(savedTotals.total));assert.equal(reportData.totals.received,null);
+ const reportResponse=await handle(new Request('https://campus.test/api/campus/analytics/transactions?period=all',{headers:{Cookie:retailer}}),['analytics','transactions']);assert.equal(reportResponse.status,200);const reportData=await reportResponse.json();const savedTotals=await database.prepare("SELECT COUNT(*) AS n,SUM(total) AS total FROM orders WHERE outlet=?").bind('kathi').first();assert.equal(reportData.totals.placed,Number(savedTotals.n));assert.equal(reportData.totals.orderValue,Number(savedTotals.total));assert.equal(reportData.totals.received,order.total);
  delete globalThis.__testEnv.GOOGLE_CLIENT_SECRET;assert.equal((await call('auth/send','POST',{email:'missing.sender@bmu.edu.in'})).status,503);
  console.log('PASS: per-account sign-in meme rotation, retry reuse without advancing on delivery failure, fixed order loop, independent account state, responsive HTML email link, dotted email magic-link sign-in, invalid/expired/reused link rejection, five retailer logins, customer details, server-priced idempotent orders, outlet isolation, accept/deny reasons, customer-visible updates, and complete pickup lifecycle. No real emails sent.');
 }finally{await sqlite.close();}

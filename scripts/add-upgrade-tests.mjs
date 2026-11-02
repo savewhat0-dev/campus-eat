@@ -1,0 +1,12 @@
+import fs from 'node:fs';let s=fs.readFileSync('scripts/order-flow-test.mjs','utf8');s=s.replace("for(const status of ['Preparing','Ready','Collected'])assert.equal((await call('orders/'+order.id,'PATCH',{status},retailer)).status,200);",`for(const status of ['Preparing','Ready'])assert.equal((await call('orders/'+order.id,'PATCH',{status},retailer)).status,200);
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'pickup'},customer)).data.choice,'pickup');
+ assert.equal((await call('orders/'+order.id+'/payment','GET',undefined,otherRetailer)).status,404);
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'confirm'},customer)).status,409);
+ const qr=(await call('orders/'+order.id+'/payment','POST',{choice:'qr'},customer)).data;assert.equal(qr.status,'Unpaid');assert.equal(qr.qrUrl,null);
+ assert.equal((await call('orders/'+order.id,'PATCH',{status:'Collected'},retailer)).status,200);
+ assert.equal((await call('orders/'+order.id+'/payment','GET',undefined,customer)).data.status,'Unpaid','Collection must not mean paid');
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'confirm'},retailer)).data.status,'Paid');
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'confirm'},retailer)).status,409);
+ assert.equal((await call('orders/'+order.id+'/payment','POST',{choice:'qr'},customer)).status,409);
+ const me=await call('me','GET',undefined,customer);assert.ok(me.cookie.includes('campus_session='));
+ assert.equal((await call('chef-ai/chat','POST',{message:'a'.repeat(501)})).status,400);`);fs.writeFileSync('scripts/order-flow-test.mjs',s);

@@ -1,3 +1,6 @@
+import {generatedProductArt} from '../lib/generated-product-art.ts';
+import {contactSheetProductArt} from '../lib/contact-sheet-product-art.ts';
+import {menu as fullMenu} from '../lib/catalog.ts';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import {menu as old} from '../lib/catalog-legacy.ts';
@@ -32,5 +35,7 @@ for(const line of source.split(/\r?\n/)){
 }
 result=result.filter((p,i,a)=>a.findIndex(q=>q.id===p.id)===i);
 fs.writeFileSync('lib/menu-import.ts','// Transcribed from the supplied Campus_Eats_Detailed_Menu.md; do not guess unresolved prices.\nexport const importedMenu='+JSON.stringify(result,null,2)+';\n');
-fs.writeFileSync('MENU-REVIEW.json',JSON.stringify({revision:'2026-11-02',options:result.length,byOutlet:Object.fromEntries([...new Set(result.map(p=>p.outlet))].map(o=>[o,result.filter(p=>p.outlet===o).length])),priceReview:result.filter(p=>p.priceReview),missingImages:result.filter(p=>!p.illustrationApproved).map(p=>({id:p.id,outlet:p.outlet,name:p.name,variant:p.variant})),conflictingBoards:source.slice(source.indexOf('### Visible price conflicts'),source.indexOf('## Product image requirements'))},null,2));
+const mappedImageKeys=new Set([...Object.keys(generatedProductArt),...Object.keys(contactSheetProductArt)]);
+const missingProducts=[...new Map(fullMenu.filter(p=>!mappedImageKeys.has(p.outlet+'|'+p.name)&&!p.illustrationApproved).map(p=>[p.outlet+'|'+p.name,{id:p.id,outlet:p.outlet,name:p.name}])).values()];
+fs.writeFileSync('MENU-REVIEW.json',JSON.stringify({revision:'2026-11-02',options:result.length,byOutlet:Object.fromEntries([...new Set(result.map(p=>p.outlet))].map(o=>[o,result.filter(p=>p.outlet===o).length])),priceReview:result.filter(p=>p.priceReview),missingImages:missingProducts,missingImageOptionsRemaining:fullMenu.filter(p=>!mappedImageKeys.has(p.outlet+'|'+p.name)&&!p.illustrationApproved).length,missingDistinctProducts:missingProducts.length,savedGeneratedImagesConnected:Object.keys(generatedProductArt).length,contactSheetCropsConnected:Object.keys(contactSheetProductArt).length,conflictingBoards:source.slice(source.indexOf('### Visible price conflicts'),source.indexOf('## Product image requirements'))},null,2));
 console.log('Imported',result.length,'options;',result.filter(p=>p.priceReview).length,'price reviews');

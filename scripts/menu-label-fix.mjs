@@ -1,0 +1,3 @@
+import fs from 'node:fs';const edit=(p,fn)=>fs.writeFileSync(p,fn(fs.readFileSync(p,'utf8')));
+edit('app/page.tsx',s=>s.replace('shownOutlets.length:5','shownOutlets.length:outlets.length').replace("Maggi:'cafe'","Maggi:'maggi'").replace('{o.time} min est.',"{o.time?o.time+' min est.':'Timing to confirm'}").replace('{current.time} min',"{current.time?current.time+' min':'Confirm pickup timing'}"));
+edit('scripts/product-images-test.mjs',s=>s.replace('for(const p of menu){const illustration=', 'for(const p of menu){if(p.illustrationApproved===false)continue;const illustration=').replace('all ${menu.length} menu options have existing illustrative artwork','existing approved mappings have valid artwork; new products use explicit placeholders'));

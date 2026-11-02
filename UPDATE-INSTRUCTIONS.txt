@@ -1,15 +1,34 @@
-Campus Eats — changed files only — 2 November 2026
+Campus Eats — updated files only — 2 November 2026
 
-1. Back up your repository and PostgreSQL database. Extract this patch into the existing project root, replacing matching files. Keep the directory paths. Do not delete your database, environment variables or other project files.
-2. Run npm test and node scripts/menu-import-test.mjs, then npm run build:render.
-3. Commit these files to your connected GitHub repository and redeploy the existing Render service. No new environment variable or SQL migration is required. Startup reconciles the revised menu once; later retailer edits are preserved.
+INSTALL / RENDER
+1. Back up the repository and PostgreSQL database. Extract this ZIP into the existing Campus Eats project root, preserving paths and replacing the matching files. This is a patch, not a complete project. Existing dependencies, environment variables and all other files remain required.
+2. Run npm test, node scripts/menu-import-test.mjs and npm run build:render. Commit the changed files to the GitHub repository connected to your existing Render Web Service.
+3. In Render > your Web Service > Environment, add GROQ_API_KEY using a key created at https://console.groq.com/keys. Do not put it in a frontend variable, repository or chat.
+   Optional: GROQ_MODEL=openai/gpt-oss-20b
+   Optional: CHEF_INPUT_LIMIT=500 (supported range 100–1000)
+   Save and redeploy. Keep the existing DATABASE_URL, PUBLIC_ORIGIN, Gmail sender credentials and RETAILER_ACCOUNTS.
+4. Deploy the latest commit. Start command remains npm run start:render. The startup migration automatically creates order_payments once (0005_order_payments). Do not delete or recreate the database.
+5. Check /healthz, sign-in, Chef, an actual retailer's outlet, and a sample order on the live deployment before campus rollout. This local patch has not been deployed to Render.
 
-Catalog: 397 imported size/flavour options plus 58 previously supported Kathi Junction options (455 total). Maggi Point is a separate sixth outlet; it is not Café Coffee Day. Existing five retailer credentials continue to work. A separate Maggi Point retailer account is still needed before operating that outlet live; this patch does not create credentials.
+GROQ
+The key stays on the Node server. Groq classifies the food request into a constrained intent/query; its prose is never shown. Product cards, prices and availability are obtained from the server's catalog. No customer profiles, other people's orders, retailer data or API credentials are sent as model context. Greetings, clarification, campus-food scope, message length and rate limits are enforced. Without a configured key, the existing menu assistant remains available; that fallback does not call Groq. Actual Groq delivery was not tested because no live key was supplied.
+Official model reference checked: https://console.groq.com/docs/models
 
-54 options are blocked for price confirmation: conflicting classic vegetarian pizza variants, non-vegetarian Board B prices requiring confirmation, illegible Big Big chicken Cheese Burst, and Domino's upgrade/meal rows needing scope or price confirmation. See MENU-REVIEW.json for source figures and the competing boards. Retailer Menu Management shows the pending-price notice and source price; enter the verified whole-rupee price and enable the option. Customer checkout rejects pending/unknown prices. Meal upgrades require a burger and burrito extras require a burrito bowl.
+SESSIONS / BACK
+Sessions use HttpOnly cookies with a 30-day lifetime, Secure on HTTPS, SameSite=Strict, and renewal on authenticated return visits. Refresh, navigation and temporary network failures do not deliberately log users out. Logout revokes the server session; true expiry opens sign-in while retaining the bag and navigation context. Retailer tabs are remembered in sessionStorage, with no credentials stored there. Product/overlay Back, outlet Back, Chef Back and retailer editor/tab Back were checked in the browser. Root Back retains normal browser behavior.
 
-267 imported options have no verified reusable product-image mapping. They show an honest neutral placeholder, not an unrelated food image. No new AI images were generated in this patch. Exact existing mappings and actual uploaded photos are preserved. Upload actual product photos using the retailer editor. MENU-REVIEW.json lists missing image options; counts include sizes, not necessarily distinct dishes. Campus and BMU logo are the supplied originals; the source photo is 550 x 330, so its detail cannot equal a high-resolution photograph.
+READY-STAGE PAYMENTS
+Ready and unpaid orders show Pay now and Pay at pickup. The preference persists in PostgreSQL. Pay now opens an inline panel with the outlet, reference and amount. Default display is explicitly "Demo QR — payments not enabled". Scanning, opening a QR or collecting an order never records a payment. Only the signed-in retailer assigned to the outlet can record full receipt; duplicate confirmations are rejected. Receipt is stored separately from preparation/collection and appears in received-money reporting.
+The uploaded QR has not been activated because its payee and outlet assignment were not verified. Do not use it for multiple outlets without confirmation.
+Optional actual-QR setup: after independently verifying the payee and correct outlet, save an image under public/assets/payments/, and set PAYMENT_QR_BY_OUTLET to a JSON mapping such as {"kathi":{"verified":true,"path":"/assets/payments/kathi.png"}}. Only permitted local image paths for that outlet are returned to its order owner. Omitting the setting keeps demo mode. There is no payment gateway, automatic charge, scan-based payment confirmation or new refund workflow.
 
-The original layout, green/cream branding, navigation and pickup flow are retained. The only BMU graphic is anchored inside the campus hero photograph; Campus Eats text branding stays intact. Mobile, tablet and desktop were inspected; there was no detected horizontal overflow or broken image at the checked widths. Automated account, order, search/Chef, image mapping, analytics and catalog reconciliation checks passed. Test email is mocked: live Gmail delivery, live PostgreSQL deployment, actual stock, retailer-confirmed prices and live-device keyboard operation were not verified. This patch is not yet deployed.
+UI
+Original branding and ordering flow retained. Campus photo uses its full original aspect ratio; the existing BMU logo stays at its top right. The header uses separate fading blur layers, leaving controls sharp. Retailer bottom navigation floats above the safe area. Labels, outlet title placement, banner tint, terracotta/cream Maggi identity, footer spacing and reduced-motion behavior were refined. Future native-app requirements are documented in docs/FUTURE-APP.md; no app wrapper or separate app sign-in was built.
 
-The importer accepts a source MD path: node scripts/import-detailed-menu.mjs path/to/menu.md. Default source: docs/Campus_Eats_Detailed_Menu.md. Do not rerun on a different document layout without reviewing the output.
+IMAGES / MENU STILL PENDING
+No new generation was started for this final update. It includes 26 product illustrations already saved during the earlier image work, optimized and connected by exact outlet/product key. Actual uploaded photos still take priority. Other products use honest placeholders. The last inventory lists 203 distinct products without a generated image. Generation is paused.
+54 imported options remain blocked for price/scope confirmation; see MENU-REVIEW.json. Maggi Point still needs its own retailer account before live booking. Existing five retailer accounts remain supported.
+
+VERIFICATION
+Passed: production build; frontend TypeScript checks; automated order/auth/rate-limit/provider-boundary/image/analytics tests; PGlite PostgreSQL migration and order/payment tests; localhost browser checks for refresh-persistent login, saved pickup preference, full photo and one logo, phone/tablet/desktop overflow, customer and retailer Back paths, and floating mobile navigation.
+Not verified: actual Groq responses with your account, live Gmail delivery, live Render deployment, actual payment QR ownership, retailer-confirmed prices, or behavior on physical Android/iOS devices and browser reopen. Tests used only local sample accounts/orders and a mock inbox; no real email or payment was sent. Passing these checks is not a full security audit.

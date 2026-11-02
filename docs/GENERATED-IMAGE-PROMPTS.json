@@ -1,0 +1,132 @@
+[
+  {
+    "key": "greenox|Protein Packed Salad [Veg]",
+    "prompt": "Protein Packed Salad [Veg]; Vegetarian salads; Soya chunks, sprouts, chickpeas, paneer, vegetables, nuts and seeds",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Classic Caesar Salad (Veg)",
+    "prompt": "Classic Caesar Salad (Veg); Vegetarian salads; Lettuce, vegetables, Parmesan, croutons and Caesar dressing",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Cheese Aloo Patty Sandwich",
+    "prompt": "Cheese Aloo Patty Sandwich; Sandwiches; Brown bread, potato patty, cheese, onion and lettuce",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Pesto Assorted Veggies Sandwich",
+    "prompt": "Pesto Assorted Veggies Sandwich; Sandwiches; Brown bread, pesto and mixed vegetables",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Paneer Tikka Sandwich",
+    "prompt": "Paneer Tikka Sandwich; Sandwiches; Brown bread, paneer tikka and vegetables",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Grilled Chicken Korean Sandwich",
+    "prompt": "Grilled Chicken Korean Sandwich; Sandwiches; Customizable",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Cheesy Veg Burger",
+    "prompt": "Cheesy Veg Burger; Whole wheat burgers; Whole wheat bun, vegetable patty, cheese and vegetables",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Rainbow Fruit Salad",
+    "prompt": "Rainbow Fruit Salad; Fruit salads; Mixed and seasonal fruit with lettuce",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Fruits and Nuts Smoothie Bowl",
+    "prompt": "Fruits and Nuts Smoothie Bowl; Medley smoothie bowls; Fruit, nuts, Greek yogurt and honey",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Caribbean Chicken Fillets",
+    "prompt": "Caribbean Chicken Fillets; Wholesome meals; Caribbean-spiced grilled chicken with vegetables",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Mango Blueberry Chia Pudding",
+    "prompt": "Mango Blueberry Chia Pudding; Desserts; ",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Chocolate Mousse Cup",
+    "prompt": "Chocolate Mousse Cup; Desserts; ",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Old Fashioned Chocolate Pastry",
+    "prompt": "Old Fashioned Chocolate Pastry; Desserts; ",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|New York Cheese Cake",
+    "prompt": "New York Cheese Cake; Desserts; ",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Tiramisu Cup",
+    "prompt": "Tiramisu Cup; Desserts; ",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Walnut Brownie",
+    "prompt": "Walnut Brownie; Desserts; ",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Choco Lava",
+    "prompt": "Choco Lava; Desserts; ",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Mix Berries Banana Smoothie",
+    "prompt": "Mix Berries Banana Smoothie; Smoothies and shakes; Banana, berries, Greek yogurt and honey",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|High Protein Chicken (120 g)",
+    "prompt": "High Protein Chicken (120 g); Wholesome meals; Customizable; portion shown in product name",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Icy Strawberry Shake",
+    "prompt": "Icy Strawberry Shake; Smoothies and shakes; Strawberry ice cream and milk",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Grilled Chicken With Mashed Potato",
+    "prompt": "Grilled Chicken With Mashed Potato; Wholesome meals; Chicken, mashed potato and side salad",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Artisanal Fish Fillet",
+    "prompt": "Artisanal Fish Fillet; Wholesome meals; Customizable",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Mexican Avocado Veg Burrito Bowl",
+    "prompt": "Mexican Avocado Veg Burrito Bowl; Burrito bowls; Customizable",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Delight Veggies Sub",
+    "prompt": "Delight Veggies Sub; Subs; Multigrain loaf with mixed vegetables",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "greenox|Classic Sandwich",
+    "prompt": "Classic Sandwich; Sandwiches; Brown bread with corn and mixed vegetables",
+    "tool": "built-in imagegen"
+  },
+  {
+    "key": "maggi|Veg Wrap",
+    "prompt": "Maggi Point vegetarian wrap",
+    "tool": "built-in imagegen"
+  }
+]

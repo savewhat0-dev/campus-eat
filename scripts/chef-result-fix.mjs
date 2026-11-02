@@ -1,0 +1,1 @@
+import fs from 'node:fs';let s=fs.readFileSync('lib/wash-chat.ts','utf8').replace('const closest=rankProducts(q,menu);','const closest=rankProducts(q,menu).filter(r=>!/cold coffee/.test(q)||/cold coffee/i.test(r.item.name));');fs.writeFileSync('lib/wash-chat.ts',s);

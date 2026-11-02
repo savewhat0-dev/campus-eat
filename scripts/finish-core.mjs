@@ -1,0 +1,5 @@
+import fs from 'node:fs';const edit=(p,f)=>fs.writeFileSync(p,f(fs.readFileSync(p,'utf8')));
+edit('scripts/order-flow-test.mjs',s=>s.replace('reportData.totals.received,null','reportData.totals.received,order.total'));
+edit('app/page.tsx',s=>s.replace("import {OrderPayment}","import {MenuFood} from '../components/menu-food';\nimport {OrderPayment}").replace("<div key={m.id}><span className={'diet '+(!m.veg?'nonveg':'')}><i/></span>","<div key={m.id}><div className=\"cart-product-thumb\"><MenuFood item={m}/></div>"));
+edit('components/retailer-dashboard.tsx',s=>s.replace('<Icon size={17}/>{name}</button>','<Icon size={17}/>{name===\'Orders & Transactions\'?\'Sales\':name===\'Menu Management\'?\'Menu\':name}</button>'));
+edit('lib/groq-chef.ts',s=>s.replace("if(!config.GROQ_API_KEY)return findCampusFood(message,states,{query:context},products);","if(!config.GROQ_API_KEY){const answer=findCampusFood(message,states,{query:context},products);return answer.text==='Please specify the particular product name.'?{...answer,kind:'conversation',text:scopeReply}:answer;}"));

@@ -1,0 +1,1 @@
+import fs from 'node:fs';let s=fs.readFileSync('scripts/import-detailed-menu.mjs','utf8').replace('C:/Users/risha/Downloads/Campus_Eats_Detailed_Menu.md','docs/Campus_Eats_Detailed_Menu.md');fs.writeFileSync('scripts/import-detailed-menu.mjs',s);

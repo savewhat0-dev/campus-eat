@@ -1,0 +1,1 @@
+import fs from 'node:fs';let s=fs.readFileSync('scripts/chef-upgrade-test.mjs','utf8').replaceAll("p.category==='Veg pizza'","/vegetarian pizzas/.test(p.category)");fs.writeFileSync('scripts/chef-upgrade-test.mjs',s);

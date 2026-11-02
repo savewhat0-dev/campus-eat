@@ -1,3 +1,4 @@
+import {generatedProductArt} from '../lib/generated-product-art.ts';
 import assert from 'node:assert/strict';
 import {existsSync} from 'node:fs';
 import {menu} from '../lib/catalog.ts';
@@ -16,3 +17,5 @@ assert.equal(productImage({...paneer,image:'/assets/illustrations/paneer-roll.we
 assert.equal(validateProduct({...paneer,available:true,image:'/assets/illustrations/paneer-roll.webp',photoApproved:true},paneer.outlet,paneer.id).photoApproved,false);
 assert.equal(validateProduct({...uploaded,available:true},paneer.outlet,paneer.id).photoApproved,true);
 console.log(`PASS: existing approved mappings have valid artwork; new products use explicit placeholders; Paneer Roll mapping, actual-photo priority and approval boundaries verified.`);
+
+assert.equal(new Set(Object.values(generatedProductArt)).size,Object.keys(generatedProductArt).length,'Distinct new product images must not share a generic asset');for(const [key,src] of Object.entries(generatedProductArt)){assert.ok(menu.some(p=>p.outlet+'|'+p.name===key),'Unmatched generated image: '+key);assert.ok(existsSync('public'+src),'Missing generated image: '+src);}

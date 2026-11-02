@@ -1,0 +1,1 @@
+import fs from 'node:fs';let s=fs.readFileSync('lib/wash-chat.ts','utf8').replace("message.replace(/पनीर/g", "message.replace(/मुझे|चाहिए/g,' ').replace(/रोल/g,'roll').replace(/पनीर/g");fs.writeFileSync('lib/wash-chat.ts',s);
