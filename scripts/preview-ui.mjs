@@ -8,7 +8,7 @@ const sql=new DatabaseSync(':memory:');
 for(const file of ['drizzle/0000_thin_earthquake.sql','drizzle/0001_thick_saracen.sql','render/migrations/0002_catalog.sql','render/migrations/0003_signin_meme_rotation.sql','render/migrations/0004_notifications.sql','render/migrations/0005_order_payments.sql'])sql.exec(readFileSync(file,'utf8').replaceAll('--> statement-breakpoint',''));
 const DB={prepare(text){let args=[];return {bind(...values){args=values;return this;},async first(){return sql.prepare(text).get(...args)||null;},async all(){return {results:sql.prepare(text).all(...args)};},async run(){return sql.prepare(text).run(...args);}};}};
 let inbox='';
-globalThis.__campusRuntime={DB,GOOGLE_CLIENT_ID:'local-qa',GOOGLE_CLIENT_SECRET:'local-qa',GOOGLE_OAUTH_REFRESH_TOKEN:'local-qa',EMAIL_FROM:'Campus Eats <qa@example.com>',sendEmail:async message=>{inbox=message.html.match(/href="([^"]+)"/)[1];},RETAILER_ACCOUNTS:''};
+globalThis.__campusRuntime={DB,GOOGLE_CLIENT_ID:'local-qa',GOOGLE_CLIENT_SECRET:'local-qa',GOOGLE_OAUTH_REFRESH_TOKEN:'local-qa',EMAIL_FROM:'BMU Eats <qa@example.com>',sendEmail:async message=>{inbox=message.html.match(/href="([^"]+)"/)[1];},RETAILER_ACCOUNTS:''};
 const {handle,initializeCatalog}=await import('../dist-render/api.mjs');await initializeCatalog();
 const root=resolve('dist-render/public'),origin='http://127.0.0.1:'+(process.env.PREVIEW_PORT||4173);
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml'};

@@ -50,7 +50,7 @@ try{
  Write-Host 'Usernames for this setup (save the passwords you entered separately):'
  foreach($account in $accounts){Write-Host ('{0}: {1}' -f $account.outlet,$account.username)}
  if($SaveToFile){
-  $configDirectory=Join-Path $env:LOCALAPPDATA 'CampusEats'
+  $configDirectory=Join-Path $env:LOCALAPPDATA 'BMU Eats'
   [void][IO.Directory]::CreateDirectory($configDirectory)
   $configPath=Join-Path $configDirectory 'retailer-accounts.private.json'
   [IO.File]::WriteAllText($configPath,[string]$result,[Text.UTF8Encoding]::new($false))

@@ -1,4 +1,4 @@
-# CampusEats upgrade — 30 October 2026
+# BMU Eats upgrade — 30 October 2026
 
 This package upgrades the existing Render application. It has not been deployed to your live Render service.
 
@@ -26,7 +26,7 @@ Retailer: sign in → Menu Management → Edit product → choose its actual PNG
 2. Keep the existing DATABASE_URL, RETAILER_ACCOUNTS and Gmail configuration. Build: `npm ci --include=dev && npm run build:render`. Start: `npm run start:render`. Health check: `/healthz`. Choose a Node web service, not a static site.
 3. Commit/push, then Render → your web service → Manual Deploy → Deploy latest commit. Startup applies the migrations. Check `/healthz`, then test a real customer email link and each retailer's credentials.
 
-Required mail variables: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_OAUTH_REFRESH_TOKEN and EMAIL_FROM. All OAuth values must belong to the same client; EMAIL_FROM must be the authorized sender or a configured Gmail alias. The user's intended sender is `Campus Eats <rishabh.kaktan.25bb@bmu.edu.in>` only when that mailbox authorized the token. No secrets are included. SMTP and Resend are not required by this Gmail API implementation. Real delivery cannot be guaranteed by this package and must be checked on the deployed service.
+Required mail variables: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_OAUTH_REFRESH_TOKEN and EMAIL_FROM. All OAuth values must belong to the same client; EMAIL_FROM must be the authorized sender or a configured Gmail alias. The user's intended sender is `BMU Eats <rishabh.kaktan.25bb@bmu.edu.in>` only when that mailbox authorized the token. No secrets are included. SMTP and Resend are not required by this Gmail API implementation. Real delivery cannot be guaranteed by this package and must be checked on the deployed service.
 
 PUBLIC_ORIGIN is optional for the Render-generated URL. For a custom domain, set its full HTTPS origin only after the domain is configured. Keep the existing database rather than creating a new one.
 

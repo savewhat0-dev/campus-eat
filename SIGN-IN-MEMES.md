@@ -1,4 +1,4 @@
-# Campus Eats sign-in meme rotation
+# BMU Eats sign-in meme rotation
 
 The university email sign-in uses a fixed 15-image sequence. The hamster-on-a-bike image is first, followed by the other supplied memes in the order shown by their `meme-02.jpg` through `meme-15.jpg` filenames. The email template uses live text and a real verification button; the meme is an optional image with descriptive alternative text, so sign-in remains usable when mail clients block images.
 

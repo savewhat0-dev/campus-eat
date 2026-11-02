@@ -1,4 +1,4 @@
-# CampusEats — Render upgrade
+# BMU Eats — Render upgrade
 
 Read PRODUCT-IMAGES.md for the latest AI product artwork and actual-photo replacement update. Start with UPGRADE-REPORT.md for the changes, verification results, actual-product-photo workflow and instructions for updating your existing service. DEPLOY-RENDER.md contains the full Render setup reference.
 

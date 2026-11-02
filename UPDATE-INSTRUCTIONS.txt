@@ -1,7 +1,7 @@
-Campus Eats — updated files only — 2 November 2026
+BMU Eats — updated files only — 2 November 2026
 
 INSTALL / RENDER
-1. Back up the repository and PostgreSQL database. Extract this ZIP into the existing Campus Eats project root, preserving paths and replacing the matching files. This is a patch, not a complete project. Existing dependencies, environment variables and all other files remain required.
+1. Back up the repository and PostgreSQL database. Extract this ZIP into the existing BMU Eats project root, preserving paths and replacing the matching files. This is a patch, not a complete project. Existing dependencies, environment variables and all other files remain required.
 2. Run npm test, node scripts/menu-import-test.mjs and npm run build:render. Commit the changed files to the GitHub repository connected to your existing Render Web Service.
 3. In Render > your Web Service > Environment, add GROQ_API_KEY using a key created at https://console.groq.com/keys. Do not put it in a frontend variable, repository or chat.
    Optional: GROQ_MODEL=openai/gpt-oss-20b

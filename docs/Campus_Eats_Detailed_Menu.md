@@ -1,4 +1,4 @@
-# Campus Eats — Detailed Outlet Menu
+# BMU Eats — Detailed Outlet Menu
 
 Prepared 2 November 2026. Currency: Indian rupees (₹).
 
@@ -648,14 +648,14 @@ Other source gaps: the bottom of Burger Singh’s shake flavour list and right-h
 
 Updated 2 November 2026. This revision adds implementation requirements; the source menu tables and prices above remain unchanged. These requirements do not mean the website catalog or UI has already been updated.
 
-Update the existing Campus Eats website using the attached Campus_Eats_Detailed_Menu.md, BMU campus photograph, and BMU logo.
+Update the existing BMU Eats website using the attached Campus_Eats_Detailed_Menu.md, BMU campus photograph, and BMU logo.
 
 1. Preserve the previous UI
-Keep the original Campus Eats layout, colours, typography, navigation, and ordering flow that I liked. Refine spacing, alignment, readability, and consistency. Use Blinkit and Zomato as references for clear browsing, obvious actions, and polished food presentation; retain Campus Eats branding. Avoid excessive boxes, thick borders, nested cards, clutter, and unnecessary decoration. Use light separators and whitespace where possible.
+Keep the original BMU Eats layout, colours, typography, navigation, and ordering flow that I liked. Refine spacing, alignment, readability, and consistency. Use Blinkit and Zomato as references for clear browsing, obvious actions, and polished food presentation; retain BMU Eats branding. Avoid excessive boxes, thick borders, nested cards, clutter, and unnecessary decoration. Use light separators and whitespace where possible.
 
 2. Campus photograph and logo
 Replace the burger photograph in the HOME-PAGE HERO with the uploaded campus photograph, in the same image area. Do not redesign the whole hero or replace food product images with the campus photo. Preserve the photo's proportions and keep the building recognisable across screen sizes.
-Place the uploaded BMU logo ONLY inside the TOP-RIGHT corner of this campus photograph. Anchor it to the image container so it moves with the photograph. Remove duplicate placements of this university logo from the header, footer, and other sections; keep the separate Campus Eats brand. Preserve the complete logo and proportions, with comfortable inset spacing, approximately 16–24 px on desktop and 10–14 px on mobile. Use only a small, subtle light backing if needed for legibility. Never stretch it, cover important content, or let it extend outside the photo.
+Place the uploaded BMU logo ONLY inside the TOP-RIGHT corner of this campus photograph. Anchor it to the image container so it moves with the photograph. Remove duplicate placements of this university logo from the header, footer, and other sections; keep the separate BMU Eats brand. Preserve the complete logo and proportions, with comfortable inset spacing, approximately 16–24 px on desktop and 10–14 px on mobile. Use only a small, subtle light backing if needed for legibility. Never stretch it, cover important content, or let it extend outside the photo.
 
 3. Update the website menu from the attached MD
 Read the entire MD and reconcile the website catalog with it, including outlet names, categories, products, prices, sizes, variants, add-ons, and source notes. Do not merely upload the MD or add a download link.

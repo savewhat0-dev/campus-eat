@@ -1,10 +1,10 @@
 # Render setup: final PostgreSQL package
 
-For this upgrade, follow UPGRADE-REPORT.md first. Use CampusEats-UI-Search-Notifications-2026-10-30.zip. Extract it, and upload all extracted files and folders to the ROOT of a new private GitHub repository named campus-eats. Preserve folder structure. Do not upload the ZIP. Existing incomplete repositories can retain conflicting settings, so a new repository is the clearest route. The package includes Chef, PostgreSQL support, rotating sign-in memes and a file guide; no credentials or customer records are included.
+For this upgrade, follow UPGRADE-REPORT.md first. Use BMU Eats-UI-Search-Notifications-2026-10-30.zip. Extract it, and upload all extracted files and folders to the ROOT of a new private GitHub repository named campus-eats. Preserve folder structure. Do not upload the ZIP. Existing incomplete repositories can retain conflicting settings, so a new repository is the clearest route. The package includes Chef, PostgreSQL support, rotating sign-in memes and a file guide; no credentials or customer records are included.
 
 ## A. Project (optional grouping)
 
-If Render asks for Project, create/select Campus Eats.
+If Render asks for Project, create/select BMU Eats.
 If it asks for Environment, choose Production under that project.
 These are grouping labels, not database credentials. If the selector is optional you can leave it unassigned. Your service Environment tab (secret key/value settings) is a different feature.
 
@@ -15,7 +15,7 @@ Render Dashboard > New > Postgres.
 | Form field | Enter/select |
 | --- | --- |
 | Name | campus-eats-db |
-| Project | Campus Eats, or leave optional selector unassigned |
+| Project | BMU Eats, or leave optional selector unassigned |
 | Environment | Production, if you assigned the project |
 | Database | campus_eats |
 | User | campus_eats_user |
@@ -41,7 +41,7 @@ Render Dashboard > New > Web Service > Git Provider > connect GitHub > select ca
 | Form field | Enter/select |
 | --- | --- |
 | Name | campus-eats-bmu (if unavailable, campus-eats-bmu-risha or another unique name) |
-| Project | Campus Eats, if created |
+| Project | BMU Eats, if created |
 | Environment | Production, if offered |
 | Language / Runtime | Node |
 | Region | Singapore; same as database |
@@ -70,7 +70,7 @@ Choose Web Service, NOT Static Site. The login and orders API requires a running
 | GOOGLE_CLIENT_ID | OAuth client ID from Google Cloud > Google Auth Platform > Clients |
 | GOOGLE_CLIENT_SECRET | Secret from that same OAuth client; store only in Render |
 | GOOGLE_OAUTH_REFRESH_TOKEN | Long-lived refresh token issued after authorizing the Gmail API `gmail.send` scope; store only in Render |
-| EMAIL_FROM | `Campus Eats <your-authorized-gmail@gmail.com>`; the address must be the Google account that authorized this OAuth client, or an alias configured in that Gmail account |
+| EMAIL_FROM | `BMU Eats <your-authorized-gmail@gmail.com>`; the address must be the Google account that authorized this OAuth client, or an alias configured in that Gmail account |
 | RETAILER_ACCOUNTS | Five-account salted-hash JSON generated as below |
 | SIGNIN_MEME_ORDER | Optional JSON array of unique meme keys to customize the fixed order; omit it to use all 15 supplied memes in the built-in order. See SIGN-IN-MEMES.md |
 
@@ -97,7 +97,7 @@ Customer verification uses a first-party magic link: the server generates a rand
 ### Google Cloud setup (one-time)
 
 1. Open [Google Cloud Console](https://console.cloud.google.com/) and select the project you will use. In **APIs & Services > Library**, find **Gmail API** and click **Enable**.
-2. Open **Google Auth Platform > Branding**. Set the app name to **Campus Eats**, add your contact/support email, and save. This is the consent-screen label; it is not the website URL.
+2. Open **Google Auth Platform > Branding**. Set the app name to **BMU Eats**, add your contact/support email, and save. This is the consent-screen label; it is not the website URL.
 3. Open **Google Auth Platform > Audience**. Choose **External** for a personal Gmail sender. Add the Gmail account that will send the links under **Test users** while setting up.
 4. Open **Google Auth Platform > Data Access > Add or remove scopes**. Add only `https://www.googleapis.com/auth/gmail.send`, then save.
 5. Open **Google Auth Platform > Clients > Create client**. Select **Web application**. Add this exact **Authorized redirect URI**: `https://developers.google.com/oauthplayground`. Create it and copy the client ID and client secret. Do not add the Render site URL as this redirect; OAuth Playground receives this setup's callback.
@@ -111,7 +111,7 @@ Customer verification uses a first-party magic link: the server generates a rand
 
 1. Open **Render Dashboard > your `campus-eats-bmu` Web Service > Environment** (not the Postgres database's Environment page).
 2. Add `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `GOOGLE_OAUTH_REFRESH_TOKEN` using the exact values from Google Cloud/OAuth Playground.
-3. Set `EMAIL_FROM` to `Campus Eats <the-same-authorized-gmail-address@gmail.com>`. The sender must be the Gmail account that granted the OAuth consent, unless that account already has the chosen sender configured as a verified alias.
+3. Set `EMAIL_FROM` to `BMU Eats <the-same-authorized-gmail-address@gmail.com>`. The sender must be the Gmail account that granted the OAuth consent, unless that account already has the chosen sender configured as a verified alias.
 4. Keep `DATABASE_URL`, `RETAILER_ACCOUNTS`, and other existing settings. Remove old `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, and `SMTP_PASS` variables; they are no longer used.
 5. Click **Save, rebuild, and deploy** (or save changes and trigger **Manual Deploy > Deploy latest commit** after uploading the updated project files to GitHub).
 6. After deployment completes, open the site, request a link using a real `@bmu.edu.in` address, and check that inbox and Spam. The message will come from the Gmail address configured above. Click the one-time link within 15 minutes.
@@ -120,7 +120,7 @@ The three Google OAuth values are secrets. Keep them only in the Render Web Serv
 
 ## G. Deploy and verify
 
-Save settings and select Deploy / Deploy latest commit. The service automatically creates and migrates tables in your new PostgreSQL database. No manual SQL console commands are required. Startup ends with Campus Eats server ready. Open the actual assigned onrender.com URL. Visit /healthz: expect {"ok":true}.
+Save settings and select Deploy / Deploy latest commit. The service automatically creates and migrates tables in your new PostgreSQL database. No manual SQL console commands are required. Startup ends with BMU Eats server ready. Open the actual assigned onrender.com URL. Visit /healthz: expect {"ok":true}.
 
 Then test:
 1. Request a sign-in link to your university email, click it, and complete name/ID/phone profile.

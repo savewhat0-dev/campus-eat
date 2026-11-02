@@ -55,3 +55,11 @@ button,.product-card,.wash-panel{transition:background-color .18s ease,color .18
 .cart-product-thumb{width:52px!important;height:52px;flex:0 0 52px;border-radius:10px;overflow:hidden}.cart-product-thumb .menu-food-photo{width:52px;height:52px;min-height:0}.cart-product-thumb .photo-label{display:none}
 /* Leave room for the floating assistant above footer actions. */
 footer{padding-bottom:85px}
+
+/* BMU Eats — Italian café wordmark, with sharp readable interface text. */
+.brand .brand-name{position:relative;display:inline-block;padding-bottom:5px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:700;font-size:1.2em;line-height:1.05;letter-spacing:-.7px;color:#07533b}
+.brand .brand-name>span{color:#a43d33}.brand .brand-name:after{content:'';position:absolute;left:2px;bottom:0;width:48px;height:2px;border-radius:2px;background:linear-gradient(90deg,#17764c 0 33.33%,#e5dfd1 33.33% 66.66%,#b84436 66.66%)}
+.brand small{font-style:normal;letter-spacing:1.1px}.brand-icon{background:#f5f1e8;color:#07533b}.brand-button{min-width:0}
+@media(max-width:380px){.brand .brand-name{font-size:1.12em}.brand small{letter-spacing:.7px}}
+
+.retail-brand{font-family:Georgia,'Times New Roman',serif;font-style:italic;letter-spacing:-.5px}.retail-brand>span{color:#d9a28e}.retail-brand small{font-family:Arial,sans-serif;font-style:normal;letter-spacing:1px}

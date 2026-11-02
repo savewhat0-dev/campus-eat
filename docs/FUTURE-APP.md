@@ -1,4 +1,4 @@
-# Future Campus Eats app requirements (not implemented)
+# Future BMU Eats app requirements (not implemented)
 - First launch / signed out: show login or signup before Home.
 - Agree future identifier and credential fields separately; retain current website magic-link and retailer authentication.
 - Valid persistent session: proceed to customer Home or the assigned retailer workspace.
