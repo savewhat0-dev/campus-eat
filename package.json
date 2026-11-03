@@ -6,7 +6,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "build:render": "vite build --config vite.render.config.mjs && node render/build.mjs",
+    "build:render": "node render/restore-product-images.mjs && vite build --config vite.render.config.mjs && node render/build.mjs",
     "start:render": "node render/server.mjs",
     "test": "node scripts/order-flow-test.mjs && node scripts/chef-upgrade-test.mjs && node scripts/render-config-test.mjs && node scripts/product-images-test.mjs && node scripts/retailer-analytics-test.mjs && node scripts/groq-chef-test.mjs"
   },

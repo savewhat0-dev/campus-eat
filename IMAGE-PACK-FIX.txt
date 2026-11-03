@@ -1,0 +1,14 @@
+BMU Eats — missing product images fix
+
+The Render log confirms 229 product image files are missing from the cloned repository. This update restores those files from one bundled archive before Vite builds the website. Keep the required-images validation.
+
+1. Extract this ZIP.
+2. In your GitHub repository root, replace package.json. In its render folder, upload restore-product-images.mjs, product-images.pack.json.gz and build.mjs. Preserve these exact paths. Upload the .gz file itself; do not unpack it. Commit the changes.
+3. Render build command: npm ci --include=dev && npm run build:render
+   Render start command: npm run start:render
+4. Deploy latest commit. Expected log: Product image pack: 229 verified, 229 restored (or fewer restored if some files already exist), followed by Verified 261 required image assets in source and production output.
+5. After the service is live, reload with Ctrl+Shift+R.
+
+No environment or database change is required. The 42 dependency vulnerability report is separate from the missing-image failure; this patch does not resolve that report.
+
+Local checks passed: restoration of all 229 images into an empty directory with SHA-256 verification; complete production build and 261 required assets present. This package has not been deployed to Render.
