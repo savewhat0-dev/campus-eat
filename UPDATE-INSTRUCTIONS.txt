@@ -1,1 +1,44 @@
-Replace app/redesign.css in your current BMU Eats project, commit to GitHub, and deploy latest commit on Render. This stylesheet includes the prior centered light outlet banners plus the newest campus photo changes: left-edge blend only, sharper enhanced colour, smaller corner BMU logo, soft lower green outline/glow and shadow. Desktop/mobile checked; build passed. No environment changes.
+Latest: Expo app and website UI update. Read EXPO-WEBSITE-UPDATE.txt and docs/EXPO-APP-SETUP.md. Do not mix the website package.json with the separate Expo project. No new Render environment values required.
+
+Latest image delivery fix: see IMAGE-PACK-FIX.txt. Product images are restored automatically during build from render/product-images.pack.json.gz.
+
+BMU Eats — 3 November 2026 image and layout fix
+
+This update removes Explore customer preview, aligns the full campus photo and BMU logo on desktop/mobile, provides product image fallbacks, and checks required image assets during every production build. The fix ZIP includes the complete public image folder. Extract all folders into the project root, commit ALL public/assets files to GitHub, then deploy latest commit on Render. No environment changes are needed for this fix. If images were not committed, the build now names missing files instead of deploying a blank catalogue. After deployment reload the page with Ctrl+Shift+R. Existing database and secrets must be retained.
+
+Image update: 203 supplied contact-sheet crops plus earlier artwork are connected; all 261 required image assets passed source/output checks. The older image-generation pause note below is historical and is superseded by this update.
+
+BMU Eats — updated files only — 2 November 2026
+
+INSTALL / RENDER
+1. Back up the repository and PostgreSQL database. Extract this ZIP into the existing BMU Eats project root, preserving paths and replacing the matching files. This is a patch, not a complete project. Existing dependencies, environment variables and all other files remain required.
+2. Run npm test, node scripts/menu-import-test.mjs and npm run build:render. Commit the changed files to the GitHub repository connected to your existing Render Web Service.
+3. In Render > your Web Service > Environment, add GROQ_API_KEY using a key created at https://console.groq.com/keys. Do not put it in a frontend variable, repository or chat.
+   Optional: GROQ_MODEL=openai/gpt-oss-20b
+   Optional: CHEF_INPUT_LIMIT=500 (supported range 100–1000)
+   Save and redeploy. Keep the existing DATABASE_URL, PUBLIC_ORIGIN, Gmail sender credentials and RETAILER_ACCOUNTS.
+4. Deploy the latest commit. Start command remains npm run start:render. The startup migration automatically creates order_payments once (0005_order_payments). Do not delete or recreate the database.
+5. Check /healthz, sign-in, Chef, an actual retailer's outlet, and a sample order on the live deployment before campus rollout. This local patch has not been deployed to Render.
+
+GROQ
+The key stays on the Node server. Groq classifies the food request into a constrained intent/query; its prose is never shown. Product cards, prices and availability are obtained from the server's catalog. No customer profiles, other people's orders, retailer data or API credentials are sent as model context. Greetings, clarification, campus-food scope, message length and rate limits are enforced. Without a configured key, the existing menu assistant remains available; that fallback does not call Groq. Actual Groq delivery was not tested because no live key was supplied.
+Official model reference checked: https://console.groq.com/docs/models
+
+SESSIONS / BACK
+Sessions use HttpOnly cookies with a 30-day lifetime, Secure on HTTPS, SameSite=Strict, and renewal on authenticated return visits. Refresh, navigation and temporary network failures do not deliberately log users out. Logout revokes the server session; true expiry opens sign-in while retaining the bag and navigation context. Retailer tabs are remembered in sessionStorage, with no credentials stored there. Product/overlay Back, outlet Back, Chef Back and retailer editor/tab Back were checked in the browser. Root Back retains normal browser behavior.
+
+READY-STAGE PAYMENTS
+Ready and unpaid orders show Pay now and Pay at pickup. The preference persists in PostgreSQL. Pay now opens an inline panel with the outlet, reference and amount. Default display is explicitly "Demo QR — payments not enabled". Scanning, opening a QR or collecting an order never records a payment. Only the signed-in retailer assigned to the outlet can record full receipt; duplicate confirmations are rejected. Receipt is stored separately from preparation/collection and appears in received-money reporting.
+The uploaded QR has not been activated because its payee and outlet assignment were not verified. Do not use it for multiple outlets without confirmation.
+Optional actual-QR setup: after independently verifying the payee and correct outlet, save an image under public/assets/payments/, and set PAYMENT_QR_BY_OUTLET to a JSON mapping such as {"kathi":{"verified":true,"path":"/assets/payments/kathi.png"}}. Only permitted local image paths for that outlet are returned to its order owner. Omitting the setting keeps demo mode. There is no payment gateway, automatic charge, scan-based payment confirmation or new refund workflow.
+
+UI
+Original branding and ordering flow retained. Campus photo uses its full original aspect ratio; the existing BMU logo stays at its top right. The header uses separate fading blur layers, leaving controls sharp. Retailer bottom navigation floats above the safe area. Labels, outlet title placement, banner tint, terracotta/cream Maggi identity, footer spacing and reduced-motion behavior were refined. Future native-app requirements are documented in docs/FUTURE-APP.md; no app wrapper or separate app sign-in was built.
+
+IMAGES / MENU STILL PENDING
+No new generation was started for this final update. It includes 26 product illustrations already saved during the earlier image work, optimized and connected by exact outlet/product key. Actual uploaded photos still take priority. Other products use honest placeholders. The last inventory lists 203 distinct products without a generated image. Generation is paused.
+54 imported options remain blocked for price/scope confirmation; see MENU-REVIEW.json. Maggi Point still needs its own retailer account before live booking. Existing five retailer accounts remain supported.
+
+VERIFICATION
+Passed: production build; frontend TypeScript checks; automated order/auth/rate-limit/provider-boundary/image/analytics tests; PGlite PostgreSQL migration and order/payment tests; localhost browser checks for refresh-persistent login, saved pickup preference, full photo and one logo, phone/tablet/desktop overflow, customer and retailer Back paths, and floating mobile navigation.
+Not verified: actual Groq responses with your account, live Gmail delivery, live Render deployment, actual payment QR ownership, retailer-confirmed prices, or behavior on physical Android/iOS devices and browser reopen. Tests used only local sample accounts/orders and a mock inbox; no real email or payment was sent. Passing these checks is not a full security audit.

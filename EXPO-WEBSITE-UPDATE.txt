@@ -1,0 +1,9 @@
+BMU Eats website update accompanying the Expo app
+
+Extract the website patch into your existing repository root, preserving paths. Commit and deploy latest commit on Render. Keep the database and existing secrets. No new Render environment variable is needed.
+
+The separate Expo ZIP is an app project. Do not upload its package.json over the website package.json. See docs/EXPO-APP-SETUP.md for all Expo Go, email sign-in and APK build steps.
+
+Website changes: one-row light navigation menu, chef-mark brand icon, readable sign-in branding, Veg/Non-veg filters excluding unknown dietary labels, rounded Back button, brand-colour outlet glows (yellow/green/red/orange/blue/pink), Maggi noodle-image mark with Point below, Terms and Privacy pages, Expo email callback and native Back integration.
+
+Policies describe a project serving the BMU community without claiming unconfirmed university endorsement. Confirm the operator/contact details before public release. Users retain their personal-data rights. Signed app builds, physical device tests and store publication remain to be completed through your own Expo account.
