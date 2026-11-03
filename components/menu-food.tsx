@@ -5,12 +5,21 @@ import type {Item} from '../lib/catalog';
 import {productImage} from '../lib/product-images';
 import {productIllustration} from '../lib/product-illustrations';
 import {Camera} from 'lucide-react';
+import {useState} from 'react';
 
 export function MenuFood({item,className=''}:{item:Item;className?:string}){
- const photo=productImage(item);
- if(photo)return <div className={`menu-food-photo ${className}`}><img src={photo} alt={item.name+(item.variant?' · '+item.variant:'')} loading="lazy" decoding="async" width={650} height={650}/><small className="photo-label actual-photo-label">Outlet photo</small></div>;
- const productKey=item.outlet+'|'+item.name;const generated=contactSheetProductArt[productKey]||generatedProductArt[productKey];const illustration=generated?{src:generated,label:'AI-generated illustration',tile:undefined}:item.illustrationApproved===false?undefined:productIllustration(item);
- if(illustration){const index=illustration.tile;return <div className={`menu-food-photo illustrated-product ${className}`}>{index!==undefined?<svg className="food-sheet-tile" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet" role="img" aria-label={item.name+' — AI-generated illustration'}><svg x={0} y={0} width={1} height={1} overflow="hidden"><image href={illustration.src} x={-(index%4)} y={-Math.floor(index/4)} width={4} height={4}/></svg></svg>:<img src={illustration.src} alt={item.name+' — AI-generated illustration'} loading="lazy" decoding="async" width={650} height={650}/>}<small className="photo-label">AI illustration</small></div>;}
- return <div className={`menu-food-photo missing-product-photo ${className}`}><Camera size={23}/><span>Product image<br/>coming soon</span></div>;
+ const key=item.outlet+'|'+item.name;
+ const legacy=item.illustrationApproved===false?undefined:productIllustration(item);
+ const candidates=[{src:productImage(item),actual:true,tile:undefined},{src:contactSheetProductArt[key],actual:false,tile:undefined},{src:generatedProductArt[key],actual:false,tile:undefined},...(legacy?[{...legacy,actual:false}]:[])].filter((p,i,a)=>p.src&&a.findIndex(q=>q.src===p.src&&q.tile===p.tile)===i);
+ return <FoodImage key={item.id+'|'+item.name+'|'+item.image+'|'+item.photoApproved} item={item} className={className} candidates={candidates}/>;
+}
+
+function FoodImage({item,className,candidates}:{item:Item;className:string;candidates:{src?:string;actual:boolean;tile?:number}[]}){
+ const [index,setIndex]=useState(0);const current=candidates[index];
+ if(!current)return <div className={`menu-food-photo missing-product-photo ${className}`}><Camera size={23}/><span>Image unavailable</span></div>;
+ const label=current.actual?'Outlet photo':'AI illustration';const fail=()=>setIndex(n=>n+1);
+ return <div className={`menu-food-photo ${current.actual?'':'illustrated-product'} ${className}`}>
+ {current.tile!==undefined?<svg key={index} className="food-sheet-tile" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet" role="img" aria-label={item.name+' — '+label}><svg width={1} height={1} overflow="hidden"><image href={current.src} onError={fail} x={-(current.tile%4)} y={-Math.floor(current.tile/4)} width={4} height={4}/></svg></svg>:<img key={index} src={current.src} onError={fail} alt={item.name+' — '+label} loading="lazy" decoding="async" width={650} height={650}/>}
+ <small className={'photo-label'+(current.actual?' actual-photo-label':'')}>{label}</small></div>;
 }
 

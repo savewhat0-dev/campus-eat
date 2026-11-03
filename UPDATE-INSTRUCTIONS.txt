@@ -1,3 +1,9 @@
+BMU Eats — 3 November 2026 image and layout fix
+
+This update removes Explore customer preview, aligns the full campus photo and BMU logo on desktop/mobile, provides product image fallbacks, and checks required image assets during every production build. The fix ZIP includes the complete public image folder. Extract all folders into the project root, commit ALL public/assets files to GitHub, then deploy latest commit on Render. No environment changes are needed for this fix. If images were not committed, the build now names missing files instead of deploying a blank catalogue. After deployment reload the page with Ctrl+Shift+R. Existing database and secrets must be retained.
+
+Image update: 203 supplied contact-sheet crops plus earlier artwork are connected; all 261 required image assets passed source/output checks. The older image-generation pause note below is historical and is superseded by this update.
+
 BMU Eats — updated files only — 2 November 2026
 
 INSTALL / RENDER

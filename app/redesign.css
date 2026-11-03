@@ -63,3 +63,10 @@ footer{padding-bottom:85px}
 @media(max-width:380px){.brand .brand-name{font-size:1.12em}.brand small{letter-spacing:.7px}}
 
 .retail-brand{font-family:Georgia,'Times New Roman',serif;font-style:italic;letter-spacing:-.5px}.retail-brand>span{color:#d9a28e}.retail-brand small{font-family:Arial,sans-serif;font-style:normal;letter-spacing:1px}
+
+/* Campus photograph and logo share one bounded, proportionate frame. */
+.hero.redesigned-hero{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;padding:24px;min-height:0;align-items:center}
+.redesigned-hero .hero-text{padding:16px 10px;min-width:0}.campus-hero-photo{width:100%;aspect-ratio:550/330;border-radius:16px;overflow:hidden;align-self:center;isolation:isolate}
+.campus-building{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;object-position:center;display:block}.campus-university-logo{top:14px;right:14px;width:clamp(90px,9vw,124px);height:auto;max-width:25%;border-radius:8px;box-shadow:0 2px 8px #12352315}
+.menu-food-photo{min-width:0;min-height:0;overflow:hidden}.product-photo>.menu-food-photo{position:absolute;inset:0;width:100%;height:100%}.menu-food-photo>img{display:block;width:100%;height:100%;object-fit:contain}
+@media(max-width:760px){.hero.redesigned-hero{gap:14px;padding:16px;display:flex;flex-direction:column}.redesigned-hero .hero-text{padding:10px 4px;width:100%}.campus-hero-photo{flex:none;border-radius:12px;width:100%;aspect-ratio:550/330}.campus-building{height:100%}.campus-university-logo{top:10px;right:10px;width:96px;max-width:26%}}
