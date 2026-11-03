@@ -1,5 +1,5 @@
 import {useEffect,useRef,useState} from 'react';
-import {ActivityIndicator,Alert,AppState,BackHandler,Keyboard,Linking,Platform,Pressable,StyleSheet,Text,TextInput,View} from 'react-native';
+import {ActivityIndicator,AccessibilityInfo,Animated,Alert,AppState,BackHandler,Keyboard,Linking,Platform,Pressable,StyleSheet,Text,TextInput,View} from 'react-native';
 import {SafeAreaProvider,SafeAreaView} from 'react-native-safe-area-context';
 import {StatusBar} from 'expo-status-bar';
 import {WebView} from 'react-native-webview';
@@ -8,6 +8,9 @@ import {appOrigin,verificationUrl} from './links';
 const origin=appOrigin(process.env.EXPO_PUBLIC_SITE_URL||'https://campus-eat-v6je.onrender.com');
 const home=origin+'/?app=1';
 export default function App(){
+ const introOpacity=useRef(new Animated.Value(1)).current;
+ const [intro,setIntro]=useState(true);
+ useEffect(()=>{let timer:ReturnType<typeof setTimeout>;let active=true;AccessibilityInfo.isReduceMotionEnabled().then(reduced=>{if(!active)return;timer=setTimeout(()=>{if(reduced)setIntro(false);else Animated.timing(introOpacity,{toValue:0,duration:280,useNativeDriver:true}).start(()=>setIntro(false));},reduced?100:700);});return()=>{active=false;clearTimeout(timer)}},[]);
  const web=useRef<WebView<{}>>(null),keyboard=useRef(false),lastLink=useRef(''),page=useRef({url:home,canGoBack:false});
  const [source,setSource]=useState(home),[error,setError]=useState(false),[loading,setLoading]=useState(true),[paste,setPaste]=useState(false),[link,setLink]=useState('');
  const enter=(url:string)=>{const target=verificationUrl(url,origin);if(!target)return false;if(lastLink.current===url)return true;lastLink.current=url;setSource(target);setError(false);setPaste(false);setLink('');return true;};
@@ -26,11 +29,11 @@ export default function App(){
   }catch{}return false;
  }
  return <SafeAreaProvider><SafeAreaView style={styles.safe} edges={['top','bottom']}><StatusBar style="dark"/>
-  <View style={styles.appBar}><Text style={styles.brand}>BMU Eats</Text><Pressable accessibilityRole="button" onPress={()=>setPaste(v=>!v)}><Text style={styles.link}>Open sign-in link</Text></Pressable></View>
   {paste&&<View style={styles.paste}><Text style={styles.title}>Return from your email</Text><Text style={styles.body}>Copy the verification link from your university email and paste it here. It stays inside this app.</Text><TextInput accessibilityLabel="Email sign-in link" value={link} onChangeText={setLink} autoCapitalize="none" autoCorrect={false} secureTextEntry placeholder="Paste your BMU Eats sign-in link" style={styles.input}/><Pressable style={styles.button} onPress={()=>{if(!enter(link.trim()))Alert.alert('Invalid link','Use the BMU Eats link from your email.');}}><Text style={styles.buttonText}>Verify and continue</Text></Pressable></View>}
   {error?<View style={styles.empty}><Text style={styles.title}>Cannot reach BMU Eats</Text><Text style={styles.body}>Check your internet connection and try again. A sleeping server may take a moment to start.</Text><Pressable style={styles.button} onPress={()=>{setError(false);setLoading(true);web.current?.reload();}}><Text style={styles.buttonText}>Try again</Text></Pressable></View>:<WebView<{}> ref={web} style={styles.web} source={{uri:source}} applicationNameForUserAgent="BMUEatsApp/1.0" originWhitelist={['https://*','bmueats://*']} onShouldStartLoadWithRequest={r=>allow(r.url)} onOpenWindow={e=>{if(allow(e.nativeEvent.targetUrl))setSource(e.nativeEvent.targetUrl)}} javaScriptEnabled domStorageEnabled sharedCookiesEnabled thirdPartyCookiesEnabled={false} mixedContentMode="never" allowFileAccess={false} allowFileAccessFromFileURLs={false} allowUniversalAccessFromFileURLs={false} geolocationEnabled={false} setSupportMultipleWindows allowsBackForwardNavigationGestures cacheEnabled incognito={false} webviewDebuggingEnabled={__DEV__} onNavigationStateChange={s=>{page.current={url:s.url,canGoBack:s.canGoBack}}} onLoadStart={()=>setLoading(true)} onLoadEnd={()=>setLoading(false)} onError={()=>{setError(true);setLoading(false)}} onHttpError={e=>{try{const failed=new URL(e.nativeEvent.url),current=new URL(page.current.url);if(e.nativeEvent.statusCode>=400&&failed.origin===current.origin&&failed.pathname===current.pathname){setError(true);setLoading(false)}}catch{}}} onMessage={e=>{
    try{if(new URL(e.nativeEvent.url).origin!==origin)return;const message=JSON.parse(e.nativeEvent.data);if(message.type==='exit-request'&&Platform.OS==='android')Alert.alert('Close BMU Eats?','Your saved bag and session will be kept on this device.',[{text:'Stay',style:'cancel'},{text:'Close',onPress:()=>BackHandler.exitApp()}]);}catch{}
   }}/>}
+  {intro&&<Animated.View pointerEvents="none" style={{position:'absolute',inset:0,backgroundColor:'#f8faf4',alignItems:'center',justifyContent:'center',opacity:introOpacity,zIndex:20}}><Text style={styles.brand}>BMU Eats</Text><Text style={styles.body}>Same campus. Better food.</Text></Animated.View>}
   {loading&&!error&&<View pointerEvents="none" style={styles.loader}><ActivityIndicator color="#12653f"/><Text style={styles.body}>Opening BMU Eats…</Text></View>}
  </SafeAreaView></SafeAreaProvider>;
 }

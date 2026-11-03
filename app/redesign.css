@@ -93,3 +93,7 @@ footer{padding-bottom:85px}
 .brand-icon img{display:block;object-fit:contain}.outlet-card:has(.outlet-logo-kathi){border-bottom-color:#d4ab22}.outlet-card:has(.outlet-logo-greenox){border-bottom-color:#4d9e5d}.outlet-card:has(.outlet-logo-cafe){border-bottom-color:#c74a55}.outlet-card:has(.outlet-logo-burger){border-bottom-color:#dd8d36}.outlet-card:has(.outlet-logo-dominos){border-bottom-color:#3c91b8}.outlet-card:has(.outlet-logo-maggi){border-bottom-color:#da85aa}
 
 .top-inner nav button,.top-inner nav button.active{height:36px!important;min-height:36px;max-height:36px;padding:0 10px!important;line-height:1;box-sizing:border-box}.top-inner nav button.active:after{display:none}@media(max-width:760px){.top-inner nav.open button,.top-inner nav.open button.active{padding:0 5px!important}}
+
+/* Soft photo edges; logo remains above the image treatment. */
+.campus-hero-photo:after{display:block;content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(270deg,#f8edceaa,transparent 12%),linear-gradient(180deg,#f8edceaa,transparent 16%);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);mask-image:linear-gradient(270deg,#000,transparent 12%),linear-gradient(180deg,#000,transparent 16%);-webkit-mask-image:linear-gradient(270deg,#000,transparent 12%),linear-gradient(180deg,#000,transparent 16%)}
+.campus-university-logo{z-index:4}
