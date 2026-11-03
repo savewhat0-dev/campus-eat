@@ -26,6 +26,21 @@
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.ACCESS_COARSE_LOCATION"
       ]
+    },
+    "owner": "bmu-eats",
+    "extra": {
+      "eas": {
+        "projectId": "6461c492-2711-44e4-83ea-345622255080"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "fingerprint"
+    },
+    "updates": {
+      "enabled": true,
+      "url": "https://u.expo.dev/6461c492-2711-44e4-83ea-345622255080",
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
     }
   }
 }

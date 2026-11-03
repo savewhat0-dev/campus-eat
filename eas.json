@@ -9,15 +9,13 @@
       "android": {
         "buildType": "apk"
       },
-      "env": {
-        "EXPO_PUBLIC_SITE_URL": "https://campus-eat-v6je.onrender.com"
-      }
+      "channel": "preview",
+      "environment": "preview"
     },
     "production": {
       "autoIncrement": true,
-      "env": {
-        "EXPO_PUBLIC_SITE_URL": "https://campus-eat-v6je.onrender.com"
-      }
+      "channel": "production",
+      "environment": "production"
     }
   },
   "submit": {

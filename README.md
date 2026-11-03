@@ -2,6 +2,8 @@
 
 This is an Expo SDK 58 React Native project based on the official blank TypeScript template. It uses a WebView to run your hosted BMU Eats website and existing backend. It includes safe areas, an app icon, persistent website cookies, Android Back/exit handling, offline recovery, and email-link return. Internet access is required.
 
+For installed-app updates, follow **EAS-UPDATE.md** first. It contains the one-time updater APK setup and the PowerShell publishing command. Prepare the matching EAS environment before building.
+
 ## 1. Deploy the accompanying website update
 
 Apply the website patch to your existing repository root and deploy the latest commit on Render. Keep the current database and environment values.
@@ -83,7 +85,7 @@ This creates the store-oriented Android build. Play Store publication needs your
 
 Use your hosted `/privacy.html` URL as the privacy policy URL after confirming its operator/contact details and actual data practices. Obtain permission for university/outlet marks before public release. The policies identify a project for the BMU community without claiming unconfirmed university endorsement. Confirm the contact address is monitored. Users retain rights to their personal information.
 
-Verified Android App Links / iOS Universal Links are preferable before a broad release. The included custom scheme and paste flow support initial testing. Website updates appear in the WebView after deployment; native code/configuration or website URL changes need a new app build.
+Verified Android App Links / iOS Universal Links are preferable before a broad release. The included custom scheme and paste flow support initial testing. Website updates appear in the WebView after deployment; compatible JavaScript changes, including the website URL, can be published through EAS Update after the updater APK is installed. Native code/configuration changes still need a new app build.
 
 ## 7. Checks before sharing
 
